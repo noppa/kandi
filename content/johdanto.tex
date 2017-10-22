@@ -1,0 +1,33 @@
+\section{Johdanto}
+
+Kaikenlaisen ohjelmoinnin keskiössä on data ja yksi tärkeimmistä datan
+ominaisuuksista on sen tyyppi. Muuttuja “nimi” voi olla datatyypiltään
+teksti ja muuttuja “ikä” voi olla numero, eikä näitä kahta voi
+huolettomasti sekoittaa. Ohjelman tila ei ole järkevä jos se sanoo
+henkilön iän olevan “Matti”. Ohjelmointikielet voidaan hyvin karkeasti
+jakaa kahteen sen mukaan miten ja missä vaiheessa niissä käsitellään
+muuttujien tyyppejä.
+
+Staattisesti tyypitetyiksi kutsutaan kieliä jotka vaativat että ohjelman
+käsittelemien tietorakenteiden tyypit on tulkittavissa käännös aikana,
+eli jo ennen ohjelman suorittamista. Lähes aina ohjelmointikieli saa
+tämän tiedon tietotyypeistä vaatimalla koodiin erityisiä
+tyyppimäärittelyitä. Ohjelman koodissa voitaisiin esimerkiksi määrittää
+että henkilön ikä on aina numero. Tällöin ohjelmointikielen kääntäjään
+rakennetut tarkistukset voivat vahtia jo ennen koodin suorittamista
+ettei ohjelmoija virheellisesti yritä asettaa henkilön iäksi tekstiä tai
+mitään muutakaan ei-numeerista arvoa. Dynaamisesti tyypitetyissä
+kielissä sen sijaan vastuu oikeiden tietotyyppien käyttämisestä jätetään
+ohjelmoijalle, kieli ei vaadi kehittäjältä tyyppien eksplisiittistä
+määrittämistä eikä niiden oikeellisuutta tarkasteta ainakaan ennen
+ohjelman suorittamista.
+
+Kyseessä on kielen suunnittelullinen valinta. Kielen dynaaminen
+tyypittäminen vaatii yleensä vähemmän varsinaisen koodin kirjoittamista
+saman tuloksen saavuttamiseksi, sillä erillisiä tyyppimäärittelyitä ei
+tarvitse kirjoittaa. Toisaalta staattinen tyypitys mahdollistaa monia
+hyödyllisiä kehitystyökaluja ja auttaa poistamaan väärien tietotyyppien
+käyttämisestä johtuvan bugien osajoukon. Kielen suunnittelijan on
+löydettävä haluamansa tasapaino kielen ominaisuuksien välillä ja
+arvioitava mikä on parhaaksi niihin käyttötarkoituksiin joihin kielen on
+tarkoitus hyvin soveltua.

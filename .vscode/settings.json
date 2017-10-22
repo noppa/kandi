@@ -3,13 +3,19 @@
     {
       "command": "latexmk",
       "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "-c",
+        "--synctex=1",
+        "--interaction=nonstopmode",
+        "--file-line-error",
+        "--pdf",
         "kandi.tex"
       ]
+    },
+    {
+      "command": "latexmk",
+      "args": [
+        "-c"
+      ]
     }
-  ]
+  ],
+  "editor.rulers": [75]
 }
