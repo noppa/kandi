@@ -1,18 +1,136 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt]{report}
 
 \usepackage[finnish]{babel}         % Suomenkielinen tavutus
 \usepackage[fixlanguage]{babelbib}
 \selectbiblanguage{finnish}
 \usepackage[utf8x]{inputenc}
+\usepackage{ifpdf}
+\usepackage{graphicx}
+% load tocbibind package 
+%   - do not include table of contents in itself
+%   - convert the name of bibliography to references
+\usepackage[nottoc]{tocbibind}
+
+% load sverb package
+%   - enhanced handling of verbatim stuff; listing environment
+\usepackage{sverb}
+
+% load listings package
+%   - handle inclusion of source code
+\usepackage{listings}
+
+% load fancyheaders package
+%   - the actual headers and footers are set later
+\usepackage{fancyhdr}
+
+% load itpackage 
+%   - additional defines and stuff
+\usepackage{template/itpackage}
 
 \title{JavaScriptin staattinen tyypittäminen}
 \author{Oskari Noppa \\kandidaatintutkielma \\ tietojenkäsittelytiede \\ Turun yliopisto}
 \date{Lokakuu 2017}
 
 \begin{document}
+  \selectlanguage{finnish}\fintrue
 
+  \iffin
+  \settocbibname{Lähdeluettelo}
+  \renewcommand{\appname}{Liitteet}
+  \else
+  \settocbibname{References}
+  \renewcommand{\appname}{Appendices}
+  \fi
+  
+  % Fill in your information below
+  \workinfo{Oskari Noppa}
+  {JavaScriptin staattinen tyypittäminen}
+  {Jari-Matti Mäkelä}
+  {Second Supervisor}
+  {2017}
+  {10}
+  {Lokakuu}
+  
+  % Set the type of your thesis (Diplomityö, TkK -tutkielma, etc.) and
+  % laboratory or field of study below
+  \worktype{}{LuK -tutkielma} 
+  \deptinfo{}{Tietojenkäsittelytiede}
+  
+  % Generate the title page 
+  \gentitle
+  
+  % empty pagestyle for table of contents etc. 
+  %
+  % the redefinition of plain style works also for 1st pages of chapters,
+  % which is the default in report class. Just state \thispagestyle{empty}
+  % after \chapter{something} if you want empty style for the 1st pages. 
+  %
+  \pagestyle{empty}
+  \fancypagestyle{plain}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0 pt}
+  }
+  
+  % roman numbering for table of contents etc.
+  \pagenumbering{roman}
+  
+  % insert table of contents, list of figures, list of tables
+  %
+  % setting the counter to zero effectively removes the page number from
+  % the toc, lof etc. entries in the toc since there is no roman numeral
+  % for zero ;-) (if you want them without numbering)
+  %
+  %\setcounter{page}{0}
+  \tableofcontents
+  \clearpage
+  %\setcounter{page}{0}
+  %\listoffigures 
+  %\clearpage
+  %\setcounter{page}{0}
+  %\listoftables
+  
+  % possibly insert 'list of acronyms'
+  %
+  %   - create a chapter called List Of Acronyms (or whatever), which
+  %     should contain all your acronym definitions, e.g. 
+  %     \chapter{List Of Acronyms} 
+  %   - the secnumdepth trickery is needed because acronyms are as a
+  %     standard chapter and we are faking '\listofacronyms'
+  %
+  %\setcounter{secnumdepth}{-1}
+  %\input{your acronym chapter's file name}
+  %\setcounter{secnumdepth}{2}
+  
+  % setup page numbering, page counter, etc.
+  \startpages
+  
+  % Include the abstract
   \include{content/johdanto}
   \include{content/kasitteita}
   \include{content/tyokalun_kayttoonotto}
+  
+  % insert references
+  %  - included unsrtf.bst provides finnish language version of unsrt
+  \iffin
+  \bibliographystyle{template/unsrtf}
+  \else
+  \bibliographystyle{unsrt}
+  \fi
+  \bibliography{Bibliografia}
+  
+  % make sure pagecount is correct even if references overflow to a new page
+  \pagebreak\addtocounter{page}{-1}
+  \eofpages
+  \appendices
+  
+  % create your appendix chapters with command \appchapter{some name} instead
+  % of \chapter{some name} for the automagic page counting to work
+  %\input{file name of appchapter xxx}
+  %\input{file name of appchapter yyy}
+  %\input{file name of appchapter zzz}
+  %\input{and so on}
+  
+  \eofapppages
+
 
 \end{document}
