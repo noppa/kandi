@@ -25,7 +25,9 @@
 
 % load itpackage 
 %   - additional defines and stuff
-\usepackage{template/itpackage}
+\usepackage{thesis/itpackage}
+
+\usepackage{enumitem}
 
 \title{JavaScriptin staattinen tyypittäminen}
 \author{Oskari Noppa \\kandidaatintutkielma \\ tietojenkäsittelytiede \\ Turun yliopisto}
@@ -104,19 +106,14 @@
   % setup page numbering, page counter, etc.
   \startpages
   
-  % Include the abstract
   \include{content/johdanto}
   \include{content/kasitteita}
   \include{content/tyokalun_kayttoonotto}
-  
-  % insert references
-  %  - included unsrtf.bst provides finnish language version of unsrt
-  \iffin
-  \bibliographystyle{template/unsrtf}
-  \else
-  \bibliographystyle{unsrt}
-  \fi
-  \bibliography{Bibliografia}
+  \include{content/virheiden_havaitseminen}
+  \include{content/optimointi}
+  \include{content/dokumentaatio}
+  \include{content/ongelmat_js_tyypittamisessa}
+  \include{content/yhteenveto}
   
   % make sure pagecount is correct even if references overflow to a new page
   \pagebreak\addtocounter{page}{-1}
