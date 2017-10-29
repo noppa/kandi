@@ -4,13 +4,13 @@
 
 Tyyppijärjestelmä voi päätellä muuttujan sallitun tyypin automaattisesti
 päättelemällä tai kieleen sisältyvien eksplisiittisten tyyppimäärittelyjen
-perusteella. SML kykenee tulkitsemaan kaikkien muuttujien arvot
-automaattisesti, kun taas Java vaatii kaikkien olevan eksplisiittisesti
+perusteella. Esimerkiksi Standard ML kykenee tulkitsemaan kaikkien muuttujien
+arvot automaattisesti, kun taas Java vaatii niiden olevan eksplisiittisesti
 annotoituja. Suurin osa staattisesti tyyppitarkastetuista kielistä kuitenkin
-putoaa jonnekkin välimaastoon. Haskell, C\#, Crystal ja monet muut tarjoavat
+putoaa jonnekkin välimaastoon. Haskell, C\#, Crystal ja monet muut sisältävät
 syntaksin tyyppien eksplisiittiselle määrittämiselle mutta tarjoavat myös
-kielikohtaisesti vaihtelevan tuen tyyppien automaattiselle päättelylle. Tässä
-on hyvä huomioida että vaikka tyyppien tulkinta tapahtuu automaattisesti,
+kielikohtaisesti vaihtelevan tuen tyyppien automaattiselle päättelylle.
+On hyvä huomioida että vaikka tyyppien tulkinta tapahtuu automaattisesti,
 niin se suoritetaan tässä tapauksessa silti käännös- eikä suoritusaikana.
 Esimerkiksi yllä mainittu Crystal on tarvittavien annotaatioiden vähyydestä
 huolimatta staattisesti tyyppitarkastettu, toisin kuin syntaksin inspiraation
@@ -47,3 +47,18 @@ JavaScriptin sellaisenaan kehitysympäristössä. Käännösvaiheen aikavaatimus
 pyritään luonnollisesti pitämään mahdollisimman pienenä, mutta se on silti
 projektin monimutkaisuuteen ja kehitysnopeuteen vaikuttava tekijä joka
 työkalun käyttöönotossa tulee huomioida.
+
+\section{Työkalun vaiheittainen käyttöönotto}
+
+Kun kyseessä on jo olemassa olevan kielen, JavaScriptin, muuttaminen
+staattisesti tyyppitarkastetuksi, eräs merkittävä tekijä on että suuria
+määriä koodia voidaan jo olla kehitetty alkuperäisellä kielellä ilman
+tyyppitarkastuksista huolehtimista. Näin ollen tärkeäksi tekijäksi nousee
+vaiheittainen käyttöönotto. On tärkeää että olemassa olevaa annotoimatonta
+koodipohjaa voi yhä käyttää uuden, staattisesti tyyppitarkastetun koodin
+kanssa. Flow-tarkastukset lisätään olemassa olevaan JavaScript-koodiin
+erityisellä kommentilla. JavaScriptin muuttamisessa TypeScriptiksi riittää
+yleensä tiedostopäätteen muuttaminen. Closure toimii ilman erillistä
+muunnosta, kunhan tarvittava määrä dokumentaatiopohjaisia tyyppimäärittelyitä
+on annettu. Sekä Flow että TypeScript tarjoavat myös erityisen tyypin ”any”
+joka on kaikkien muiden tyyppien ylä- ja alatyyppi.
