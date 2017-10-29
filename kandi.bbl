@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem{annotatingJSforClosure}
+Annotating JavaScript for the Closure Compiler.
+\newblock
+  \url{https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler}.
+
+\end{thebibliography}
