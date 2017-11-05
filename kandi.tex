@@ -18,6 +18,45 @@
 % load listings package
 %   - handle inclusion of source code
 \usepackage{listings}
+\usepackage{xcolor}
+
+\renewcommand{\lstlistingname}{Listaus}
+
+% Define JS for listings package
+% Source: https://gist.github.com/Geruhn/3d21f60a869457373d84
+\definecolor{lightgray}{RGB}{247, 247, 247}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{keyword_blue}{HTML}{0141CB}
+\lstdefinelanguage{JavaScript}{
+  keywords={do, if, in, for, let, new, try, var, case, else, enum, eval, null, this, true, void, with, await, break, catch, class, const, false, super, throw, while, yield, delete, export, import, public, return, static, switch, typeof, default, extends, finally, package, private, continue, debugger, function, arguments, interface, protected, implements, instanceof, type},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{keyword_blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{darkgreen}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  sensitive=true
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
 
 % load fancyheaders package
 %   - the actual headers and footers are set later

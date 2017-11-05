@@ -23,11 +23,46 @@ tyyppimääritykset JSDoc-tyylisistä dokumentaatiokommenteista \cite{annotating
 TypeScript ja Flow puolestaan jatkavat ECMA-262 -spesifikaatiota erityisellä syntaksilla
 tyyppien eksplisiittistä määrittelyä varten. Kumpikaan näistä
 lähestymistavoista ei ole täysin ongelmaton. Dokumentaatiokommentit voivat
-olla hankala ja ”verbose” formaatti monimutkaisille tyyppiannotaatioille,
+olla hankala ja runsassanainen formaatti monimutkaisille tyyppiannotaatioille,
 mikä kasvattaa niiden kirjoittamiseen vaadittua työmäärää. [Hejlsberg quote].
 Toisaalta jo opitun JavaScriptin syntaksin jatkaminen uudella syntaksilla
 vaatii uusien merkintöjen oppimmista ja saattaa vaikeuttaa kirjoitetun koodin
 lukemista etenkin tottumattomille lukijoille.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[caption=Esimerkki Closure-annotaatiosta funktiolle]
+/**
+* @typedef {{
+*   hinta: number
+* }}
+*/
+let Ostos;
+
+/**
+* @param {!Array<Ostos>} ostokset
+* @return {number} Ostosten yhteenlaskettu hinta
+*/
+function ostoskorinHinta(ostokset) {
+  let summa = 0;
+  for (const ostos of ostokset) summa += ostos.hinta;
+  return summa;
+}
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[caption=Esimerkki Flow tai TypeScript annotaatiosta funktiolle]
+type Ostos = {
+  hinta: number;
+};
+
+function ostoskorinHinta(ostokset: Ostos[]): number {
+  let summa = 0;
+  for (const ostos of ostokset) summa += ostos.hinta;
+  return summa;
+}
+\end{lstlisting}
+\end{minipage}
 
 \section{Ohjelman kääntäminen ennen suorittamista}
 
