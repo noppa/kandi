@@ -10,7 +10,14 @@ Annotating JavaScript for the Closure Compiler.
 
 \bibitem{TypeScriptatBuild}
 Anders Hejlsberg.
-\newblock Microsoft Build 2014. TypeScript.
+\newblock Microsoft Build 2014. TypeScript, maaliskuu 2014.
 \newblock \urlprefix\url{https://channel9.msdn.com/Events/Build/2014/3-576}.
+
+\bibitem{Ecma262NaN}
+Ecma International.
+\newblock {\em ECMA-262 Section 12.8.3\/}, kesäkuu 2017.
+\newblock
+  \urlprefix\url{https://www.ecma-international.org/ecma-262/8.0/index.html#sec-additive-operators},
+  versio 8.0.
 
 \end{thebibliography}

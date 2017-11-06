@@ -3,4 +3,25 @@
 Kenties tärkein staattisen tyyppijärjestelmän tehtävä on havaita ja estää
 ohjelmoijan virheitä. Tässä esitellyt työkalut, mahdollisesti Closure
 kääntäjää lukuunottamatta, onkin kehitetty erityisesti tätä tarkoitusta
-varten. 
+varten.
+
+Kaikki kolme työkalua antaisivat käännösvirheen jos esimerkeissä
+\ref{lst:ostoskorin_hinta_clojure} ja \ref{lst:ostoskorin_hinta_flow}
+esiteltyä funktiota kutsuttaisiin virheellisesti esimerkiksi listalla
+hintaa kuvaavia numeroita, sillä funktion parametrin on annotoitu olevan
+lista ``Ostos''-tyyppimääritelmän mukaisia objekteja. Esimerkeissä
+kommentoitu virheellinen kutsu
+\colorbox{lightgray}{\lstinline|ostoskorinHinta([5, 10, 15])|} ei itse
+asiassa aiheuttaisi suoritettaessa ohjelman keskeyttävää virhettä.
+\colorbox{lightgray}{\lstinline|ostos.hinta|} ilmaisu on sallittu vaikka
+muuttuja \colorbox{lightgray}{\lstinline|ostos|} olisikin arvoltaan numero
+eikä objekti. Tällöin ilmaisun arvo on \colorbox{lightgray}{\lstinline|undefined|}
+ja lausekkeen \colorbox{lightgray}{\lstinline|summa += ostos.hinta|} jälkeen
+\colorbox{lightgray}{\lstinline|summa|} muuttujan arvo on erityinen
+ei-numeroa kuvaava \colorbox{lightgray}{\lstinline|NaN|} \cite{Ecma262NaN}.
+Käännösaikaisen tarkistamisen merkitys korostuu erityisen hyödylliseksi
+tämänkaltaisen ohjelmointivirheen kohdalla, sillä virhe ei välttämättä ole
+muutoin helposti havaittavissa. Funktiokutsu ei aiheuttaisi helposti
+todennettavaa suoritusaikaista virhettä, joten ei-toivottu palautusarvo
+\colorbox{lightgray}{\lstinline|NaN|} saattaisi kiertää ohjelman
+operaatioiden välillä pitkällekin aiheuttaen muita loogisia virheitä.

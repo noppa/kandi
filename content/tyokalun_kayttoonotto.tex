@@ -30,7 +30,7 @@ vaatii uusien merkintöjen oppimmista ja saattaa vaikeuttaa kirjoitetun koodin
 ymmärtämistä etenkin tottumattomille lukijoille.
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption=Esimerkki Closure-annotaatiosta funktiolle]
+\begin{lstlisting}[caption={Esimerkki Closure-annotaatiosta funktiolle},label={lst:ostoskorin_hinta_clojure}]
 /**
 * @typedef {{
 *   hinta: number
@@ -47,11 +47,17 @@ function ostoskorinHinta(ostokset) {
   for (const ostos of ostokset) summa += ostos.hinta;
   return summa;
 }
+
+/** @type {number} */
+const hinta = ostoskorinHinta([{ hinta: 5 }, { hinta: 10 }]);
+
+//// Kommenteista poistaminen aiheuttaa virheen tarkastettaessa
+// ostoskorinHinta([5, 10]);
 \end{lstlisting}
 \end{minipage}
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption=Esimerkki Flow tai TypeScript annotaatiosta funktiolle]
+\begin{lstlisting}[caption={Esimerkki Flow tai TypeScript annotaatiosta funktiolle},label={lst:ostoskorin_hinta_flow}]
 type Ostos = {
   hinta: number;
 };
@@ -61,6 +67,11 @@ function ostoskorinHinta(ostokset: Ostos[]): number {
   for (const ostos of ostokset) summa += ostos.hinta;
   return summa;
 }
+
+const hinta: number = ostoskorinHinta([{ hinta: 5 }, { hinta: 10 }]);
+
+//// Kommenteista poistaminen aiheuttaa virheen tarkastettaessa
+// ostoskorinHinta([5, 10]);
 \end{lstlisting}
 \end{minipage}
 

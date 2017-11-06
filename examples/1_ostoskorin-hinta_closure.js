@@ -14,3 +14,9 @@ function ostoskorinHinta(ostokset) {
   for (const ostos of ostokset) summa += ostos.hinta;
   return summa;
 }
+
+/** @type {number} */
+const hinta = ostoskorinHinta([{ hinta: 5 }, { hinta: 10 }]);
+
+//// Kommenteista poistaminen aiheuttaa virheen tarkastettaessa
+// ostoskorinHinta([5, 10])
