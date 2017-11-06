@@ -1,6 +1,6 @@
 # Esimerkit
 
-Tämä kansio sisältää toimivat esimerkit tutkielmassa esitetyistä
+Tämä kansio sisältää suoritettavat versiot tutkielmassa esitetyistä
 koodiesimerkeistä.
 
 
