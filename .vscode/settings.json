@@ -17,5 +17,6 @@
       ]
     }
   ],
-  "editor.rulers": [75]
+  "editor.rulers": [75],
+  "javascript.validate.enable": false
 }

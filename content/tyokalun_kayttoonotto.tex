@@ -24,10 +24,10 @@ TypeScript ja Flow puolestaan jatkavat ECMA-262 -spesifikaatiota erityisellä sy
 tyyppien eksplisiittistä määrittelyä varten. Kumpikaan näistä
 lähestymistavoista ei ole täysin ongelmaton. Dokumentaatiokommentit voivat
 olla hankala ja runsassanainen formaatti monimutkaisille tyyppiannotaatioille,
-mikä kasvattaa niiden kirjoittamiseen vaadittua työmäärää. [Hejlsberg quote].
+mikä kasvattaa niiden kirjoittamiseen vaadittua työmäärää \cite{TypeScriptatBuild}.
 Toisaalta jo opitun JavaScriptin syntaksin jatkaminen uudella syntaksilla
 vaatii uusien merkintöjen oppimmista ja saattaa vaikeuttaa kirjoitetun koodin
-lukemista etenkin tottumattomille lukijoille.
+ymmärtämistä etenkin tottumattomille lukijoille.
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption=Esimerkki Closure-annotaatiosta funktiolle]
@@ -71,7 +71,7 @@ yhteydessä, selaimesta tai muusta suoritusympäristöstä löytyvän ”moottor
 toimesta. EcmaScript standardin mukaista koodia suorittamaan suunnitellut
 moottorit, kuten V8 tai SpiderMonkey, eivät kuitenkaan osaa käsitellä
 TypeScript- tai Flow-annotaatioilla merkattua koodia. Näinollen TypeScript-
-tai Flow-annotoitu koodi on välttämätöntä [sivuhuomio] kääntää muotoon jossa
+tai Flow-annotoitu koodi on välttämätöntä kääntää muotoon jossa
 annotaatiot on poistettu ja jäljellä on enää standardinmukainen JavaScript.
 Koska JavaScriptin käyttäminen ei normaalisti vaadi erillistä
 käännösvaihetta, useissa projekteissa ei ole sellaista käytetty. Koodin
