@@ -1,12 +1,33 @@
 \chapter{Peruskäsitteitä}
-\section{Määritelmiä}
 
-On hyvä huomioida ero termien välillä kun puhutaan staattisesta ja
-%                                       "heikko" = "löyhä"?
-dynaamisesta, tai toisaalta vahvasta ja heikosta tyypittämisestä. Myös
-dynaamisesti tyypitetty kieli voi nostaa virheen väärien tietotyyppien
-käyttämisestä ohjelman suorittamisen aikana, etenkin jos se on vahvasti
-tyypitetty kieli. Tässä tutkielmassa keskitytään kuitenkin lähinnä
-staattiseen ja dynaamiseen tyypitykseen, eli siihen miten tietotyyppeihin
-liittyviä virheitä käsitellään käännös aikana, jo ennen ohjelman
-suorittamista.
+\subsection{Tyyppijärjestelmien luokitteleminen} Ohjelmointikielten
+tyyppijärjestelmien jakaminen staattisesti ja dynaamisesti
+tyyppitarkastettuihin perustuu ohjelman kehitysvaiheeseen jossa tarkastaminen
+tapahtuu. Staattisella tyyppitarkastamisella viitataan ohjelman tyyppien
+analyysiin ennen ohjelman suorittamista, esimerkiksi käännösaikana, kun taas
+dynaaminen tyyppitarkastus varmistaa arvojen tyyppien oikeellisuuden ohjelmaa
+suoritettaessa. Tyyppijärjestelmät voidaan jaotella myös muiden
+ominaisuuksien perusteella, esimerkiksi vahvoihin ja heikkoihin
+tyyppijärjestelmiin. Näiden termien merkitys ei ole tarkasti määritelty,
+mutta yleisesti niillä viitataan tapaan jolla kieli käsittelee määritelmästä
+eriävät tai virheelliset tyypit\cite{CornellTransitionToOO}. Vahvasti
+tyypitetyssä kielessä tällainen aiheuttaisi yleensä virheen, heikosti
+tyypitetyssä kielessä tyypeille voitaisiin tehdä implisiittisiä
+tyyppimuunnoksia tyyppien yhteensopivuuden saavuttamiseksi.
+
+JavaScript on dynaamisesti tarkastettu, heikosti tyypitetty kieli.
+Esimerkiksi ohjelma \inlinecode{\dblquoted{teksti}.potenssiin(3)} antaa
+staattisesti tyyppitarkastetussa kielessä virheen jo käännösaikana, mikäli
+metodia \inlinecode{potenssiin} ei ole tekstityyppisille arvoille määritetty.
+JavaScriptiä suorittava ympäristö sen sijaan hyväksyisi ohjelman ja sallisi
+sen suorittamisen. Virhe olemattoman metodin kutsumisesta ilmenisi vasta jos
+ohjelman suoritus evaluoi kyseisen ilmaisun. Lisäksi esimerkiksi ilmaisu
+\inlinecode{\dblquoted{teksti} + 2} ei aiheuttaisi virhettä edes
+suoritusaikana, sillä heikoille tyyppijärjestelmille ominaisesti JavaScript
+muuttaisi numeron 2 string-muotoon ennen summausoperaation arviointia. Tässä
+tutkielmassa keskitytään lähinnä JavaScriptin tyyppien staattiseen ja
+dynaamiseen, eli käytännössä käännös- ja ajonaikaiseen tarkastamiseen. Jotkin
+esitellyistä työkaluista myös tiukentavat kielen sallimia operaatioita siten,
+että esimerkiksi yllä esitettyä \inlinecode{\dblquoted{teksti} + 2} ohjelmaa
+ei enää sallittaisi. Monia muita heikoille tyyppijärjestelmille
+tavallisia ominaisuuksia jää kuitenkin tarkistamatta.

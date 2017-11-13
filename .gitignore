@@ -1,7 +1,12 @@
+# Latex output
 *.aux
 *.dvi
 *.fdb_latexmk
 *.fls
 *.log
 *.gz
+*.synctex*
+*.toc
+*.out
+
 node_modules/

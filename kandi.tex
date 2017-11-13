@@ -4,6 +4,7 @@
 \usepackage[fixlanguage]{babelbib}
 \selectbiblanguage{finnish}
 \usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{ifpdf}
 \usepackage{graphicx}
 % load tocbibind package 
@@ -18,9 +19,11 @@
 % load listings package
 %   - handle inclusion of source code
 \usepackage{listings}
+\usepackage{textcomp}
 \usepackage{xcolor}
 
 \renewcommand{\lstlistingname}{Listaus}
+\lstset{upquote=true,mathescape=true}
 
 % Define JS for listings package
 % Source: https://gist.github.com/Geruhn/3d21f60a869457373d84
@@ -69,6 +72,11 @@
 \usepackage{enumitem}
 
 \usepackage{hyperref}
+
+% Command for inline code, like markdown `code`
+\newcommand{\inlinecode}[1]{\colorbox{lightgray}{\texttt{#1}}}
+
+\newcommand{\dblquoted}[1]{\textquotedbl#1\textquotedbl}
 
 \title{JavaScriptin staattinen tyypittäminen}
 \author{Oskari Noppa \\kandidaatintutkielma \\ tietojenkäsittelytiede \\ Turun yliopisto}

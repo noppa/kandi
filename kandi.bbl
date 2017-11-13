@@ -3,6 +3,11 @@
   \def\url#1{{\tt #1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
+\bibitem{CornellTransitionToOO}
+Transition to OO programming - Safety and strong typing.
+\newblock
+  \urlprefix\url{http://www.cs.cornell.edu/courses/cs1130/2012sp/1130selfpaced/module1/module1part4/strongtyping.html}.
+
 \bibitem{annotatingJSforClosure}
 Annotating JavaScript for the Closure Compiler.
 \newblock
