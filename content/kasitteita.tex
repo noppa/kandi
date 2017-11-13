@@ -1,6 +1,6 @@
 \chapter{Peruskäsitteitä}
 
-\subsection{Tyyppijärjestelmien luokitteleminen}
+\section{Tyyppijärjestelmien luokitteleminen}
 Ohjelmointikielten tyyppijärjestelmien jakaminen staattisesti ja dynaamisesti
 tyyppitarkastettuihin perustuu ohjelman kehitysvaiheeseen jossa tarkastaminen
 tapahtuu. Staattisella tyyppitarkastamisella viitataan ohjelman tyyppien
@@ -32,7 +32,7 @@ että esimerkiksi yllä esitettyä \inlinecode{\dblquoted{teksti} + 2} ohjelmaa
 ei enää sallittaisi. Monia muita heikoille tyyppijärjestelmille
 tavallisia ominaisuuksia jää kuitenkin tarkistamatta.
 
-\subsection{ECMA-262, EcmaScript ja JavaScript}
+\section{ECMA-262, EcmaScript ja JavaScript}
 ``EcmaScript'' on ECMA-262 standardin määrittelemä ohjelmointikieli
 \cite{JavaScriptLanguageResources}\cite{Ecma262}.
 ECMA-262 standardia ylläpitää organisaatio Ecma International. ``JavaScript''
@@ -42,7 +42,7 @@ osittaisiin tai täydellisiin toteutuksiin.[4] Historiallisista syistä termejä
 Tässä tutkielmassa termillä ``JavaScript'' viitataan ECMA-262:den kahdeksannen
 version mukaiseen EcmaScriptiin, jota kutsutaan myös nimellä EcmaScript 2017.
 
-\subsection{TypeScript}
+\section{TypeScript}
 TypeScript on Microsoftin luoma ohjelmointikieli, jonka tarkoitus on
 auttaa JavaScript-ohjelmien kehitystä staattisen tyyppijärjestelmän avulla.
 Se on EcmaScriptin ylijoukko (superset)\cite{TypeScriptSpec} ja jatkaa
@@ -58,7 +58,7 @@ EcmaScript-standardien kanssa, mikä on hyödyllistä jos ohjelman on tarkoitus
 tukea sellaisia suoritusympäristöjä jotka eivät tue uusinta EcmaScriptin
 versiota.
 
-\subsection{Flow}
+\section{Flow}
 Flow on Facebookin kehittämä työkalu, joka TypeScriptin tavoin jatkaa
 JavaScriptin syntaksia staattisesti tarkastettavilla tyyppimäärittelyillä.
 Flow itsessään ei sisällä kääntäjää, vaan keskittyy yksinomaan ohjelman
@@ -68,7 +68,7 @@ tarkoitukseen voidaan käyttää esimerkiksi Babel-kääntäjää, joka poistaa
 Flow-tyyppimäärittelyt ja muokkaa JavaScript-koodin yhteensopivaksi toivotun
 EcmaScript-version kanssa\cite{FlowInstallation}.
 
-\subsection{Closure kääntäjä}
+\section{Closure kääntäjä}
 Googlen Closure kääntäjä on käännöstyökalu, jonka pääasiallinen tarkoitus
 on minimoida ja optimoida JavaScript-koodia käännösvaiheessa ennen tuotantoon
 siirtämistä. Closure sisältää kuitenkin myös tuen tyyppivirheiden

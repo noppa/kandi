@@ -1,43 +1,16 @@
-\chapter{Työkalun käyttöönotto}
+\chapter{JavaScript-ohjelman muuttaminen staattisesti tyyppitarkastetuksi}
 
 \section{Tyyppiannotaatiot}
 
 Tyyppijärjestelmä voi päätellä muuttujan sallitun tyypin automaattisesti
 päättelemällä tai kieleen sisältyvien eksplisiittisten tyyppimäärittelyjen
-perusteella. Esimerkiksi Standard ML kykenee tulkitsemaan kaikkien muuttujien
-arvot automaattisesti, kun taas Java vaatii niiden olevan eksplisiittisesti
-annotoituja. Suurin osa staattisesti tyyppitarkastetuista kielistä kuitenkin
-putoaa jonnekkin välimaastoon. Haskell, C\#, Crystal ja monet muut sisältävät
-syntaksin tyyppien eksplisiittiselle määrittämiselle mutta tarjoavat myös
-kielikohtaisesti vaihtelevan tuen tyyppien automaattiselle päättelylle.
-On hyvä huomioida että vaikka tyyppien tulkinta tapahtuu automaattisesti,
-niin se suoritetaan tässä tapauksessa silti käännös- eikä suoritusaikana.
-Esimerkiksi yllä mainittu Crystal on tarvittavien annotaatioiden vähyydestä
-huolimatta staattisesti tyyppitarkastettu, toisin kuin syntaksin inspiraation
-lähteenä ollut Ruby.
-
-Kaikki kolme tässä esiteltyä JavaScriptin staattiseen tyyppitarkastukseen
-tarkoitettua työkalua päättelevät tyyppejä automaattisesti, mutta vaativat
+perusteella. Kaikki kolme tässä esiteltyä JavaScriptin staattiseen
+tyyppitarkastukseen tarkoitettua työkalua päättelevät muuttujien tyyppejä automaattisesti, mutta vaativat
 myös eksplisiittisiä määrityksiä paikoitellen. Closure-kääntäjä lukee
 tyyppimääritykset JSDoc-tyylisistä dokumentaatiokommenteista \cite{annotatingJSforClosure}.
-TypeScript ja Flow puolestaan jatkavat ECMA-262 -spesifikaatiota erityisellä syntaksilla
-tyyppien eksplisiittistä määrittelyä varten. Kumpikaan näistä
-lähestymistavoista ei ole täysin ongelmaton. Dokumentaatiokommentit voivat
-olla hankala ja runsassanainen formaatti monimutkaisille tyyppiannotaatioille,
-mikä kasvattaa niiden kirjoittamiseen vaadittua työmäärää \cite{TypeScriptatBuild}.
-Toisaalta jo opitun JavaScriptin syntaksin jatkaminen uudella syntaksilla
-vaatii uusien merkintöjen oppimmista ja saattaa vaikeuttaa kirjoitetun koodin
-ymmärtämistä etenkin tottumattomille lukijoille.
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Esimerkki Closure-annotaatiosta funktiolle},label={lst:ostoskorin_hinta_clojure}]
-/**
-* @typedef {{
-*   hinta: number
-* }}
-*/
-let Ostos;
-
 /**
 * @param {!Array<Ostos>} ostokset
 * @return {number} Ostosten yhteenlaskettu hinta
@@ -47,33 +20,54 @@ function ostoskorinHinta(ostokset) {
   for (const ostos of ostokset) summa += ostos.hinta;
   return summa;
 }
-
-/** @type {number} */
-const hinta = ostoskorinHinta([{ hinta: 5 }, { hinta: 10 }]);
-
-//// Kommenteista poistaminen aiheuttaa virheen tarkastettaessa
-// ostoskorinHinta([5, 10]);
 \end{lstlisting}
 \end{minipage}
+TypeScript ja Flow puolestaan jatkavat ECMA-262 -spesifikaatiota erityisellä syntaksilla
+tyyppien eksplisiittistä määrittämistä varten. 
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Esimerkki Flow tai TypeScript annotaatiosta funktiolle},label={lst:ostoskorin_hinta_flow}]
+function ostoskorinHinta(ostokset: Ostos[]): number {
+\end{lstlisting}
+\end{minipage}
+
+Flow ja TypeScript -esimerkeissä tyyppiannotaatiot ovat osana koodia, mikä
+tekee ohjelmasta yhteensopimattoman tavallisen JavaScriptin kanssa. Ohjelma
+on käännettävä JavaScriptiksi ennen suorittamista, eikä annotaatioiden
+syntaksi ja merkitys ole suoraan selvä JavaScript-ohjelmoijalle. 
+
+Closuren annotaatiot on sijoitettu kommentteihin, joten niillä ei ole
+ajonaikaista vaikutusta ja ohjelma on täten sellaisenaan hyväksyttävää
+JavaScriptiä. Toisaalta kommentit voivat olla hankala ja runsassanainen
+formaatti monimutkaisille tyyppiannotaatioille, mikä kasvattaa niiden
+kirjoittamiseen vaadittua työmäärää \cite{TypeScriptSpec}\cite{TypeScriptatBuild}.
+
+\begin{minipage}{\linewidth}
+Aiemmassa esimerkissä esitelty tyyppi \inlinecode{Ostos} pitäisi
+määritellä Closurea varten muiden annotaatioiden tapaan dokumentaatiokommentteja käyttäen:
+\begin{lstlisting}[label={lst:closure_typedef}]
+/**
+* @typedef {{
+*   hinta: number
+* }}
+*/
+let Ostos;
+\end{lstlisting}
+\end{minipage}
+
+TypeScript ja Flow tarjoavat vastaavan käännösaikaisen tyypin (type alias)
+määrittelyyn tiiviimmällä syntaksilla \cite{TypeScriptSpec}:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[label={lst:ts_flow_type_alias}]
 type Ostos = {
   hinta: number;
 };
-
-function ostoskorinHinta(ostokset: Ostos[]): number {
-  let summa = 0;
-  for (const ostos of ostokset) summa += ostos.hinta;
-  return summa;
-}
-
-const hinta: number = ostoskorinHinta([{ hinta: 5 }, { hinta: 10 }]);
-
-//// Kommenteista poistaminen aiheuttaa virheen tarkastettaessa
-// ostoskorinHinta([5, 10]);
 \end{lstlisting}
 \end{minipage}
+Tällainen tyypin määritteleminen vaikuttaa ainoastaan käännösvaiheen
+tyyppitarkastukseen, eikä määrittely tuota tietorakenteita tai muuta
+sisältöä suoritettavaan JavaScript-ohjelmaan.
 
 \section{Ohjelman kääntäminen ennen suorittamista}
 
@@ -106,5 +100,11 @@ kanssa. Flow-tarkastukset lisätään olemassa olevaan JavaScript-koodiin
 erityisellä kommentilla. JavaScriptin muuttamisessa TypeScriptiksi riittää
 yleensä tiedostopäätteen muuttaminen. Closure toimii ilman erillistä
 muunnosta, kunhan tarvittava määrä dokumentaatiopohjaisia tyyppimäärittelyitä
-on annettu. Sekä Flow että TypeScript tarjoavat myös erityisen tyypin ”any”
-joka on kaikkien muiden tyyppien ylä- ja alatyyppi.
+on annettu. Sekä Flow että TypeScript tarjoavat myös erityisen
+yleisviittaustyypin Any, jota voi käyttää kuvaamaan mitä tahansa JavaScript
+arvoa \cite{TypeScriptSpec}. Any tyyppiseen muuttujaan voidaan asettaa mikä
+tahansa arvo ja Any tyyppinen arvo voidaan asettaa mihin tahansa muuttujaan
+tai funktioparametriin. Any tyypin avulla muuten staattisesti tyypitetyssä
+ohjelmassa voidaan ohittaa käännösaikainen tyyppien tarkistaminen sellaisten
+koodin osien kohdalla joiden ajonaikaista arvoa olisi muuten vaikea tai
+mahdotonta määritellä käännösaikana.
