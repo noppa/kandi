@@ -1,0 +1,16 @@
+digraph Compilation {
+
+  es6 [label="Kieli: EcmaScript 6+"];
+  ts [label="Kieli: TypeScript"];
+  es3 [label="Kieli: EcmaScript 3"];
+  
+  babel [label="Kääntäjä: Babel, Traceur", shape=rectangle];
+  tsc [label="Kääntäjä: TypeScript", shape=rectangle];
+  
+  es6 -> babel -> es3;
+  ts -> tsc -> es3;
+  es3 -> end;
+
+  end [label="Suoritusympäristö:\nInternet Explorer, Chrome, Node.js, jne.", shape=rectangle];
+  
+}
