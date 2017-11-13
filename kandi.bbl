@@ -8,6 +8,30 @@ Transition to OO programming - Safety and strong typing.
 \newblock
   \urlprefix\url{http://www.cs.cornell.edu/courses/cs1130/2012sp/1130selfpaced/module1/module1part4/strongtyping.html}.
 
+\bibitem{JavaScriptLanguageResources}
+JavaScript language resources.
+\newblock
+  \urlprefix\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Resources}.
+
+\bibitem{Ecma262}
+Standard ECMA-262 - ECMAScript 2017 Language Specification.
+\newblock
+  \urlprefix\url{https://www.ecma-international.org/publications/standards/Ecma-262.htm}.
+
+\bibitem{TypeScriptSpec}
+TypeScript Language Specification.
+\newblock
+  \urlprefix\url{https://github.com/Microsoft/TypeScript/blob/b8fbf884d0f01c1a20bb921cc0a65d6c1a517ee8/doc/TypeScript%20Language%20Specification.pdf},
+  versio 1.8.
+
+\bibitem{FlowInstallation}
+Installing and setting up Flow for a project.
+\newblock \urlprefix\url{https://flow.org/en/docs/install/}.
+
+\bibitem{ClosureCompiler}
+Closure Compiler.
+\newblock \urlprefix\url{https://developers.google.com/closure/compiler/}.
+
 \bibitem{annotatingJSforClosure}
 Annotating JavaScript for the Closure Compiler.
 \newblock
