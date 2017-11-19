@@ -2,14 +2,16 @@ digraph Compilation {
 
   es6 [label="Kieli: EcmaScript 6+"];
   ts [label="Kieli: TypeScript"];
-  es3 [label="Kieli: EcmaScript 3"];
+  es5 [label="Kieli: EcmaScript 5"];
+  flow [label="Kieli: EcmaScript 6+ ja Flow annotaatiot"]
   
   babel [label="Kääntäjä: Babel, Traceur", shape=rectangle];
+  flowPlugin [label="Kääntäjä: Flow annotaatioiden poistaja", shape=rectangle];
   tsc [label="Kääntäjä: TypeScript", shape=rectangle];
   
-  es6 -> babel -> es3;
-  ts -> tsc -> es3;
-  es3 -> end;
+  flow -> flowPlugin -> es6 -> babel -> es5;
+  ts -> tsc -> es5;
+  es5 -> end;
 
   end [label="Suoritusympäristö:\nInternet Explorer, Chrome, Node.js, jne.", shape=rectangle];
   
