@@ -1,4 +1,6 @@
 digraph Compilation {
+    
+  node[fontsize=10]
 
   es6 [label="Kieli: EcmaScript 6+"];
   ts [label="Kieli: TypeScript"];
