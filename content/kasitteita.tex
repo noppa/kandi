@@ -4,16 +4,16 @@
 Ohjelmointikielten tyyppijärjestelmien jakaminen staattisesti ja dynaamisesti
 tyyppitarkastettuihin perustuu ohjelman kehitysvaiheeseen jossa tarkastaminen
 tapahtuu. Staattisella tyyppitarkastamisella viitataan ohjelman tyyppien
-analyysiin ennen ohjelman suorittamista, esimerkiksi käännösaikana, kun taas
+analyysiin ennen sen suorittamista, esimerkiksi käännösaikana, kun taas
 dynaaminen tyyppitarkastus varmistaa arvojen tyyppien oikeellisuuden ohjelmaa
 suoritettaessa. Tyyppijärjestelmät voidaan jaotella myös muiden
 ominaisuuksien perusteella, esimerkiksi vahvoihin ja heikkoihin
 tyyppijärjestelmiin. Näiden termien merkitys ei ole tarkasti määritelty,
-mutta yleisesti niillä viitataan tapaan jolla kieli käsittelee määritelmästä
-eriävät tai virheelliset tyypit\cite{CornellTransitionToOO}. Vahvasti
-tyypitetyssä kielessä tällainen aiheuttaisi yleensä virheen, heikosti
-tyypitetyssä kielessä tyypeille voitaisiin tehdä implisiittisiä
-tyyppimuunnoksia tyyppien yhteensopivuuden saavuttamiseksi.
+mutta yleisesti niillä viitataan tapaan jolla kieli käsittelee tarkoitetusta
+poikkeavat, virheelliset tyypit \cite{CornellTransitionToOO}. Vahvasti
+tyypitetyssä kielessä tällainen aiheuttaisi käännös- tai ajonaikaisen
+virheen, kun taas heikosti tyypitetyssä kielessä arvoille voitaisiin tehdä
+implisiittisiä tyyppimuunnoksia niiden yhteensopivuuden saavuttamiseksi.
 
 JavaScript on dynaamisesti tarkastettu, heikosti tyypitetty kieli.
 Esimerkiksi ohjelma \inlinecode{\dblquoted{teksti}.potenssiin(3)} antaa
@@ -40,20 +40,18 @@ tavallisia ominaisuuksia jää kuitenkin tarkistamatta.
 
 \section{ECMA-262, EcmaScript ja JavaScript}
 ``EcmaScript'' on ECMA-262 standardin määrittelemä ohjelmointikieli
-\cite{JavaScriptLanguageResources}\cite{Ecma262}.
-ECMA-262 standardia ylläpitää organisaatio Ecma International. ``JavaScript''
-on Oraclen omistama tavaramerkki jolla viitataan EcmaScript-kielen
-osittaisiin tai täydellisiin toteutuksiin.[4] Historiallisista syistä termejä
+\cite{JavaScriptLanguageResources}\cite{Ecma262}, jonka kehityksestä vastaa
+organisaatio Ecma International. ``JavaScript'' on Oraclen omistama
+tavaramerkki jolla viitataan EcmaScript-kielen osittaisiin tai täydellisiin
+toteutuksiin.[4] Historiallisista syistä termejä
 ``JavaScript'' ja ``EcmaScript'' käytetään usein keskenään vaihtokelpoisesti.
 Tässä tutkielmassa termillä ``JavaScript'' viitataan ECMA-262:den kahdeksannen
 version mukaiseen EcmaScriptiin, jota kutsutaan myös nimellä EcmaScript 2017.
-Termiä ``EcmaScript6+'' puolestaan käytetään viittaamaan EcmaSciption versioon
-6 sekä kaikkiin sitä uudempiin versioihin.
 
 \section{TypeScript}
 TypeScript on Microsoftin luoma ohjelmointikieli, jonka tarkoitus on
 auttaa JavaScript-ohjelmien kehitystä staattisen tyyppijärjestelmän avulla.
-Se on EcmaScriptin ylijoukko (superset)\cite{TypeScriptSpec} ja jatkaa
+Se on EcmaScriptin ylijoukko (superset) \cite{TypeScriptSpec} ja jatkaa
 JavaScriptin syntaksia tyyppimäärittelyihin käytettävällä
 annotaatiosyntaksilla. Jokainen validi JavaScript-ohjelma on syntaksiltaan ja
 ajonaikaiselta käyttäytymiseltään validi TypeScript-ohjelma. TypeScript
@@ -74,14 +72,14 @@ tyyppiturvallisuuden tarkastamiseen. Koodiin lisätyt tyyppimääritykset on
 kuitenkin poistettava ennen kuin JavaScript-ohjelma voidaan suorittaa. Tähän
 tarkoitukseen voidaan käyttää esimerkiksi Babel-kääntäjää, joka poistaa
 Flow-tyyppimäärittelyt ja muokkaa JavaScript-koodin yhteensopivaksi toivotun
-EcmaScript-version kanssa\cite{FlowInstallation}.
+EcmaScript-version kanssa \cite{FlowInstallation}.
 
 \section{Closure kääntäjä}
 Googlen Closure kääntäjä on käännöstyökalu, jonka pääasiallinen tarkoitus
 on minimoida ja optimoida JavaScript-koodia käännösvaiheessa ennen tuotantoon
 siirtämistä. Closure sisältää kuitenkin myös tuen tyyppivirheiden
-tarkastamiselle käännösvaiheessa\cite{ClosureCompiler}. Tyypit annotoidaan
+tarkastamiselle käännösvaiheessa \cite{ClosureCompiler}. Tyypit annotoidaan
 erityisellä JSDoc-pohjaisilla dokumentaatiokommenteilla. Koska annotaatiot
 ovat kommenteissa eivätkä erityisenä syntaksina muun suoritettavan koodin
 joukossa, Closure-annotoitua JavaScriptiä ei tarvitse kääntää ennen sen
-suorittamista\cite{annotatingJSforClosure}.
+suorittamista \cite{annotatingJSforClosure}.
