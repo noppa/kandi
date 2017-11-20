@@ -7,10 +7,10 @@ päättelemällä tai kieleen sisältyvien eksplisiittisten tyyppimäärittelyje
 perusteella. Kaikki kolme tässä esiteltyä JavaScriptin staattiseen
 tyyppitarkastukseen tarkoitettua työkalua päättelevät muuttujien tyyppejä automaattisesti, mutta vaativat
 myös eksplisiittisiä määrityksiä paikoitellen. 
-
-\begin{minipage}{\linewidth}
 Closure-kääntäjä lukee
 tyyppimääritykset JSDoc-tyylisistä dokumentaatiokommenteista \cite{annotatingJSforClosure}.
+
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Esimerkki Closure-annotaatiosta funktiolle},label={lst:ostoskorin_hinta_clojure}]
 /**
 * @param {!Array<Ostos>} ostokset
@@ -82,7 +82,7 @@ annotaatiot on poistettu ja jäljellä on enää standardinmukainen JavaScript.
 Koska JavaScriptin käyttäminen ei normaalisti vaadi erillistä
 käännösvaihetta, useissa projekteissa ei ole sellaista käytetty. Koodin
 minimointi ja muu optimointi on ollut parhaiden käytäntöjen mukaista jo
-tovin, mutta tällaiset koodinkäsittelyt tehdään yleensä vasta ennen koodin
+tovin, mutta tällaiset koodinkäsittelyt tehdään yleensä vasta ennen ohjelman
 julkaisua. Kehittäjät ovat tavanomaisesti voineet suorittaa kirjoittamansa
 JavaScriptin sellaisenaan kehitysympäristössä. Käännösvaiheen aikavaatimus
 pyritään luonnollisesti pitämään mahdollisimman pienenä, mutta se on silti
@@ -92,8 +92,19 @@ työkalun käyttöönotossa tulee huomioida.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{images/compilation.pdf}
-\caption{Käännösprosessi}
+\label{fig:compilation}
+\caption{Vaihtoehtoisia käännösprosesseja}
 \end{figure}
+
+Kuvaaja \ref{fig:compilation} esittää erilaisia käännösprosesseja eri
+JavaScript-ohjelman kehityskielille. Jos koodi kirjoitetaan kaikkiin
+suoritusympäristöihin soveltuvalla kielen versiolla, kuten EcmaScriptin
+versiolla 5 (2011), käännösvaihe voidaan jättää kokonaan väliin. Kielen
+uudemmat versiot ovat kuitenkin tuoneet monia lisäominaisuuksia, joiden
+käyttäminen vanhempia selaimia tukevissa ohjelmissa vaatii joka tapauksessa
+käännösvaiheen staattisesta tyypittämisestä riippumatta. Uusia JavaScript-
+ominaisuuksia hyödyntäville projekteille koodin kääntäminen ei siis tule
+täysin uutena vaiheena.
 
 \section{Työkalun vaiheittainen käyttöönotto}
 
