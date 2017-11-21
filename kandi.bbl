@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
@@ -41,6 +41,11 @@ Annotating JavaScript for the Closure Compiler.
 Anders Hejlsberg.
 \newblock Microsoft Build 2014. TypeScript, maaliskuu 2014.
 \newblock \urlprefix\url{https://channel9.msdn.com/Events/Build/2014/3-576}.
+
+\bibitem{DynamicsOfJSPackages}
+Shriam~Rajagopalan Erik~Wittern, Philippe~Suter.
+\newblock A Look at the Dynamics of the JavaScript Package Ecosystem.
+\newblock 2016.
 
 \bibitem{Ecma262NaN}
 Ecma International.
