@@ -54,4 +54,9 @@ Ecma International.
   \urlprefix\url{https://www.ecma-international.org/ecma-262/8.0/index.html#sec-additive-operators},
   versio 8.0.
 
+\bibitem{ToTypeOrNotToType}
+Earl T.~Barr Zheng~Gao, Christian~Bird.
+\newblock To Type or Not to Type: Quantifying Detectable Bugs in JavaScript.
+\newblock 2017.
+
 \end{thebibliography}
