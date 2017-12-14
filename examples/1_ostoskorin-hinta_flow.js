@@ -1,6 +1,7 @@
 // @flow
 
 type Ostos = {
+  nimi: string;
   hinta: number;
 };
 
@@ -10,7 +11,7 @@ function ostoskorinHinta(ostokset: Ostos[]): number {
   return summa;
 }
 
-const hinta: number = ostoskorinHinta([{ hinta: 5 }, { hinta: 10 }]);
+const hinta: number = ostoskorinHinta([{ nimi: "juusto", hinta: 5 }, { nimi: "lahjapakkaus", hinta: 10 }]);
 
 //// Kommenteista poistaminen aiheuttaa virheen tarkastettaessa
 // ostoskorinHinta([5, 10]);

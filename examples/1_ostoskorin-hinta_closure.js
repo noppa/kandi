@@ -1,5 +1,6 @@
 /**
 * @typedef {{
+*   nimi: string,
 *   hinta: number
 * }}
 */
@@ -16,7 +17,7 @@ function ostoskorinHinta(ostokset) {
 }
 
 /** @type {number} */
-const hinta = ostoskorinHinta([{ hinta: 5 }, { hinta: 10 }]);
+const hinta = ostoskorinHinta([{ nimi: "juusto", hinta: 5 }, { nimi: "lahjapakkaus", hinta: 10 }]);
 
 //// Kommenteista poistaminen aiheuttaa virheen tarkastettaessa
 // ostoskorinHinta([5, 10])

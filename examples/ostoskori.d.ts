@@ -1,4 +1,5 @@
 type Ostos = {
+  nimi: string;
   hinta: number;
 };
 

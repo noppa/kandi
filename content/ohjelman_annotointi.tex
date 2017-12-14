@@ -49,6 +49,7 @@ määritellä Closurea varten muiden annotaatioiden tapaan dokumentaatiokommentt
 \begin{lstlisting}[label={lst:closure_typedef}]
 /**
 * @typedef {{
+*   nimi: string,
 *   hinta: number
 * }}
 */
@@ -62,6 +63,7 @@ määrittelyyn tiiviimmän ja helppolukuisemman syntaksin \cite{TypeScriptSpec}:
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[label={lst:ts_flow_type_alias}]
 type Ostos = {
+  nimi: string;
   hinta: number;
 };
 \end{lstlisting}
@@ -142,9 +144,9 @@ tyyppien oikeellisuutta.
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={JavaScript koodin kutsuminen TypeScript tiedostosta tuotesivu.ts}]
-import * as ostoskori from './ostoskori';
+import * as ostoskori from "./ostoskori";
 
-ostoskori.lisaaTuote({ hinta: 5 });
+ostoskori.lisaaTuote({ nimi: "juusto", hinta: 5 });
 \end{lstlisting}
 \end{minipage}
 
