@@ -1,3 +1,3 @@
-import * as ostokset from './ostoskori';
+import * as ostoskori from './ostoskori';
 
-ostokset.lisaaTuote({ hinta: 5 });
+ostoskori.lisaaTuote({ hinta: 5 });
