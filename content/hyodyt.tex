@@ -75,7 +75,28 @@ tarkistaminen ei kuitenkaan ole ongelma ja tyyppiannotoituna kaikki kolme
 työkalua pystyvätkin osoittamaan esimerkissä olevan virheen.
 
 \section{Ohjelman optimointi käännösvaiheessa}
-TODO
+Aivan ensimmäiset tyyppijärjestelmät, kuten Fortranin staattinen tyypitys,
+kehitettiin laskutoimitusten suoritusajan optimointia varten \cite{TypesAndProgrammingLanguages}.
+Myös uudemmissa kielissä muuttujien tyypeistä saatavilla olevaa tietoa
+voidaan käyttää ajonaikaisen turvallisuuden varmistavien tarkistusten
+optimointiin.
+
+Kun JavaScriptia optimoidaan käännösvaiheessa, on kuitenkin usein hyödyllistä
+kiinnittää enemmän huomiota tuotetun koodin kokoon kuin suoritusaikaiseen
+tehokkuuteen. Tyypillinen JavaScript-ohjelma ladataan sivulle saapuessa
+internet-yhteyden yli juuri ennen suorittamista, minkä vuoksi ladattavan
+koodin koon kasvattaminen minimaalisen suoritusajan edun vuoksi ei usein ole
+kokonaisuudessaan hyödyllistä. Closure compiler on kehitetty erityisesti
+JavaScript-koodin koon optimointia ajatellen. Muuttujanimet voidaan helposti
+uudelleennimetä ilmankin staattisen tyypityksen apua, mutta sen lisäksi myös
+joukko muita koodia keventäviä optimointeja on käytettävissä kun kääntäjällä
+on muuttujien tyypeistä saatava tieto käytettävissä. Closure kääntäjä osaa
+uudelleennimetä myös luokkamuuttujien nimiä lyhyemmiksi, poistaa
+käyttämätöntä koodia, sekä function inlining.
 
 \section{Tyyppimäärittelyt dokumentaationa}
-TODO
+Eksplisiittisesti kirjoitetut tyypit, sekä editorin antama tieto muuttujien
+tyypeistä voi toimia myös aiemmin kirjoitetun koodin dokumentaationa ja
+kuvauksena siitä, miten moduulia on tarkoitus käyttää.
+
+..TODO..

@@ -59,4 +59,9 @@ Earl T.~Barr Zheng~Gao, Christian~Bird.
 \newblock To Type or Not to Type: Quantifying Detectable Bugs in JavaScript.
 \newblock 2017.
 
+\bibitem{TypesAndProgrammingLanguages}
+Benjamin~C. Pierce.
+\newblock {\em Types and Programming Languages\/}.
+\newblock 2002.
+
 \end{thebibliography}
