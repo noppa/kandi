@@ -64,4 +64,22 @@ Benjamin~C. Pierce.
 \newblock {\em Types and Programming Languages\/}.
 \newblock 2002.
 
+\bibitem{PreviewingSalsa}
+Previewing Salsa – the New JavaScript Language Service in Visual Studio "15",
+  huhtikuu 2016.
+\newblock
+  \urlprefix\url{https://blogs.msdn.microsoft.com/visualstudio/2016/04/08/previewing-salsa-javascript-language-service-visual-studio-15/}.
+
+\bibitem{JavaScriptIntellisense}
+JavaScript Language Service in Visual Studio, tammikuu 2017.
+\newblock
+  \urlprefix\url{https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio#unsupported-patterns}.
+
+\bibitem{EmpiricalInvestigationOfCodeCompletion}
+Stefan~Hanenberg Lars~Fischer.
+\newblock An Empirical Investigation of the Effects of Type Systems and Code
+  Completion on API Usability using TypeScript and JavaScript in MS Visual
+  Studio.
+\newblock lokakuu 2015.
+
 \end{thebibliography}

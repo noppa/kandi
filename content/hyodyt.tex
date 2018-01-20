@@ -95,8 +95,43 @@ uudelleennimetä myös luokkamuuttujien nimiä lyhyemmiksi, poistaa
 käyttämätöntä koodia, sekä function inlining.
 
 \section{Tyyppimäärittelyt dokumentaationa}
-Eksplisiittisesti kirjoitetut tyypit, sekä editorin antama tieto muuttujien
+Eksplisiittisesti kirjoitetut tyypit sekä editorin antama tieto muuttujien
 tyypeistä voi toimia myös aiemmin kirjoitetun koodin dokumentaationa ja
-kuvauksena siitä, miten moduulia on tarkoitus käyttää.
-
-..TODO..
+kuvauksena siitä, miten moduulia on tarkoitus käyttää. Nykyaikasten editorien
+vakio-ominaisuuksiin kuuluu kirjoittamisen tukeminen automaattisilla ehdotuksilla.
+Ehdotukset nopeuttavat pitkien metodinimien kirjoittamista ja toimivat
+eräänlaisena dokumentaation lähteenä, sillä ohjelmoija voi tutkia luokan tai
+paketin tarjoamaa sisältöä ehdotettuja nimiä selaamalla. Automaattisia ehdotuksia
+on mahdollista tarjota myös dynaamisesti tyyppitarkastetuille kielille, mutta
+koodipohjan kasvaessa ja muuttuessa monimutkaisemmaksi ehdotusten tarkkuus
+on vaikea pitää samalla tasolla kuin staattisesti tyypitetyissä kielissä.
+Huonoimmillaan ehdotetut muuttuja- ja metodinimet valitaan yksinkertaisesti
+listaamalla avoimista tiedostoista löytyviä nimiä, välittämättä sen
+enempää siitä onko nämä metodit määritetty juuri kyseiselle tyypille.
+Edistyneemmät ehdotusmoottorit kuten Visual Studiossa käytetty IntelliSense,
+suorittavat osaa JavaScript-koodista taustalla ja analysoivat siten muuttujien
+tyyppejä ajonaikana \cite{PreviewingSalsa, JavaScriptIntellisense}.
+Tämä tekniikka yhdistettynä tavanomaisempaan tyyppien
+käännösaikaiseen päättelyyn voi riittää tarjoamaan melko kattavan kuvauksen
+jonkin muuttujan tyypistä, mutta jää silti jälkeen siitä tarkkuudesta jonka
+IntelliSense osaa antaa TypeScriptillä kirjoitetulle koodille.
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{images/intellisense_typescript}
+\includegraphics[width=0.5\textwidth]{images/intellisense_javascript}
+\noindent
+\caption{IntelliSensen tarjoamat ehdotukset TypeScriptille (vasemmalla) ja JavaScriptille (oikealla).}
+\end{figure}
+Automaattisten ehdotusten vaikutuksesta ohjelmointityön tehokkuuteen ei
+kuitenkaan ole yleisesti hyväksyttyä, tutkittua varmuutta. Vaikka metodien
+nimet olisivatkin ohjelmoijan nähtävillä editorissa, ne eivät välttämättä
+sellaisenaan tarjoa tarpeeksi hyötyä dokumentaationa jotta työtehokkuus
+kasvaisi merkittävästi. Vuonna 2015 toteutettu tutkimus
+``An Empirical Investigation of the Effects of Type Systems and Code Completion
+on API Usability using TypeScript and JavaScript in MS Visual Studio''
+testasi staattisen tyypityksen ja automaattisten ehdotusten tehokkuutta
+antamalla osallistujille toteutettavaksi ohjelmointitehtävän JavaScriptillä
+ja TypeScriptillä, automaattisten ehdotusten kanssa ja niitä ilman
+\cite{EmpiricalInvestigationOfCodeCompletion}. Tuloksissa ei näkynyt
+tilastollisesti merkittävää eroa automaattisten ehdotusten kätyön ja niiden
+käyttämättä jättämisen välillä, vaikka TypeScriptiä käyttäneet suoriutuivatkin
+tehtävästä muista syistä JavaScriptiä käyttäneitä tehokkaammin.
