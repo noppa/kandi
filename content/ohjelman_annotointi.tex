@@ -76,7 +76,7 @@ sisältöä suoritettavaan JavaScript-ohjelmaan.
 
 JavaScript koodi tulkataan tai käännetään tyypillisesti suorittamisen
 yhteydessä, selaimesta tai muusta suoritusympäristöstä löytyvän ”moottorin”
-toimesta. EcmaScript standardin mukaista koodia suorittamaan suunnitellut
+toimesta. EcmaScript-standardin mukaista koodia suorittamaan suunnitellut
 moottorit, kuten V8 tai SpiderMonkey, eivät kuitenkaan osaa käsitellä
 TypeScript- tai Flow-annotaatioilla merkattua koodia. Näinollen TypeScript-
 tai Flow-annotoitu koodi on välttämätöntä kääntää muotoon jossa
@@ -117,12 +117,12 @@ ladattavissa olevien pakettien määräksi yli 595 000. Avoimessa jakelussa
 olevien kirjastojen lisäksi JavaScriptiä käyttävillä kehittäjillä voi olla
 suuri määrä valmista JavaScript-koodia, jota voi hyödyntää uusissa
 projekteissa. Jotta TypeScript, Flow ja Closure olisivat hyödyllisiä
-työkaluja JavaScript ohjelmien kehitykseen, on niiden oltava yhteensopivia
+työkaluja JavaScript-ohjelmien kehitykseen, on niiden oltava yhteensopivia
 sellaisen JavaScript-koodin kanssa jonka kehitykseen ei kyseistä työkalua
 ole käytetty.
 
 TypeScript ja Flow tukevat erityisiä määrittelytiedostoja, joiden sisältämällä
-tyyppiannotoidulla koodilla määritetään kirjaston tai muun JavaScript koodin
+tyyppiannotoidulla koodilla määritetään kirjaston tai muun JavaScript-koodin
 ulkoisen rajapinnan tyyppimäärittelyt. Näiden tiedostojen kirjoittamiseen
 käytetty syntaksi on muuten sama kuin muissakin tiedostoissa, muuta niiden funktio- ja
 metodimäärittelyistä on jätetty implementaatiot kokonaan pois. Tiedoston ei
@@ -143,7 +143,7 @@ JavaScript-funktiota siten, että TypeScript valvoo
 tyyppien oikeellisuutta.
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption={JavaScript koodin kutsuminen TypeScript tiedostosta tuotesivu.ts}]
+\begin{lstlisting}[caption={JavaScript-koodin kutsuminen TypeScript tiedostosta tuotesivu.ts}]
 import * as ostoskori from "./ostoskori";
 
 ostoskori.lisaaTuote({ nimi: "juusto", hinta: 5 });

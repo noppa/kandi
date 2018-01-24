@@ -18,7 +18,7 @@ npm install
 
 ### Koodiesimerkin tarkastaminen
 
-#### Google Closure kääntäjä
+#### Google Closure-kääntäjä
 Google Closurella tarkastettavaksi tarkoitetut tiedostot on nimetty siten
 että tiedostonimi päättyy "_closure.js". Tällaisen tiedoston virheiden
 tarkastaminen onnistuu komennolla
