@@ -2,18 +2,19 @@
 
 \section{Tyyppijärjestelmien luokitteleminen}
 Ohjelmointikielten tyyppijärjestelmien jakaminen staattisesti ja dynaamisesti
-tyyppitarkastettuihin perustuu ohjelman kehitysvaiheeseen jossa tarkastaminen
+tyyppitarkastettuihin perustuu ohjelman kehitysvaiheeseen, jossa tarkastaminen
 tapahtuu. Staattisella tyyppitarkastamisella viitataan ohjelman tyyppien
-analyysiin ennen sen suorittamista, esimerkiksi käännösaikana, kun taas
+analyysiin ennen ohjelman suorittamista, esimerkiksi käännösaikana, kun taas
 dynaaminen tyyppitarkastus varmistaa arvojen tyyppien oikeellisuuden ohjelmaa
 suoritettaessa. Tyyppijärjestelmät voidaan jaotella myös muiden
-ominaisuuksien perusteella, esimerkiksi vahvoihin ja heikkoihin
+ominaisuuksien perusteella esimerkiksi vahvoihin ja heikkoihin
 tyyppijärjestelmiin. Näiden termien merkitys ei ole tarkasti määritelty,
-mutta yleisesti niillä viitataan tapaan jolla kieli käsittelee tarkoitetusta
+mutta yleisesti niillä viitataan tapaan, jolla kieli käsittelee tarkoitetusta
 poikkeavat, virheelliset tyypit \cite{CornellTransitionToOO}. Vahvasti
-tyypitetyssä kielessä tällainen aiheuttaisi käännös- tai ajonaikaisen
-virheen, kun taas heikosti tyypitetyssä kielessä arvoille voitaisiin tehdä
-implisiittisiä tyyppimuunnoksia niiden yhteensopivuuden saavuttamiseksi.
+tyypitetyssä kielessä tietyn tyyppisen muuttujan vääränlainen käsittely
+aiheuttaisi käännös- tai ajonaikaisen virheen, kun taas heikosti tyypitetyssä
+kielessä arvolle voitaisiin tehdä implisiittisiä tyyppimuunnoksia niiden
+yhteensopivuuden saavuttamiseksi.
 
 JavaScript on dynaamisesti tarkastettu, heikosti tyypitetty kieli.
 Esimerkiksi ohjelma \inlinecode{\dblquoted{teksti}.potenssiin(3)} antaa
