@@ -17,6 +17,7 @@
       ]
     }
   ],
+  "latex-workshop.latex.autoBuild.onSave.enabled": false,
   "editor.rulers": [75],
   "javascript.validate.enable": false
 }
