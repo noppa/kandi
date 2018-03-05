@@ -62,7 +62,7 @@ Earl T.~Barr Zheng~Gao, Christian~Bird.
 \bibitem{TypesAndProgrammingLanguages}
 Benjamin~C. Pierce.
 \newblock {\em Types and Programming Languages\/}.
-\newblock 2002.
+\newblock The MIT Press, 2002.
 
 \bibitem{PreviewingSalsa}
 Previewing Salsa – the New JavaScript Language Service in Visual Studio "15",
@@ -81,5 +81,10 @@ Stefan~Hanenberg Lars~Fischer.
   Completion on API Usability using TypeScript and JavaScript in MS Visual
   Studio.
 \newblock lokakuu 2015.
+
+\bibitem{CSE_ProgrammingLanguages}
+CSE341: Programming Languages Winter 2013 Unit 6 Summary, 2013.
+\newblock
+  \urlprefix\url{https://courses.cs.washington.edu/courses/cse341/13wi/unit6notes.pdf}.
 
 \end{thebibliography}
