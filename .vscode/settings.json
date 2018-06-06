@@ -1,23 +1,23 @@
 {
-  "latex-workshop.latex.toolchain":[
-    {
-      "command": "latexmk",
-      "args": [
-        "--synctex=1",
-        "--interaction=nonstopmode",
-        "--file-line-error",
-        "--pdf",
-        "kandi.tex"
-      ]
-    },
-    {
-      "command": "latexmk",
-      "args": [
-        "-c"
-      ]
-    }
-  ],
-  "latex-workshop.latex.autoBuild.onSave.enabled": false,
+  // "latex-workshop.latex.tools": [
+  //   {
+  //     "command": "latexmk",
+  //     "args": [
+  //       "--synctex=1",
+  //       "--interaction=nonstopmode",
+  //       "--file-line-error",
+  //       "--pdf",
+  //       "kandi.tex"
+  //     ]
+  //   },
+  //   {
+  //     "command": "latexmk",
+  //     "args": [
+  //       "-c"
+  //     ]
+  //   }
+  // ],
+  "latex-workshop.latex.autoBuild.onSave.enabled": true,
   "editor.rulers": [75],
   "javascript.validate.enable": false
 }

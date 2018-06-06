@@ -8,5 +8,6 @@
 *.synctex*
 *.toc
 *.out
+*.blg
 
 node_modules/

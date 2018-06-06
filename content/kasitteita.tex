@@ -21,13 +21,13 @@ Esimerkiksi ohjelma \inlinecode{\dblquoted{teksti}.potenssiin(3)} antaa
 staattisesti tyyppitarkastetussa kielessä virheen jo käännösaikana, mikäli
 metodia \inlinecode{potenssiin} ei ole tekstityyppisille arvoille määritetty.
 JavaScriptiä suorittava ympäristö sen sijaan hyväksyisi ohjelman ja sallisi
-sen suorittamisen. Virhe olemattoman metodin kutsumisesta ilmenisi vasta jos
-ohjelman suoritus evaluoi kyseisen ilmaisun. Lisäksi esimerkiksi ilmaisu
+sen suorittamisen. Virhe olemattoman metodin kutsumisesta ilmenisi vasta, jos
+kyseinen virheen sisältävä koodi suoritetaan. Lisäksi esimerkiksi ilmaisu
 \inlinecode{\dblquoted{teksti} + 2} ei aiheuttaisi virhettä edes 
 suoritusaikana, sillä heikoille tyyppijärjestelmille ominaisesti JavaScript
 muuttaisi numeron 2 tekstimuotoon ennen summausoperaation arviointia. Tässä
 tutkielmassa keskitytään lähinnä JavaScriptin tyyppien staattiseen ja
-dynaamiseen, eli käytännössä käännös- ja ajonaikaiseen tarkastamiseen. Jotkin
+dynaamiseen, eli käytännössä käännös- ja ajonaikaiseen tarkastamiseen. Eräät
 esitellyistä työkaluista myös tiukentavat kielen sallimia operaatioita siten,
 että esimerkiksi yllä esitettyä \inlinecode{\dblquoted{teksti} + 2} ohjelmaa
 ei enää sallittaisi. Monia muita heikoille tyyppijärjestelmille
@@ -40,7 +40,7 @@ tavallisia ominaisuuksia jää kuitenkin tarkistamatta.
 \end{figure}
 
 \section{ECMA-262, EcmaScript ja JavaScript}
-``EcmaScript'' on ECMA-262 standardin määrittelemä ohjelmointikieli
+\textit{EcmaScript} on ECMA-262 standardin määrittelemä ohjelmointikieli
 \cite{JavaScriptLanguageResources, Ecma262}, jonka kehityksestä vastaa
 organisaatio Ecma International. ``JavaScript'' on Oraclen omistama
 tavaramerkki jolla viitataan EcmaScript-kielen osittaisiin tai täydellisiin
