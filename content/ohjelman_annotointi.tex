@@ -4,14 +4,14 @@
 
 Tyyppijärjestelmä voi päätellä muuttujan sallitun tyypin automaattisesti
 päättelemällä tai kieleen sisältyvien eksplisiittisten tyyppimäärittelyjen
-perusteella. Kaikki kolme tässä esiteltyä JavaScriptin staattiseen
-tyyppitarkastukseen tarkoitettua työkalua päättelevät muuttujien tyyppejä automaattisesti, mutta vaativat
-myös eksplisiittisiä määrityksiä paikoitellen. 
+perusteella. Kaikki kolme tässä tutkielmassa esiteltyä JavaScriptin staattiseen
+tyyppitarkastukseen tarkoitettua työkalua päättelevät muuttujien tyyppejä automaattisesti,
+mutta vaativat paikoitellen myös eksplisiittisiä määrityksiä.
 Closure-kääntäjä lukee
 tyyppimääritykset JSDoc-tyylisistä dokumentaatiokommenteista \cite{annotatingJSforClosure}.
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption={Esimerkki Closure-annotaatiosta funktiolle},label={lst:ostoskorin_hinta_clojure}]
+\begin{lstlisting}[caption={Esimerkki Closure-annotaatiosta funktiolle},label={lst:ostoskorin_hinta_closure}]
 /**
 * @param {!Array<Ostos>} ostokset
 * @return {number} Ostosten yhteenlaskettu hinta
@@ -23,6 +23,9 @@ function ostoskorinHinta(ostokset) {
 }
 \end{lstlisting}
 \end{minipage}
+Listauksessa \ref{lst:ostoskorin_hinta_closure} \inlinecode{ostoskorinHinta}-funktion
+tyyppimäärittely on toteutettu sen yläpuolella olevilla kommenteilla, jotka määrittävät
+tyypin \inlinecode{ostokset} parametrille sekä funktion palautusarvolle.
 TypeScript ja Flow puolestaan jatkavat ECMA-262 -spesifikaatiota erityisellä syntaksilla
 tyyppien eksplisiittistä määrittämistä varten. 
 
@@ -32,10 +35,13 @@ function ostoskorinHinta(ostokset: Ostos[]): number {
 \end{lstlisting}
 \end{minipage}
 
-Flow ja TypeScript -esimerkeissä tyyppiannotaatiot ovat osana koodia, mikä
+Flow ja TypeScript -esimerkeissä \ref{lst:ostoskorin_hinta_flow}
+tyyppiannotaatiot ovat osana koodia, mikä
 tekee ohjelmasta yhteensopimattoman tavallisen JavaScriptin kanssa. Ohjelma
-on käännettävä JavaScriptiksi ennen suorittamista, eikä annotaatioiden
-syntaksi ja merkitys ole suoraan selvä JavaScript-ohjelmoijalle. 
+on käännettävä JavaScriptiksi ennen suorittamista. Annotaatioiden
+syntaksi ja merkitys ei myöskään ole välttämättä suoraan selvä
+Javascript-ohjelmoijalle, joka pahimmassa tapauksessa voi kokea lisätyt
+tyyppimäärittelyt vaikeasti luettavina. 
 
 Closuren annotaatiot on sijoitettu kommentteihin, joten niillä ei ole
 ajonaikaista vaikutusta ja ohjelma on täten sellaisenaan hyväksyttävää
@@ -88,8 +94,8 @@ tovin, mutta tällaiset koodinkäsittelyt tehdään yleensä vasta ennen ohjelma
 julkaisua. Kehittäjät ovat tavanomaisesti voineet suorittaa kirjoittamansa
 JavaScriptin sellaisenaan kehitysympäristössä. Käännösvaiheen aikavaatimus
 pyritään luonnollisesti pitämään mahdollisimman pienenä, mutta se on silti
-projektin monimutkaisuuteen ja kehitysnopeuteen vaikuttava tekijä joka
-työkalun käyttöönotossa tulee huomioida.
+projektin monimutkaisuuteen ja kehitysnopeuteen vaikuttava tekijä, tulee
+tulee huomioida työkalun käyttöönotossa.
 
 \begin{figure}
 \centering
@@ -98,7 +104,7 @@ työkalun käyttöönotossa tulee huomioida.
 \label{fig:compilation}
 \end{figure}
 
-Kuvaaja \ref{fig:compilation} esittää erilaisia käännösprosesseja eri
+Kuva \ref{fig:compilation} esittää erilaisia käännösprosesseja eri
 JavaScript-ohjelman kehityskielille. Jos koodi kirjoitetaan kaikkiin
 suoritusympäristöihin soveltuvalla kielen versiolla, kuten EcmaScriptin
 versiolla 5 (2011), käännösvaihe voidaan jättää kokonaan väliin. Kielen
@@ -164,6 +170,6 @@ ohjelmassa voidaan ohittaa käännösaikainen tyyppien tarkistaminen sellaisten
 koodin osien kohdalla joiden ajonaikaista arvoa olisi muuten vaikea tai
 mahdotonta määritellä käännösaikana. Näin ollen, mikäli tarve vaatii täysin
 annotoimattoman JavaScript moduulin käyttämistä, kaikkien kyseisestä moduulista
-tuotujen arvojen voidaan määrittää olevan tyyppiä Any, jollin tarkastaja ei
+tuotujen arvojen voidaan määrittää olevan tyyppiä Any, jolloin tarkastaja ei
 kiinnitä huomiota siihen miten JavaScriptillä määritettyjä funktioita tai
 muita arvoja käsitellään.
