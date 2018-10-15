@@ -54,5 +54,53 @@ osta({ hinta: 5 });
 
 Esimerkit \ref{fig:soundness_test} ja \ref{fig:completeness_test} toimivat
 odotetulla tavalla Flow:ssa. TypeScript vaatii eksplisiittisen tyyppiannotaation
-osta-funktiolle, mutta toimii muuten samalla tavalla.
+osta-funktiolle, mutta toimii muuten samalla tavalla. Flow, TypeScript ja
+Closure eivät kuitenkaan ole täydellisiä tai kokonaan luotettavia.
+Monimutkaisemmissa tilanteissa virheitä saattaa jäädä nappaamatta tai toimiva
+ohjelma voidaan merkata virheelliseksi. JavaScriptiä käännöskohteena käyttävät
+mutta muuten sen syntaksista ja semantiikasta eroavat uudet kielet,
+kuten Dart ja Elm, on voitu kehittää toivotunlaiseksi ilman painetta olla
+yhteensopiva vanhan koodin kanssa.
 
+TypeScript ja Flow on sen sijaan kehitetty lisäämään staattinen tyypitys
+olemassa olevaan kieleen, JavaScriptiin, siten että nykyisellään käytössä
+olevat kirjastot ja koodikäytännöt pystytään tyyppitarkastamaan ilman että
+niiden arkkitehtuuria tarvitsee merkittävästi muuttaa tyyppiturvallisuuden
+saavuttamiskesi.
+
+TypeScript on strukturaalisesti tyypitetty, minkä vuoksi seuraava koodi kääntyy
+ilman tyyppivirheitä.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[caption={Loogisen virheen sisältävä, mutta ilman virheitä kääntyvä TypeScript-ohjelma.}]
+class Ihminen {
+    constructor(public nimi: string){}
+}
+
+class Eläin {
+    constructor(public nimi: string){}
+}
+
+function varaaAikaEläinlääkäriin(omistaja: Ihminen, lemmikki: Eläin) { }
+
+varaaAikaEläinlääkäriin(new Eläin("Musti"), new Ihminen("Jaakko"));
+\end{lstlisting}
+\label{fig:structural_typing_error}
+\end{minipage}
+
+TypeScript kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
+vaikka funktion arugmentit "omistaja" ja "lemmikki" ovat väärin päin, sillä
+molempien luokkien rakenne on sama, molemmissa on pelkkä tekstimuotoinen
+ominaisuus "name". Flow:ssa sama virhe ei menisi läpi, sillä siinä luokkainstanssit
+on tyypitetty nominaalisesti, mikä auttaa tässä esimerkissä mutta aiehuttaa ongelmia
+muissa tilanteissa. Projekti saattaa esimerkiksi sisältää kaksi versiota samasta
+kirjastosta jonkin toisen kirjaston kautta, mikä voi aiheuttaa yhteensopimusongelmia
+kun käytännössä saman luokan tyyppejä ei lueta keskenään yhteensopiviksi. 
+
+\section{EcmaScript-yhteensopivuus}
+
+TypeScript pyrkii noudattamaan mahdollisimman tarkasti
+EcmaScript-spesifikaatiossa kaikkien sellaisten ominaisuuksien suhteen, jotka
+eivät nimenomaan liity staattiseen tyypittämiseen. 
+
+\section{Tyyppien automaattinen ja vaiheittainen tyypittäminen}
