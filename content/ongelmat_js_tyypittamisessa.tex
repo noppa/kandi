@@ -1,5 +1,18 @@
 \chapter{Ongelmat JavaScriptin staattisessa tyypittämisessä}
 
+\section{EcmaScript-yhteensopivuus}
+
+TypeScript pyrkii noudattamaan mahdollisimman 
+tarkasti EcmaScript-spesifikaatiota kaikkien sellaisten
+ominaisuuksien suhteen jotka
+eivät nimenomaan liity staattiseen tyypittämiseen. 
+
+Todo
+
+\section{Tyyppien automaattinen ja vaiheittainen tyypittäminen}
+
+Todo
+
 \section{Luotettavuus, täydellisyys ja käytännöllisyys}
 
 \begin{figure}
@@ -77,13 +90,13 @@ class Ihminen {
     constructor(public nimi: string){}
 }
 
-class Eläin {
+class Elain {
     constructor(public nimi: string){}
 }
 
-function varaaAikaEläinlääkäriin(omistaja: Ihminen, lemmikki: Eläin) { }
+function varaaAikaElainlaakariin(omistaja: Ihminen, lemmikki: Elain) { }
 
-varaaAikaEläinlääkäriin(new Eläin("Musti"), new Ihminen("Jaakko"));
+varaaAikaElainlaakariin(new Elain("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
 \label{fig:structural_typing_error}
 \end{minipage}
@@ -96,11 +109,3 @@ on tyypitetty nominaalisesti, mikä auttaa tässä esimerkissä mutta aiehuttaa 
 muissa tilanteissa. Projekti saattaa esimerkiksi sisältää kaksi versiota samasta
 kirjastosta jonkin toisen kirjaston kautta, mikä voi aiheuttaa yhteensopimusongelmia
 kun käytännössä saman luokan tyyppejä ei lueta keskenään yhteensopiviksi. 
-
-\section{EcmaScript-yhteensopivuus}
-
-TypeScript pyrkii noudattamaan mahdollisimman tarkasti
-EcmaScript-spesifikaatiossa kaikkien sellaisten ominaisuuksien suhteen, jotka
-eivät nimenomaan liity staattiseen tyypittämiseen. 
-
-\section{Tyyppien automaattinen ja vaiheittainen tyypittäminen}
