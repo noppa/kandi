@@ -101,10 +101,10 @@ varaaAikaElainlaakariin(new Elain("Musti"), new Ihminen("Jaakko"));
 \label{fig:structural_typing_error}
 \end{minipage}
 
-TypeScript kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
-vaikka funktion arugmentit "omistaja" ja "lemmikki" ovat väärin päin, sillä
-molempien luokkien rakenne on sama, molemmissa on pelkkä tekstimuotoinen
-ominaisuus "name". Flow:ssa sama virhe ei menisi läpi, sillä siinä luokkainstanssit
+TypeScript-kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
+vaikka arugmentit "omistaja" ja "lemmikki" ovat väärin päin, sillä
+molempien luokkien rakenne on sama; molemmissa on pelkkä tekstimuotoinen
+ominaisuus "nimi". Flow:ssa sama virhe ei menisi läpi. Siinä luokkainstanssit
 on tyypitetty nominaalisesti, mikä auttaa tässä esimerkissä mutta aiehuttaa ongelmia
 muissa tilanteissa. Projekti saattaa esimerkiksi sisältää kaksi versiota samasta
 kirjastosta jonkin toisen kirjaston kautta, mikä voi aiheuttaa yhteensopimusongelmia
