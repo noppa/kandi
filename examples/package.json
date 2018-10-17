@@ -13,8 +13,8 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
-    "flow-bin": "0.58.0",
+    "flow-bin": "0.83.0",
     "google-closure-compiler": "20171023.0.1",
-    "typescript": "2.6.1"
+    "typescript": "3.1.3"
   }
 }
