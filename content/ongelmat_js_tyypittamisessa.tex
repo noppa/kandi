@@ -1,13 +1,37 @@
 \chapter{Ongelmat JavaScriptin staattisessa tyypittämisessä}
 
 \section{EcmaScript-yhteensopivuus}
+TypeScript pyrkii noudattamaan EcmaScript-spesifikaatiota mahdollisimman
+tarkasti kaikkien sellaisten ominaisuuksien suhteen jotka eivät nimenomaan
+liity staattiseen tyypittämiseen \cite{TypeScript_DesignGoals}. TypeScriptin
+kehityksen alkuvaiheissa, ennen EcmaScript 2015-spesifikaation valmistumista,
+JavaScriptista kuitenkin puuttui joitain tärkeiksi katsottuja ominaisuuksia,
+jotka päätettiin lisätätä TypeScriptiin mahdollisista yhteensopimusongelmista
+huolimatta. TypeScriptissä on esimerkiksi syntaksi nimiavaruuden määrittämiseen,
+vaikka EcmaScriptiin myöhemmin lisätyt \textit{moduulit} ajavat saman asian
+\cite{TypeScript_issuecomment_esnextfeatures}. TypeScript tukee nykyään sekä
+alkuperäistä nimiavaruus-ominaisuuttaan että EcmaScriptin moduuleita.
 
-TypeScript pyrkii noudattamaan mahdollisimman 
-tarkasti EcmaScript-spesifikaatiota kaikkien sellaisten
-ominaisuuksien suhteen jotka
-eivät nimenomaan liity staattiseen tyypittämiseen. 
+Flow ja Closure-kääntäjä lisäävät koodiin ainoastaan staattista tyypitystä
+koskevia ominaisuuksia, kuten tyyppimäärittelyjä, joten niissä ei ole
+nimiavaruuksien kaltaisia koodin suoritukseen vaikuttavia ominaisuuksia.
+EcmaScript kuitenkin kehittyy nopeasti ja sen päälle rakentavien työkalujen
+on pysyttävä tahdissa mukana ollakseen hyödyllisiä kehittäjille.
 
-Todo
+Kaikki kolme työkalua pyrkivät tukemaan EcmaScriptin uusinta viimeisteltyä
+versiota. Lisäksi Flow tarjoaa tyyppitarkastusta joillekkin kokeellisille
+ominaisuuksille joiden EcmaScript-määrittely ei vielä ole täysin valmis mutta
+jotka luultavasti tullaan lisäämään myöhemmin. Esimerkiksi
+\textit{optional chaining} \cite{Optional_Chaining_proposal} on vielä
+suunnitteluvaiheessa oleva kielen ominaisuus, mutta Flow tarjoaa jo
+staattisen tyyppitarkastuksen sille. Uusien ominaisuuksien aikaisessa
+käyttöönotossa on JavaScriptin kehityksen kannalta se hyvä puoli, että
+kehittäjäyhteisö pääsee kokeilemaan ja antamaan palautetta ennen kuin ominaisuuden
+määrittely on lyöty lukkoon. TypeScript puolestaan pyrkii vastedes implementoimaan
+ainoastaan valmiita ominaisuuksia, sillä keskeneräisen ominaisuuden yksityiskohdat
+tulevat suurella todennäköisyydellä muuttumaan useaan otteeseen suunnitteluvaiheen
+aikana ja sitä käyttäneet kehittäjät voivat myöhemmin joutua
+\textit{refaktoroimaan} koodiaan.
 
 \section{Tyyppien automaattinen ja vaiheittainen tyypittäminen}
 
@@ -94,7 +118,10 @@ class Elain {
     constructor(public nimi: string){}
 }
 
-function varaaAikaElainlaakariin(omistaja: Ihminen, lemmikki: Elain) { }
+function varaaAikaElainlaakariin(omistaja: Ihminen, lemmikki: Elain)
+{
+  ...
+}
 
 varaaAikaElainlaakariin(new Elain("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}

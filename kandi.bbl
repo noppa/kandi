@@ -82,6 +82,20 @@ Stefan~Hanenberg Lars~Fischer.
   Studio.
 \newblock lokakuu 2015.
 
+\bibitem{TypeScript_DesignGoals}
+TypeScript Design Goals, syyskuu 2014.
+\newblock
+  \urlprefix\url{https://github.com/Microsoft/TypeScript/wiki/TypeScript-Design-Goals}.
+
+\bibitem{TypeScript_issuecomment_esnextfeatures}
+Ryan Cavanaugh, lokakuu 2014.
+\newblock
+  \urlprefix\url{https://github.com/Microsoft/TypeScript/issues/16#issuecomment-57645069}.
+
+\bibitem{Optional_Chaining_proposal}
+Gabriel~Isenberg Claude~Pache, 2018.
+\newblock \urlprefix\url{https://github.com/tc39/proposal-optional-chaining}.
+
 \bibitem{CSE_ProgrammingLanguages}
 CSE341: Programming Languages Winter 2013 Unit 6 Summary, 2013.
 \newblock
