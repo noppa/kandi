@@ -1,3 +1,3 @@
 import * as ostoskori from "./ostoskori";
 
-ostoskori.lisaaTuote({ nimi: "juusto", hinta: 5 });
+ostoskori.lisaaTuote({ nimi: 'Foo', hinta: 5 })
