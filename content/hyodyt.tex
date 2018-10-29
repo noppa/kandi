@@ -1,10 +1,10 @@
-\chapter{Virheiden havaitseminen}
+\chapter{Staattisen tyypityksen hyödyt}
 
 \section{Virheiden havaitseminen}
 
 Kenties tärkein staattisen tyyppijärjestelmän tehtävä on havaita ja estää
-ohjelmoijan virheitä. Tässä esitellyt työkalut, mahdollisesti Closure
-kääntäjää lukuunottamatta, onkin kehitetty erityisesti tätä tarkoitusta
+ohjelmoijan virheitä. Tässä esitellyt työkalut, mahdollisesti Closure–kääntäjää
+lukuunottamatta, onkin kehitetty erityisesti tätä tarkoitusta
 varten.
 
 Kaikki kolme työkalua antaisivat käännösvirheen jos esimerkeissä
@@ -90,7 +90,7 @@ kokonaisuudessaan hyödyllistä. Closure compiler on kehitetty erityisesti
 JavaScript-koodin koon optimointia ajatellen. Muuttujanimet voidaan helposti
 uudelleennimetä ilmankin staattisen tyypityksen apua, mutta sen lisäksi myös
 joukko muita koodia keventäviä optimointeja on käytettävissä kun kääntäjällä
-on muuttujien tyypeistä saatava tieto käytettävissä. Closure-kääntäjä osaa
+on muuttujien tyypeistä saatava tieto käytettävissä. Closure–kääntäjä osaa
 uudelleennimetä myös luokkamuuttujien nimiä lyhyemmiksi, poistaa
 käyttämätöntä koodia, sekä korvata yksinkertaisia funktiokutsuja siirtämällä
 funktion sisältämät ohjeet kutsuntapaikalle (engl. "function inlining").
@@ -115,12 +115,15 @@ tyyppejä ajonaikana \cite{PreviewingSalsa, JavaScriptIntellisense}.
 Tämä tekniikka yhdistettynä tavanomaisempaan tyyppien
 käännösaikaiseen päättelyyn voi riittää tarjoamaan melko kattavan kuvauksen
 jonkin muuttujan tyypistä, mutta jää silti jälkeen siitä tarkkuudesta jonka
-IntelliSense osaa antaa TypeScriptillä kirjoitetulle koodille.
+IntelliSense osaa antaa staattisesti tyypitetylle koodille.
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{images/intellisense_typescript}
-\includegraphics[width=0.5\textwidth]{images/intellisense_javascript}
+\includegraphics[width=0.8\textwidth]{images/intellisense_javascript}
+\includegraphics[width=\textwidth]{images/intellisense_typescript}
 \noindent
-\caption{IntelliSensen tarjoamat ehdotukset TypeScriptille (vasemmalla) ja JavaScriptille (oikealla).}
+\caption{
+  IntelliSensen tarjoamat ehdotukset JavaScriptille (yllä) ja TypeScriptille (alla).
+  JavaScriptille annetuissa ehdotuksissa on turhia, tiedostossa käytettyihin
+  sanoihin perustuvia ehdotuksia.}
 \end{figure}
 
 Automaattisten ehdotusten vaikutuksesta ohjelmointityön tehokkuuteen ei
