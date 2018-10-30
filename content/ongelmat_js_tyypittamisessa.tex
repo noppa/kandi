@@ -153,17 +153,12 @@ ilman tyyppivirheitä.
 class Ihminen {
     constructor(public nimi: string){}
 }
-
 class Elain {
     constructor(public nimi: string){}
 }
+function varaaElainlaakari(omistaja: Ihminen, lemmikki: Elain){}
 
-function varaaAikaElainlaakariin(omistaja: Ihminen, lemmikki: Elain)
-{
-  ...
-}
-
-varaaAikaElainlaakariin(new Elain("Musti"), new Ihminen("Jaakko"));
+varaaElainlaakari(new Elain("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
 \label{fig:structural_typing_error}
 \end{minipage}
