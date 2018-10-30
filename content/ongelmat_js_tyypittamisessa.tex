@@ -128,7 +128,6 @@ osta({ hinta: 5 });
 \end{lstlisting}
 \label{fig:completeness_test}
 \end{minipage}
-
 Esimerkit \ref{fig:soundness_test} ja \ref{fig:completeness_test} toimivat
 odotetulla tavalla Flow:ssa. TypeScript vaatii eksplisiittisen tyyppiannotaation
 osta-funktiolle, mutta toimii muuten samalla tavalla. Flow, TypeScript ja
@@ -162,7 +161,6 @@ varaaElainlaakari(new Elain("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
 \label{fig:structural_typing_error}
 \end{minipage}
-
 TypeScript-kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
 vaikka arugmentit "omistaja" ja "lemmikki" ovat väärin päin, sillä
 molempien luokkien rakenne on sama; molemmissa on pelkkä tekstimuotoinen
