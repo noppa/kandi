@@ -94,7 +94,7 @@ tovin, mutta tällaiset koodinkäsittelyt tehdään yleensä vasta ennen ohjelma
 julkaisua. Kehittäjät ovat tavanomaisesti voineet suorittaa kirjoittamansa
 JavaScriptin sellaisenaan kehitysympäristössä. Käännösvaiheen aikavaatimus
 pyritään luonnollisesti pitämään mahdollisimman pienenä, mutta se on silti
-projektin monimutkaisuuteen ja kehitysnopeuteen vaikuttava tekijä, tulee
+projektin monimutkaisuuteen ja kehitysnopeuteen vaikuttava tekijä, joka
 tulee huomioida työkalun käyttöönotossa.
 
 \begin{figure}
@@ -119,7 +119,7 @@ täysin uutena vaiheena.
 JavaScript-kirjastojen hallintaan tarkoitettu rekisteri npm on yksi
 suurimmista ohjelmistoekosysteemeistä \cite{DynamicsOfJSPackages}.
 Tutkinnon kirjoittamisen hetkellä rekisterin kotisivu, npmjs.com ilmoitti
-ladattavissa olevien pakettien määräksi yli 595 000. Avoimessa jakelussa
+ladattavissa olevien pakettien määräksi yli 800 000. Avoimessa jakelussa
 olevien kirjastojen lisäksi JavaScriptiä käyttävillä kehittäjillä voi olla
 suuri määrä valmista JavaScript-koodia, jota voi hyödyntää uusissa
 projekteissa. Jotta TypeScript, Flow ja Closure olisivat hyödyllisiä
@@ -140,7 +140,9 @@ tehtävä on annotoida toista tiedostoa \inlinecode{ostoskori.js}.
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Esimerkki TypeScript määrittelytiedostosta ostoskori.d.ts}]
-/** Laittaa tuotteen ostoskoriin. */
+export const tuotteet: ReadonlyArray<Ostos>;
+
+/** Lisää tuotteen ostoskoriin. */
 export function lisaaTuote(ostos: Ostos): void;
 \end{lstlisting}
 \end{minipage}
@@ -157,7 +159,7 @@ ostoskori.lisaaTuote({ nimi: "juusto", hinta: 5 });
 \end{minipage}
 
 Joissain tapauksissa kirjastoille tai kehittäjän omalle aiemmin kirjoitetulle
-JavaScript koodille ei kuitenkaan ole valmiita TypeScript-tyyppimäärittelyjä
+JavaScript-koodille ei kuitenkaan ole valmiita TypeScript-tyyppimäärittelyjä
 eikä niitä syystä tai toisesta voida luoda ennen muun kehityksen jatkamista.
 Kaikkien kolmen työkalun tärkeimpiin ominaisuuksiin kuuluu tuki vaiheittaiselle
 käyttöönotolle, eli käytännössä yhteenspivuus täysin tyyppitarkastamattoman

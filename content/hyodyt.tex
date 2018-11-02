@@ -47,14 +47,14 @@ tyyppitarkastus luultavasti auttaisi vähentämään myös näitä bugeja.
 \centering
 \includegraphics{images/to_type_or_not_to_type_venn.pdf}
 \caption{To Type or Not to Type: Quantifying Detectable Bugs in JavaScript
-         -tutkimuksen käsittelemät bugit\cite{ToTypeOrNotToType}.}
+         -tutkimuksen käsittelemät bugit \cite{ToTypeOrNotToType}.}
 \label{fig:ToTypeOrNotToType}
 \end{figure}
 
 Kuvaajan \ref{fig:ToTypeOrNotToType} esittämässä tilanteessa suuri osa
 bugeista ei ole julkisia, eli kehittäjät eivät ole havainneet bugia eivätkä
 käyttäjät ole ilmoittaneet sellaisesta. Esimerkiksi seuraavanlainen koodi
-saattaisi aiheuttaa vaikeasti havaittavan virheen ja jäisi helposti dynaamisessa
+saattaisi aiheuttaa vaikeasti havaittavan virheen joka jäisi helposti dynaamisessa
 testaamisessa huomaamatta:
 
 \begin{minipage}{\linewidth}
@@ -86,14 +86,14 @@ kiinnittää enemmän huomiota tuotetun koodin kokoon kuin suoritusaikaiseen
 tehokkuuteen. Tyypillinen JavaScript-ohjelma ladataan sivulle saapuessa
 internet-yhteyden yli juuri ennen suorittamista, minkä vuoksi ladattavan
 koodin koon kasvattaminen minimaalisen suoritusajan edun vuoksi ei usein ole
-kokonaisuudessaan hyödyllistä. Closure compiler on kehitetty erityisesti
+kokonaisuudessaan hyödyllistä. Closure–kääntäjä on kehitetty erityisesti
 JavaScript-koodin koon optimointia ajatellen. Muuttujanimet voidaan helposti
 uudelleennimetä ilmankin staattisen tyypityksen apua, mutta sen lisäksi myös
 joukko muita koodia keventäviä optimointeja on käytettävissä kun kääntäjällä
 on muuttujien tyypeistä saatava tieto käytettävissä. Closure–kääntäjä osaa
 uudelleennimetä myös luokkamuuttujien nimiä lyhyemmiksi, poistaa
 käyttämätöntä koodia, sekä korvata yksinkertaisia funktiokutsuja siirtämällä
-funktion sisältämät ohjeet kutsuntapaikalle (engl. "function inlining").
+funktion sisältämät ohjeet kutsuntapaikalle (engl. function inlining).
 
 \section{Tyyppimäärittelyt dokumentaationa}
 Eksplisiittisesti kirjoitetut tyypit sekä editorin antama tieto muuttujien
