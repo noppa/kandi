@@ -143,7 +143,7 @@ tehtävä on annotoida toista tiedostoa \inlinecode{ostoskori.js}.
 export const tuotteet: ReadonlyArray<Ostos>;
 
 /** Lisää tuotteen ostoskoriin. */
-export function lisaaTuote(ostos: Ostos): void;
+export function lisääTuote(ostos: Ostos): void;
 \end{lstlisting}
 \end{minipage}
 Tämän jälkeen TypeScript tiedostosta käsin voidaan kutsua tätä
@@ -154,7 +154,7 @@ tyyppien oikeellisuutta.
 \begin{lstlisting}[caption={JavaScript-koodin kutsuminen TypeScript tiedostosta tuotesivu.ts}]
 import * as ostoskori from "./ostoskori";
 
-ostoskori.lisaaTuote({ nimi: "juusto", hinta: 5 });
+ostoskori.lisääTuote({ nimi: "juusto", hinta: 5 });
 \end{lstlisting}
 \end{minipage}
 

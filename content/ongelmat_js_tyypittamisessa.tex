@@ -95,9 +95,9 @@ Jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi luotettava, sen on
 annettava virhe esimerkiksi seuraavasta ohjelmasta:
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption={Virheellinen JavaScript-ohjelma: Lisätyllä tuotteella ei ole nimeä.}]
+\begin{lstlisting}[caption={Virheellinen JavaScript-ohjelma: Lisätyllä tuotteella ei ole nimeä.},label={fig:soundness_test}]
 function osta(ostos) {
-  lisaaTuote({
+  lisääTuote({
     nimi: ostos.nimi,
     hinta: ostos.hinta
   });
@@ -106,17 +106,16 @@ function osta(ostos) {
 osta({ nimi: 'juusto', hinta: 5 });
 osta({ hinta: 5 });
 \end{lstlisting}
-\label{fig:soundness_test}
 \end{minipage}
 
 Toisaalta jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi täydellinen,
 sen on sallittava tämä korjattu versio ylläolevasta ohjelmasta:
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption={Toimiva JavaScript-ohjelma: Virheelliseltä kutsulta on suojauduttu tarkistuksella.}]
+\begin{lstlisting}[caption={Toimiva JavaScript-ohjelma: Virheelliseltä kutsulta on suojauduttu tarkistuksella.},label={fig:completeness_test}]
 function osta(ostos) {
   if (typeof ostos.nimi === 'string') {
-    lisaaTuote({
+    lisääTuote({
       nimi: ostos.nimi,
       hinta: ostos.hinta
     });
@@ -126,7 +125,6 @@ function osta(ostos) {
 osta({ nimi: 'juusto', hinta: 5 });
 osta({ hinta: 5 });
 \end{lstlisting}
-\label{fig:completeness_test}
 \end{minipage}
 Esimerkit \ref{fig:soundness_test} ja \ref{fig:completeness_test} toimivat
 odotetulla tavalla Flow:ssa. TypeScript vaatii eksplisiittisen tyyppiannotaation
@@ -152,12 +150,12 @@ ilman tyyppivirheitä.
 class Ihminen {
     constructor(public nimi: string){}
 }
-class Elain {
+class Eläin {
     constructor(public nimi: string){}
 }
-function varaaElainlaakari(omistaja: Ihminen, lemmikki: Elain){}
+function varaaEläinlääkäri(omistaja: Ihminen, lemmikki: Eläin){}
 
-varaaElainlaakari(new Elain("Musti"), new Ihminen("Jaakko"));
+varaaEläinlääkäri(new Eläin("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
 \label{fig:structural_typing_error}
 \end{minipage}

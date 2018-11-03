@@ -4,11 +4,11 @@ type Ostos = {
   +nimi: string;
   +hinta: number;
 };
-declare function lisaaTuote(ostos: Ostos): void;
+declare function lisääTuote(ostos: Ostos): void;
 
 function osta(ostos) {
   if (typeof ostos.nimi === 'string') {
-    lisaaTuote({
+    lisääTuote({
       nimi: ostos.nimi,
       hinta: ostos.hinta
     });

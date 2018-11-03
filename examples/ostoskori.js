@@ -1,6 +1,6 @@
 
 export const tuotteet = [];
 
-export function lisaaTuote(ostos) {
+export function lisääTuote(ostos) {
   tuotteet.push(ostos);
 }

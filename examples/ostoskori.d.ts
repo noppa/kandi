@@ -6,4 +6,4 @@ type Ostos = {
 export const tuotteet: ReadonlyArray<Ostos>;
 
 /** Lisää tuotteen ostoskoriin. */
-export function lisaaTuote(ostos: Ostos): void;
+export function lisääTuote(ostos: Ostos): void;

@@ -61,9 +61,9 @@ testaamisessa huomaamatta:
 \begin{lstlisting}[caption={Vaikeasti havaittavan virheen aiheuttava koodiesimerkki}]
 if (viikonpaiva === "perjantai") {
   // Alennus perjantaisin 5 euroa
-  ostoskori.lisaaTuote({ nimi: "astiasto", Hinta: 10 });
+  ostoskori.lisääTuote({ nimi: "astiasto", Hinta: 10 });
 } else {
-  ostoskori.lisaaTuote({ nimi: "astiasto", hinta: 15 });
+  ostoskori.lisääTuote({ nimi: "astiasto", hinta: 15 });
 }
 \end{lstlisting}
 \end{minipage}
