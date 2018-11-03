@@ -79,16 +79,14 @@ tyypin päättely jollaista nähdään esimerkiksi
 \inlinecode{var}-avainsanalla C\#:issa ja Javassa.
 
 \section{Luotettavuus, täydellisyys ja käytännöllisyys}
-
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\textwidth]{images/soundness_completeness2.pdf}
 \caption{Tyyppijärjestelmän luotettavuus ja täydellisyys}
 \end{figure}
-
 Tyyppijärjestelmän luotettavuus (engl. soundness) kuvaa sitä, kuinka suuren osan
 mahdollisista ohjelmointivirheistä se estää. Täysin luotettava (engl. sound)
 tyyppijärjestelmä estää kaikki sellaiset virheet jotka sen on tarkoitus
-estää \cite{CSE_ProgrammingLanguages}. Täydellisyys (engl. completeness)
+estää \cite{CSE_ProgrammingLanguages}. Täydellisyys (engl. \mbox{completeness})
 puolestaan kertoo salliiko tyyppijärjestelmä kielen sellaiset ominaisuudet
 jotka eivät olisi ajonaikana tyyppivirheitä \cite{TypesAndProgrammingLanguages, CSE_ProgrammingLanguages}.
 
@@ -96,7 +94,7 @@ Jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi luotettava, sen on
 annettava virhe esimerkiksi seuraavasta ohjelmasta:
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption={Virheellinen JavaScript-ohjelma: Lisätyllä tuotteella ei ole nimeä.},label={fig:soundness_test}]
+\begin{lstlisting}[caption={Virheellinen JavaScript-ohjelma: lisätyllä tuotteella ei ole nimeä.},label={fig:soundness_test}]
 function osta(ostos) {
   lisääTuote({
     nimi: ostos.nimi,
@@ -113,7 +111,7 @@ Toisaalta jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi täydellinen,
 sen on sallittava tämä korjattu versio ylläolevasta ohjelmasta:
 
 \begin{minipage}{\linewidth}
-\begin{lstlisting}[caption={Toimiva JavaScript-ohjelma: Virheelliseltä kutsulta on suojauduttu tarkistuksella.},label={fig:completeness_test}]
+\begin{lstlisting}[caption={Toimiva JavaScript-ohjelma: virheelliseltä kutsulta on suojauduttu tarkistuksella.},label={fig:completeness_test}]
 function osta(ostos) {
   if (typeof ostos.nimi === 'string') {
     lisääTuote({
@@ -162,10 +160,11 @@ varaaEläinlääkäri(new Eläin("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
 \end{minipage}
 TypeScript-kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
-vaikka arugmentit "omistaja" ja "lemmikki" ovat väärin päin, sillä
-molempien luokkien rakenne on sama; molemmissa on pelkkä tekstimuotoinen
-ominaisuus "nimi". Flow:ssa sama virhe ei menisi läpi. Siinä luokkainstanssit
-on tyypitetty nominaalisesti, mikä auttaa tässä esimerkissä mutta aiehuttaa ongelmia
-muissa tilanteissa. Projekti saattaa esimerkiksi sisältää kaksi versiota samasta
-kirjastosta jonkin toisen kirjaston kautta, mikä voi aiheuttaa yhteensopimusongelmia
-kun käytännössä saman luokan tyyppejä ei lueta keskenään yhteensopiviksi. 
+vaikka arugmentit \mbox{\dblquoted{omistaja}} ja \mbox{\dblquoted{lemmikki}}
+ovat väärin päin, sillä molempien luokkien rakenne on sama; molemmissa on
+pelkkä tekstimuotoinen ominaisuus \dblquoted{nimi}. Flow:ssa sama virhe ei menisi läpi.
+Siinä luokkainstanssit on tyypitetty nominaalisesti, mikä auttaa tässä
+esimerkissä mutta aiehuttaa ongelmia muissa tilanteissa. Projekti saattaa
+esimerkiksi sisältää kaksi versiota samasta kirjastosta jonkin toisen
+kirjaston kautta, mikä voi aiheuttaa yhteensopimusongelmia kun käytännössä
+saman luokan tyyppejä ei lueta keskenään yhteensopiviksi.
