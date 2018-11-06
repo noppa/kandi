@@ -23,6 +23,7 @@
 \usepackage{xcolor}
 
 \usepackage{caption}
+\usepackage{float}
 \usepackage{setspace}
 \captionsetup{font={small,stretch=1.1}}
 
@@ -53,7 +54,7 @@
    language=JavaScript,
    backgroundcolor=\color{lightgray},
    extendedchars=true,
-   basicstyle=\footnotesize\ttfamily\linespread{1.5},
+   basicstyle=\linespread{1.1}\footnotesize\ttfamily,
    showstringspaces=false,
    showspaces=false,
    numbers=left,
@@ -64,10 +65,12 @@
    showtabs=false,
    captionpos=b,
    literate={ä}{{\"a}}1 {Ä}{{\"A}}1 {ö}{{\"o}}1 {Ö}{{\"O}}1,
+   frame=single
 }
 
 % Never insert line breaks in these words:
 \hyphenation{JavaScript}
+\hyphenation{JavaScriptille}
 \hyphenation{Closure}
 \hyphenation{TypeScript}
 \hyphenation{Flow}

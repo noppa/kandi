@@ -9,8 +9,6 @@ tyyppitarkastukseen tarkoitettua työkalua päättelevät muuttujien tyyppejä a
 mutta vaativat paikoitellen myös eksplisiittisiä määrityksiä.
 Closure-kääntäjä lukee
 tyyppimääritykset JSDoc-tyylisistä dokumentaatiokommenteista \cite{annotatingJSforClosure}.
-
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Esimerkki Closure-annotaatiosta funktiolle},label={lst:ostoskorin_hinta_closure}]
 /**
 * @param {!Array<Ostos>} ostokset
@@ -22,19 +20,18 @@ function ostoskorinHinta(ostokset) {
   return summa;
 }
 \end{lstlisting}
-\end{minipage}
 Listauksessa \ref{lst:ostoskorin_hinta_closure} \inlinecode{ostoskorinHinta}-funktion
 tyyppimäärittely on toteutettu sen yläpuolella olevilla kommenteilla, jotka määrittävät
 tyypin \inlinecode{ostokset} parametrille sekä funktion palautusarvolle.
 TypeScript ja Flow puolestaan jatkavat ECMA-262 -spesifikaatiota erityisellä syntaksilla
 tyyppien eksplisiittistä määrittämistä varten. 
-
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[caption={Esimerkki Flow tai TypeScript annotaatiosta funktiolle},label={lst:ostoskorin_hinta_flow}]
+\begin{lstlisting}[
+  float,
+  caption={Esimerkki Flow tai TypeScript annotaatiosta funktiolle},
+  label={lst:ostoskorin_hinta_flow}
+]
 function ostoskorinHinta(ostokset: Ostos[]): number {
 \end{lstlisting}
-\end{minipage}
-
 Flow ja TypeScript -esimerkeissä \ref{lst:ostoskorin_hinta_flow}
 tyyppiannotaatiot ovat osana koodia, mikä
 tekee ohjelmasta yhteensopimattoman tavallisen JavaScriptin kanssa. Ohjelma
@@ -49,9 +46,9 @@ JavaScriptiä. Toisaalta tyyppiannotaatioiden määrittely kommenteissa voi
 olla runsassanaista ja hankalaa, mikä kasvattaa niiden kirjoittamiseen vaadittua
 työmäärää \cite{TypeScriptSpec, TypeScriptatBuild}.
 
-\begin{minipage}{\linewidth}
 Aiemmassa esimerkissä esitelty tyyppi \inlinecode{Ostos} pitäisi
 määritellä Closurea varten muiden annotaatioiden tapaan dokumentaatiokommentteja käyttäen:
+
 \begin{lstlisting}[label={lst:closure_typedef}]
 /**
 * @typedef {{
@@ -61,26 +58,26 @@ määritellä Closurea varten muiden annotaatioiden tapaan dokumentaatiokommentt
 */
 let Ostos;
 \end{lstlisting}
-\end{minipage}
-
 TypeScript ja Flow tarjoavat käännösaikaisen tyypin (type alias)
 määrittelyyn tiiviimmän ja helppolukuisemman syntaksin \cite{TypeScriptSpec}:
-
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[label={lst:ts_flow_type_alias}]
 type Ostos = {
   nimi: string;
   hinta: number;
 };
 \end{lstlisting}
-\end{minipage}
 Tällainen tyypin määritteleminen vaikuttaa ainoastaan käännösvaiheen
 tyyppitarkastukseen, eikä määrittely tuota tietorakenteita tai muuta
 sisältöä suoritettavaan JavaScript-ohjelmaan.
 
 \section{Ohjelman kääntäminen ennen suorittamista}
-
-JavaScript koodi tulkataan tai käännetään tyypillisesti suorittamisen
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/compilation.pdf}
+\caption{Vaihtoehtoisia käännösprosesseja}
+\label{fig:compilation}
+\end{figure}
+JavaScript-koodi tulkataan tai käännetään tyypillisesti suorittamisen
 yhteydessä, selaimesta tai muusta suoritusympäristöstä löytyvän ”moottorin”
 toimesta. EcmaScript-standardin mukaista koodia suorittamaan suunnitellut
 moottorit, kuten V8 tai SpiderMonkey, eivät kuitenkaan osaa käsitellä
@@ -96,13 +93,6 @@ JavaScriptin sellaisenaan kehitysympäristössä. Käännösvaiheen aikavaatimus
 pyritään luonnollisesti pitämään mahdollisimman pienenä, mutta se on silti
 projektin monimutkaisuuteen ja kehitysnopeuteen vaikuttava tekijä, joka
 tulee huomioida työkalun käyttöönotossa.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth]{images/compilation.pdf}
-\caption{Vaihtoehtoisia käännösprosesseja}
-\label{fig:compilation}
-\end{figure}
 
 Kuva \ref{fig:compilation} esittää erilaisia käännösprosesseja eri
 JavaScript-ohjelman kehityskielille. Jos koodi kirjoitetaan kaikkiin
@@ -137,26 +127,22 @@ ainoastaan kuvauksena sellaisen koodin tyyppimäärittelystä, jonka käsittely�
 TypeScript ja Flow eivät muuten voisi valvoa. TypeScriptillä voitaisiin
 esimerkiksi kirjoittaa seuraava tiedosto \inlinecode{ostoskori.d.ts}, jonka
 tehtävä on annotoida toista tiedostoa \inlinecode{ostoskori.js}.
-
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Esimerkki TypeScript määrittelytiedostosta ostoskori.d.ts}]
 export const tuotteet: ReadonlyArray<Ostos>;
 
 /** Lisää tuotteen ostoskoriin. */
 export function lisääTuote(ostos: Ostos): void;
 \end{lstlisting}
-\end{minipage}
 Tämän jälkeen TypeScript tiedostosta käsin voidaan kutsua tätä
 JavaScript-funktiota siten, että TypeScript valvoo
 tyyppien oikeellisuutta.
-
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={JavaScript-koodin kutsuminen TypeScript tiedostosta tuotesivu.ts}]
 import * as ostoskori from "./ostoskori";
 
 ostoskori.lisääTuote({ nimi: "juusto", hinta: 5 });
+// Vääränlainen kutsumistapa aiheuttaisi käännösaikaisen virheen:
+// ostoskori.lisääTuote('juusto', 5);
 \end{lstlisting}
-\end{minipage}
 
 Joissain tapauksissa kirjastoille tai kehittäjän omalle aiemmin kirjoitetulle
 JavaScript-koodille ei kuitenkaan ole valmiita TypeScript-tyyppimäärittelyjä

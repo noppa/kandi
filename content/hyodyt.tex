@@ -56,8 +56,6 @@ bugeista ei ole julkisia, eli kehittäjät eivät ole havainneet bugia eivätkä
 käyttäjät ole ilmoittaneet sellaisesta. Esimerkiksi seuraavanlainen koodi
 saattaisi aiheuttaa vaikeasti havaittavan virheen joka jäisi helposti dynaamisessa
 testaamisessa huomaamatta:
-
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Vaikeasti havaittavan virheen aiheuttava koodiesimerkki}]
 if (viikonpaiva === "perjantai") {
   // Alennus perjantaisin 5 euroa
@@ -66,7 +64,6 @@ if (viikonpaiva === "perjantai") {
   ostoskori.lisääTuote({ nimi: "astiasto", hinta: 15 });
 }
 \end{lstlisting}
-\end{minipage}
 Esimerkin koodi ei toimi oikein perjantaisin, sillä \inlinecode{Ostos}-tyyppisen
 objektin ominaisuus \inlinecode{hinta} on virheellisesti kirjoitettu isolla
 alkukirjaimella. Koska bugi toistuu vain tietyissä olosuhteissa, se voi pysyä

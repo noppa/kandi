@@ -47,15 +47,12 @@ uuteen kieleen siirryttäessä.
 
 TypeScript, Flow ja Cosure-kääntäjä tukevat melko pitkälle kehittynyttä
 tyyppien automaattista päättelyä (engl. type inference).
-
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={
   Flow pystyy tulkitsemaan vertaaHintoja-funktion tyypin automaattisesti, ilman eksplisiittisiä tyyppimäärittelyitä.
   },label={fig:flow_call_site_inference}]
   const vertaaHintoja = (a, b) => a.hinta - b.hinta;
   tuotteet.sort(vertaaHintoja);
 \end{lstlisting}
-\end{minipage}
 Esimerkissä \ref{fig:flow_call_site_inference} Flow pystyy päättelemään
 tyypin \newline
 \inlinecode{vertaaHintoja: (a: Ostos, b: Ostos) => number} automaattisesti,
@@ -93,7 +90,6 @@ jotka eivät olisi ajonaikana tyyppivirheitä \cite{TypesAndProgrammingLanguages
 Jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi luotettava, sen on
 annettava virhe esimerkiksi seuraavasta ohjelmasta:
 
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Virheellinen JavaScript-ohjelma: lisätyllä tuotteella ei ole nimeä.},label={fig:soundness_test}]
 function osta(ostos) {
   lisääTuote({
@@ -105,12 +101,8 @@ function osta(ostos) {
 osta({ nimi: 'juusto', hinta: 5 });
 osta({ hinta: 5 });
 \end{lstlisting}
-\end{minipage}
-
 Toisaalta jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi täydellinen,
 sen on sallittava tämä korjattu versio ylläolevasta ohjelmasta:
-
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={Toimiva JavaScript-ohjelma: virheelliseltä kutsulta on suojauduttu tarkistuksella.},label={fig:completeness_test}]
 function osta(ostos) {
   if (typeof ostos.nimi === 'string') {
@@ -124,7 +116,6 @@ function osta(ostos) {
 osta({ nimi: 'juusto', hinta: 5 });
 osta({ hinta: 5 });
 \end{lstlisting}
-\end{minipage}
 Esimerkit \ref{fig:soundness_test} ja \ref{fig:completeness_test} toimivat
 odotetulla tavalla Flow:ssa. TypeScript vaatii eksplisiittisen tyyppiannotaation
 osta-funktiolle, mutta toimii muuten samalla tavalla. Flow, TypeScript ja
@@ -144,7 +135,6 @@ muuttaa tyyppiturvallisuuden saavuttamiskesi.
 TypeScript on strukturaalisesti tyypitetty, minkä vuoksi seuraava koodi kääntyy
 ilman tyyppivirheitä.
 
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[caption={
   Loogisen virheen sisältävä, mutta ilman virheitä kääntyvä TypeScript-ohjelma.
 }, label={fig:structural_typing_error}]
@@ -158,7 +148,6 @@ function varaaEläinlääkäri(omistaja: Ihminen, lemmikki: Eläin){}
 
 varaaEläinlääkäri(new Eläin("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
-\end{minipage}
 TypeScript-kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
 vaikka arugmentit \mbox{\dblquoted{omistaja}} ja \mbox{\dblquoted{lemmikki}}
 ovat väärin päin, sillä molempien luokkien rakenne on sama; molemmissa on
