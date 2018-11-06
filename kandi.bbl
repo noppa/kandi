@@ -88,12 +88,15 @@ TypeScript Design Goals, syyskuu 2014.
   \urlprefix\url{https://github.com/Microsoft/TypeScript/wiki/TypeScript-Design-Goals}.
 
 \bibitem{TypeScript_issuecomment_esnextfeatures}
-Ryan Cavanaugh, lokakuu 2014.
+Ryan Cavanaugh.
+\newblock Kommentti TypeScript-ominaisuusehdotuksessa Suggestion: "safe
+  navigation operator", i.e. x?.y, lokakuu 2014.
 \newblock
   \urlprefix\url{https://github.com/Microsoft/TypeScript/issues/16#issuecomment-57645069}.
 
 \bibitem{Optional_Chaining_proposal}
-Gabriel~Isenberg Claude~Pache, 2018.
+Gabriel~Isenberg Claude~Pache.
+\newblock Optional Chaining for JavaScript, 2018.
 \newblock \urlprefix\url{https://github.com/tc39/proposal-optional-chaining}.
 
 \bibitem{CSE_ProgrammingLanguages}
