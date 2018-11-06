@@ -49,11 +49,14 @@ TypeScript, Flow ja Cosure-kääntäjä tukevat melko pitkälle kehittynyttä
 tyyppien automaattista päättelyä (engl. type inference).
 \begin{lstlisting}[caption={
   Flow pystyy tulkitsemaan vertaaHintoja-funktion tyypin automaattisesti, ilman eksplisiittisiä tyyppimäärittelyitä.
-  },label={fig:flow_call_site_inference}]
+  },
+  label={fig:flow_call_site_inference},
+  aboveskip={20pt}
+]
   const vertaaHintoja = (a, b) => a.hinta - b.hinta;
   tuotteet.sort(vertaaHintoja);
 \end{lstlisting}
-Esimerkissä \ref{fig:flow_call_site_inference} Flow pystyy päättelemään
+Esimerkissä \ref{fig:flow_call_site_inference}, Flow pystyy päättelemään
 tyypin \newline
 \inlinecode{vertaaHintoja: (a: Ostos, b: Ostos) => number} automaattisesti,
 vaikkei esimerkissä ole yhtään eksplisiittistä tyyppimäärittelyä tai
@@ -132,11 +135,14 @@ siten että nykyisellään käytössä olevat kirjastot ja koodikäytännöt pys
 tyyppitarkastamaan ilman että niiden arkkitehtuuria tarvitsee merkittävästi
 muuttaa tyyppiturvallisuuden saavuttamiskesi.
 
-TypeScript on strukturaalisesti tyypitetty, minkä vuoksi seuraava koodi kääntyy
+TypeScriptin tyyppijärjestelmä on \textit{rakennepohjainen} (engl. structural),
+koska sen katsottiin sopivan paremmin siihen tyyliin jolla JavaScriptiä tavallisesti
+käytetään. Rakennepohjaisessa tyyppijärjestelmässä keskitytään objektien muotoon
+eikä \textit{nimelliseen} (engl. nominal) arvoon, minkä vuoksi myös seuraava koodi kääntyy
 ilman tyyppivirheitä.
 
 \begin{lstlisting}[caption={
-  Loogisen virheen sisältävä, mutta ilman virheitä kääntyvä TypeScript-ohjelma.
+  Loogisen virheen sisältävä, mutta ilman varoituksia kääntyvä TypeScript-ohjelma.
 }, label={fig:structural_typing_error}]
 class Ihminen {
     constructor(public nimi: string){}
