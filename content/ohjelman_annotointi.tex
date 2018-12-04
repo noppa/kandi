@@ -23,8 +23,8 @@ function ostoskorinHinta(ostokset) {
 Listauksessa \ref{lst:ostoskorin_hinta_closure} \inlinecode{ostoskorinHinta}-funktion
 tyyppimäärittely on toteutettu sen yläpuolella olevilla kommenteilla, jotka määrittävät
 tyypin \inlinecode{ostokset} parametrille sekä funktion palautusarvolle.
-TypeScript ja Flow puolestaan jatkavat ECMA-262 -spesifikaatiota erityisellä syntaksilla
-tyyppien eksplisiittistä määrittämistä varten. 
+TypeScript ja Flow puolestaan jatkavat ECMA-262-spe\-si\-fi\-kaa\-ti\-o\-ta
+erityisellä syntaksilla tyyppien eksplisiittistä määrittämistä varten. 
 \begin{lstlisting}[
   float,
   caption={Esimerkki Flow tai TypeScript annotaatiosta funktiolle},
@@ -36,7 +36,7 @@ Flow ja TypeScript -esimerkeissä \ref{lst:ostoskorin_hinta_flow}
 tyyppiannotaatiot ovat osana koodia, mikä
 tekee ohjelmasta yhteensopimattoman tavallisen JavaScriptin kanssa. Ohjelma
 on käännettävä JavaScriptiksi ennen suorittamista. Annotaatioiden
-syntaksi ja merkitys ei myöskään ole välttämättä suoraan selvä
+syntaksi ja merkitys eivät myöskään ole välttämättä suoraan selviä
 JavaScript-ohjelmoijalle, joka pahimmassa tapauksessa voi kokea lisätyt
 tyyppimäärittelyt vaikeasti luettavina. 
 
@@ -78,8 +78,8 @@ sisältöä suoritettavaan JavaScript-ohjelmaan.
 \label{fig:compilation}
 \end{figure}
 JavaScript-koodi tulkataan tai käännetään tyypillisesti suorittamisen
-yhteydessä, selaimesta tai muusta suoritusympäristöstä löytyvän ”moottorin”
-toimesta. EcmaScript-standardin mukaista koodia suorittamaan suunnitellut
+yhteydessä, selaimesta tai muusta suoritusympäristöstä löytyvän \dblquoted{moottorin}
+toimesta. EcmaScript-stan\-dar\-din mukaista koodia suorittamaan suunnitellut
 moottorit, kuten V8 tai SpiderMonkey, eivät kuitenkaan osaa käsitellä
 TypeScript- tai Flow-annotaatioilla merkattua koodia. Näinollen TypeScript-
 tai Flow-annotoitu koodi on välttämätöntä kääntää muotoon jossa
@@ -100,22 +100,22 @@ suoritusympäristöihin soveltuvalla kielen versiolla, kuten EcmaScriptin
 versiolla 5 (2011), käännösvaihe voidaan jättää kokonaan väliin. Kielen
 uudemmat versiot ovat kuitenkin tuoneet monia lisäominaisuuksia, joiden
 käyttäminen vanhempia selaimia tukevissa ohjelmissa vaatii joka tapauksessa
-käännösvaiheen staattisesta tyypittämisestä riippumatta. Uusia JavaScript-
-ominaisuuksia hyödyntäville projekteille koodin kääntäminen ei siis tule
-täysin uutena vaiheena.
+käännösvaiheen staattisesta tyypittämisestä riippumatta. Uusia
+JavaScript-o\-mi\-nai\-suuk\-si\-a hyödyntäville projekteille koodin kääntäminen ei
+siis tule täysin uutena vaiheena.
 
 \section{Työkalun vaiheittainen käyttöönotto}
 
-JavaScript-kirjastojen hallintaan tarkoitettu rekisteri npm on yksi
+JavaScript-kirjastojen hallintaan tarkoitettu rekisteri \textit{npm} on yksi
 suurimmista ohjelmistoekosysteemeistä \cite{DynamicsOfJSPackages}.
-Tutkinnon kirjoittamisen hetkellä rekisterin kotisivu, npmjs.com ilmoitti
-ladattavissa olevien pakettien määräksi yli 800 000. Avoimessa jakelussa
-olevien kirjastojen lisäksi JavaScriptiä käyttävillä kehittäjillä voi olla
-suuri määrä valmista JavaScript-koodia, jota voi hyödyntää uusissa
-projekteissa. Jotta TypeScript, Flow ja Closure olisivat hyödyllisiä
-työkaluja JavaScript-ohjelmien kehitykseen, on niiden oltava yhteensopivia
-sellaisen JavaScript-koodin kanssa jonka kehitykseen ei kyseistä työkalua
-ole käytetty.
+Tämän tutkielman kirjoittamisen hetkellä rekisterin kotisivu, npmjs.com,
+ilmoitti julkisesti saatavilla olevien pakettien määräksi yli 800 000.
+Avoimessa jakelussa olevien kirjastojen lisäksi JavaScriptiä käyttävillä
+kehittäjillä voi olla suuri määrä valmista JavaScript-koodia, jota voi
+hyödyntää uusissa projekteissa. Jotta TypeScript, Flow ja Closure olisivat
+hyödyllisiä työkaluja JavaScript-ohjelmien kehitykseen, on niiden oltava
+yhteensopivia sellaisen JavaScript-koodin kanssa jonka kehitykseen ei
+kyseistä työkalua ole käytetty.
 
 TypeScript ja Flow tukevat erityisiä määrittelytiedostoja, joiden sisältämällä
 tyyppiannotoidulla koodilla määritetään kirjaston tai muun JavaScript-koodin

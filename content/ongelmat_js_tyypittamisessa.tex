@@ -1,16 +1,17 @@
 \chapter{Ongelmat JavaScriptin staattisessa tyypittämisessä}
 
 \section{EcmaScript-yhteensopivuus}
-TypeScript pyrkii noudattamaan EcmaScript-spesifikaatiota mahdollisimman
-tarkasti kaikkien sellaisten ominaisuuksien suhteen jotka eivät nimenomaan
+TypeScript pyrkii
+nou\-dat\-ta\-maan Ecma\-Script-spe\-si\-fi\-kaa\-ti\-o\-ta mah\-dol\-li\-sim\-man
+tar\-kas\-ti kaik\-ki\-en sellaisten ominaisuuksien suhteen jotka eivät nimenomaan
 liity staattiseen tyypittämiseen \cite{TypeScript_DesignGoals}. TypeScriptin
-kehityksen alkuvaiheissa, ennen EcmaScript 2015-spesifikaation valmistumista,
+kehityksen alkuvaiheissa, ennen EcmaScript 2015 -spe\-si\-fi\-kaa\-ti\-on valmistumista,
 JavaScriptista kuitenkin puuttui joitain tärkeiksi katsottuja ominaisuuksia,
-jotka päätettiin lisätätä TypeScriptiin mahdollisista yhteensopimusongelmista
-huolimatta. TypeScriptissä on esimerkiksi syntaksi nimiavaruuden määrittämiseen,
+jotka päätettiin lisätätä TypeScriptiin mahdollisista yh\-teen\-so\-pi\-vuus\-ongel\-mi\-sta
+huolimatta. TypeScrip\-tis\-sä on esimerkiksi syntaksi ni\-mi\-a\-va\-ruu\-den määrittämiseen,
 vaikka EcmaScriptiin myöhemmin lisätyt \textit{moduulit} ajavat saman asian
 \cite{TypeScript_issuecomment_esnextfeatures}. TypeScript tukee nykyään sekä
-alkuperäistä nimiavaruus-ominaisuuttaan että EcmaScriptin moduuleita.
+alkuperäistä ni\-mi\-a\-va\-ruus-o\-mi\-nai\-suut\-taan että EcmaScriptin moduuleita.
 
 Flow ja Closure-kääntäjä lisäävät koodiin ainoastaan staattista tyypitystä
 koskevia ominaisuuksia, kuten tyyppimäärittelyjä, joten niissä ei ole
