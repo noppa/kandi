@@ -1,17 +1,19 @@
 \chapter{Ongelmat JavaScriptin staattisessa tyypittämisessä}
 
 \section{EcmaScript-yhteensopivuus}
-TypeScript pyrkii
-nou\-dat\-ta\-maan Ecma\-Script-spe\-si\-fi\-kaa\-ti\-o\-ta mah\-dol\-li\-sim\-man
-tar\-kas\-ti kaik\-ki\-en sellaisten ominaisuuksien suhteen jotka eivät nimenomaan
-liity staattiseen tyypittämiseen \cite{TypeScript_DesignGoals}. TypeScriptin
-kehityksen alkuvaiheissa, ennen EcmaScript 2015 -spe\-si\-fi\-kaa\-ti\-on valmistumista,
-JavaScriptista kuitenkin puuttui joitain tärkeiksi katsottuja ominaisuuksia,
-jotka päätettiin lisätätä TypeScriptiin mahdollisista yh\-teen\-so\-pi\-vuus\-ongel\-mi\-sta
-huolimatta. TypeScrip\-tis\-sä on esimerkiksi syntaksi ni\-mi\-a\-va\-ruu\-den määrittämiseen,
-vaikka EcmaScriptiin myöhemmin lisätyt \textit{moduulit} ajavat saman asian
+TypeScript pyrkii nou\-dat\-ta\-maan Ecma\-Script-spe\-si\-fi\-kaa\-ti\-o\-ta
+mah\-dol\-li\-sim\-man tar\-kas\-ti kaik\-ki\-en sellaisten ominaisuuksien
+suhteen jotka eivät nimenomaan liity staattiseen tyypittämiseen
+\cite{TypeScript_DesignGoals}. TypeScriptin kehityksen alkuvaiheissa, ennen
+EcmaScript 2015 -spe\-si\-fi\-kaa\-ti\-on valmistumista, JavaScriptista
+kuitenkin puuttui joitain tärkeiksi katsottuja ominaisuuksia, jotka
+päätettiin lisätätä TypeScriptiin mahdollisista
+yh\-teen\-so\-pi\-vuus\-ongel\-mi\-sta huolimatta. TypeScrip\-tis\-sä on
+esimerkiksi syntaksi ni\-mi\-a\-va\-ruu\-den määrittämiseen, vaikka
+EcmaScriptiin myöhemmin lisätyt \textit{moduulit} ajavat saman asian
 \cite{TypeScript_issuecomment_esnextfeatures}. TypeScript tukee nykyään sekä
-alkuperäistä ni\-mi\-a\-va\-ruus-o\-mi\-nai\-suut\-taan että EcmaScriptin moduuleita.
+al\-ku\-pe\-räis\-tä ni\-mi\-a\-va\-ruus-o\-mi\-nai\-suut\-taan että
+EcmaScriptin mo\-duu\-lei\-ta.
 
 Flow ja Closure-kääntäjä lisäävät koodiin ainoastaan staattista tyypitystä
 koskevia ominaisuuksia, kuten tyyppimäärittelyjä, joten niissä ei ole
@@ -20,9 +22,9 @@ EcmaScript kuitenkin kehittyy nopeasti ja sen päälle rakentavien työkalujen
 on pysyttävä tahdissa mukana ollakseen hyödyllisiä kehittäjille.
 
 Kaikki kolme työkalua pyrkivät tukemaan EcmaScriptin uusinta viimeisteltyä
-versiota. Lisäksi Flow tarjoaa tyyppitarkastusta joillekkin kokeellisille
+versiota. Lisäksi Flow tarjoaa tyyppitarkastusta joillekin kokeellisille
 ominaisuuksille joiden EcmaScript-määrittely ei vielä ole täysin valmis mutta
-jotka luultavasti tullaan lisäämään myöhemmin. Esimerkiksi
+jotka luultavasti tullaan lisäämään myöhemmin tuleviin määrittelyihin. Esimerkiksi
 \textit{null-turvallinen ketjutus} (engl. optional chaining tai safe navigation)
 \cite{Optional_Chaining_proposal} on vielä
 suunnitteluvaiheessa oleva kielen ominaisuus, mutta Flow tarjoaa jo
@@ -35,7 +37,7 @@ tulevat suurella todennäköisyydellä muuttumaan useaan otteeseen suunnitteluva
 aikana ja sitä käyttäneet kehittäjät voivat myöhemmin joutua
 \textit{refaktoroimaan} koodiaan.
 
-\section{Tyyppien automaattinen ja vaiheittainen tyypittäminen}
+\section{Automaattinen ja vaiheittainen tyypittäminen}
 
 Jotta staattisen tyypityksen tuova työkalu olisi varteenotettava vaihtoehto
 dynaamisesti tyypitetyn JavaScriptin rinnalla, sen kirjoittaminen ei voi vaatia
@@ -59,9 +61,10 @@ tyyppien automaattista päättelyä (engl. type inference).
 \end{lstlisting}
 Esimerkissä \ref{fig:flow_call_site_inference}, Flow pystyy päättelemään
 tyypin \newline
-\inlinecode{vertaaHintoja: (a: Ostos, b: Ostos) => number} automaattisesti,
+\inlinecode{vertaaHintoja: (a: Ostos, b: Ostos) => number} automaattisesti,\newline
 vaikkei esimerkissä ole yhtään eksplisiittistä tyyppimäärittelyä tai
-muuta tavallisesta JavaScriptista poikkeavaa. Flow tietää ennestään
+muuta tavallisesta\newline
+JavaScriptista poikkeavaa. Flow tietää ennestään
 mikä listan sort-metodin tyyppi on, joten se pystyy päättelemään myös
 sort-metodille annetun vertaaHintoja-funktion tyypin käyttämällä
 \textit{kutsumispaikkaan perustuvaa päättelyä} (engl. call-site inference).
@@ -84,12 +87,16 @@ tyypin päättely jollaista nähdään esimerkiksi
 \includegraphics[width=\textwidth]{images/soundness_completeness2.pdf}
 \caption{Tyyppijärjestelmän luotettavuus ja täydellisyys}
 \end{figure}
-Tyyppijärjestelmän luotettavuus (engl. soundness) kuvaa sitä, kuinka suuren osan
-mahdollisista ohjelmointivirheistä se estää. Täysin luotettava (engl. sound)
-tyyppijärjestelmä estää kaikki sellaiset virheet jotka sen on tarkoitus
-estää \cite{CSE_ProgrammingLanguages}. Täydellisyys (engl. \mbox{completeness})
-puolestaan kertoo salliiko tyyppijärjestelmä kielen sellaiset ominaisuudet
-jotka eivät olisi ajonaikana tyyppivirheitä \cite{TypesAndProgrammingLanguages, CSE_ProgrammingLanguages}.
+
+Tyyp\-pi\-jär\-jes\-tel\-män luotettavuus (engl. soundness) kuvaa sitä,
+kuinka suuren osan\newline
+mah\-dol\-li\-sis\-ta oh\-jel\-moin\-ti\-vir\-heis\-tä se
+estää. Täysin luotettava (engl. sound) tyyppijärjestelmä estää kaikki
+sellaiset virheet jotka sen on tarkoitus estää
+\cite{CSE_ProgrammingLanguages}. Täydellisyys (engl. \mbox{completeness})
+puolestaan kertoo salliiko tyyppijärjestelmä kaikki kielen sellaiset
+ominaisuudet jotka eivät olisi ajonaikana tyyppivirheitä
+\cite{TypesAndProgrammingLanguages, CSE_ProgrammingLanguages}.
 
 Jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi luotettava, sen on
 annettava virhe esimerkiksi seuraavasta ohjelmasta:
@@ -124,8 +131,8 @@ Esimerkit \ref{fig:soundness_test} ja \ref{fig:completeness_test} toimivat
 odotetulla tavalla Flow:ssa. TypeScript vaatii eksplisiittisen tyyppiannotaation
 osta-funktiolle, mutta toimii muuten samalla tavalla. Flow, TypeScript ja
 Closure eivät kuitenkaan ole täydellisiä tai kokonaan luotettavia.
-Monimutkaisemmissa tilanteissa virheitä saattaa jäädä nappaamatta tai toimiva
-ohjelma voidaan merkata virheelliseksi.
+Monimutkaisemmissa tilanteissa virheitä saattaa jäädä tunnistamatta tai toimiva
+ohjelma voidaan merkitä virheelliseksi.
 
 JavaScriptiä käännöskohteena käyttävät
 mutta muuten sen syntaksista ja semantiikasta eroavat uudet kielet,
@@ -134,7 +141,7 @@ yhteensopiva vanhan koodin kanssa. TypeScript ja Flow on sen sijaan kehitetty
 lisäämään staattinen tyypitys olemassa olevaan kieleen, JavaScriptiin,
 siten että nykyisellään käytössä olevat kirjastot ja koodikäytännöt pystytään
 tyyppitarkastamaan ilman että niiden arkkitehtuuria tarvitsee merkittävästi
-muuttaa tyyppiturvallisuuden saavuttamiskesi.
+muuttaa tyyppiturvallisuuden saavuttamiseksi.
 
 TypeScriptin tyyppijärjestelmä on \textit{rakennepohjainen} (engl. structural),
 koska sen katsottiin sopivan paremmin siihen tyyliin jolla JavaScriptiä tavallisesti
@@ -156,7 +163,7 @@ function varaaEläinlääkäri(omistaja: Ihminen, lemmikki: Eläin){}
 varaaEläinlääkäri(new Eläin("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
 TypeScript-kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
-vaikka arugmentit \mbox{\dblquoted{omistaja}} ja \mbox{\dblquoted{lemmikki}}
+vaikka arugmentit \mbox{\dblquoted{omistaja}} ja \newline\mbox{\dblquoted{lemmikki}}
 ovat väärin päin, sillä molempien luokkien rakenne on sama; molemmissa on
 pelkkä tekstimuotoinen ominaisuus \dblquoted{nimi}. Flow:ssa sama virhe ei menisi läpi.
 Siinä luokkainstanssit on tyypitetty nominaalisesti, mikä auttaa tässä
