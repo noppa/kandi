@@ -47,6 +47,28 @@ Shriam~Rajagopalan Erik~Wittern, Philippe~Suter.
 \newblock A Look at the Dynamics of the JavaScript Package Ecosystem.
 \newblock 2016.
 
+\bibitem{DefinitelyTyped}
+DefinitelyTyped – repositorio TypeScript tyypitystiedostoille.
+\newblock \urlprefix\url{https://github.com/DefinitelyTyped/DefinitelyTyped}.
+
+\bibitem{FlowTyped}
+flow-typed – repositorio Flow tyypitystiedostoille.
+\newblock \urlprefix\url{https://github.com/flow-typed/flow-typed}.
+
+\bibitem{Flowgen}
+Flowgen – kääntäjä TypeScriptist-tyypitystiedostoista
+  Flow-tyypitystiedostoiksi, 2016.
+\newblock \urlprefix\url{https://github.com/joarwilk/flowgen}.
+
+\bibitem{Clutz}
+Clutz – kääntäjä Closure-tyypitystiedostoista
+  TypeScript-tyypitystiedostoiksi, 2016.
+\newblock \urlprefix\url{https://github.com/angular/clutz}.
+
+\bibitem{Tsickle}
+Tsickle – kääntäjä TypeScriptistä Closureksi, 2014.
+\newblock \urlprefix\url{https://github.com/angular/tsickle}.
+
 \bibitem{Ecma262NaN}
 Ecma International.
 \newblock {\em ECMA-262 Section 12.8.3\/}, kesäkuu 2017.
