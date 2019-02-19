@@ -1,22 +1,30 @@
 \chapter{Yhteenveto}
-Staattinen tyypitys jakaa mielipiteitä. Toisaalta se vaatii lisää
-kirjoitettavaa koodia ja voi rajoittaa sitä mitä kielellä voi tehdä, sillä
-harva tyyppijärjestelmä on täydellinen (engl. complete). Toisaalta taas
-kehitystyön lopputuloksessa voidaan säästyä joiltain virheiltä ja parhaassa
-tapauksessa nopea virheiden huomaaminen ja editorituki voi jopa tehdä
-kehityksestä nopeampaa.
+Staattinen tyypitys jakaa mielipiteitä. Eksplisiittiset
+tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia ja liian tiukka
+tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
+tyyppijärjestelmä on täydellinen (engl. complete).
+TODO: lodash.get esimerkki tähän?
 
-Virheiden vähentäminen staattisten tyyppien avulla kiinnostaa erityisesti
-isoja yrityksiä joilla on suuria määriä yrityksen toiminnalle kriittistä
-koodia dynaamisella kielellä kirjoitettuna. JavaScriptin lisäksi staattista
-tyypitystä onkin kaavailtu muunmuassa Pythonin, PHP:n ja Rubyn päälle, joko
-kieleen sisäänrakennettuina \dblquoted{tyyppivihjeinä} tai erillisinä
-työkaluina kuten Facebookin Pyre Pythonille tai Hack PHP:lle.
+Koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin vähäisiksi
+jos lopputuotos ei toimi odotetulla tavalla. Bugit heikentävät käyttäjien
+tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa sellaista vahinkoa
+että koko bugisen ohjelman julkaisusta saatu nettohyöty on negatiivinen, eli
+sen käyttöönotto aiheuttaa enemmän haittaa kuin hyötyä. Staattinen tyypitys
+ohjaa kirjoitettua koodia turvalliseen suuntaan kehitysvaiheen alusta
+loppuun, ja torjuu tietynlaisia ohjelmointivirheitä tehokkaammin kuin
+esimerkiksi ajonaikaista käyttäytymistä testaavat \textit{unit testit}.
 
-Vaikka tarjolla olisi myös alun perinkin staattisesti tyypitettyjä kieliä,
-joista osa on jopa käännettävissä JavaScriptiksi, monet valitsevat silti
-mieluummin dynaamisesti tyypitetyn kielen päälle kehitetyn staattisen
-tyyppitarkastajan. Syynä voi olla esimerkiksi olemassa olevan koodin suuri
-määrä tai kielen ympärillä olevan yhteisön laajuus. Tai ehkä vaiheittainen ja
-ennen kaikkea valinnainen staattinen tyypitys vain osuu sopivasti kahden
-ääripään välimaastoon.
+Web-teknologioilla rakennettavat ohjelmistot ja niitä pyörittämään vaadittava
+koodin määrä kasvavat kaiken aikaa isommiksi, mikä tekee uusien ohjelmoijien
+sisäänotosta erityisen tärkeää. JavaScript ja muut dynaamiset kielet kuten
+Python ja PHP ovat useiden aloittelijoille tarkoitettujen koulutusohjelmien
+suosiossa, minkä vuoksi JavaScriptin käyttö sellaisenaan ilman esiteltyjen
+kaltaisia lisätyökaluja voi houkutella enemmän hakijoiden määrää ja siten
+tehdä rekrytoinnista helpompaa. Staattinen tyypitys voi kuitenkin myös
+helpottaa projektiin sisään pääsyä uusille työntekijöille sen tarjoaman
+dokumentaation kautta.
+
+TODO: Pyre, Hack, Ruby
+
+TODO: Miksi dynaamiseen kieleen staattinen tyypitys eikä suoraan
+staattisesti tyypitettyä kieltä
