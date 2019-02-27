@@ -102,12 +102,30 @@ käyttämätöntä koodia, sekä korvata yksinkertaisia funktiokutsuja siirtäm�
 funktion sisältämät ohjeet kutsuntapaikalle (engl. function inlining).
 
 \section{Tyyppimäärittelyt dokumentaationa}
+Nykyaikasten editorien vakio-ominaisuuksiin kuuluu kirjoittamisen tukeminen
+automaattisilla ehdotuksilla. Yksinkertaisimmillaan ehdotukset voivat
+perustua avatuissa tiedostoissa käytettyihin sanoihin, joita editori ehdottaa
+käytettäväksi uudelleen koodia kirjoitettaessa. Alkeellisetkin ehdotukset
+voivat nopeuttaa kirjoittamista silloin kun ne sattuvat osumaan oikeaan,
+mutta suurempi hyöty saadaan kun ehdotusten taustalla on syvempää koodin
+analyysia. Kun editori tai ehdotukset tarjoava editorin lisätyökalu ymmärtää
+koodissa olevia rakenteita ja niiden tyyppejä, ehdotukset voivat olla
+täsmällisempiä ja perustua kontekstiin johon uutta koodia ollaan juuri
+kirjoittamassa. Kuvassa \ref{fig:Suggestions} näkyy\newline
+\textit{VSCode}-editorin antamat ehdotukset eräille JavaScript-
+ja TypeScript-tiedostoille.\newline
+TypeScriptiä kirjoittaessa editori ymmärtää että \inlinecode{tuote.}-ilmaisun
+jälkeen ainoat järkevät ehdotukset ovat \inlinecode{Ostos}-tyyppisen muuttujan
+ominaisuuksien nimiä, eli että ohjelmoija haluaa hyvin suurella todennäköisyydellä
+kirjoittaa joko \inlinecode{tuote.hinta} tai \inlinecode{tuote.nimi}.
+Ehdotuksen voi hyväksyä helposti enteriä painamalla, jolloin ehdotettua
+koodinpätkää ei tarvitse kirjoittaa käsin.
+
 Eksplisiittisesti kirjoitetut tyypit sekä editorin antama tieto muuttujien
-tyypeistä voi toimia myös aiemmin kirjoitetun koodin dokumentaationa ja
-kuvauksena siitä, miten moduulia on tarkoitus käyttää. Nykyaikasten editorien
-vakio-ominaisuuksiin kuuluu kirjoittamisen tukeminen automaattisilla ehdotuksilla.
-Ehdotukset nopeuttavat pitkien metodinimien kirjoittamista ja toimivat
-eräänlaisena dokumentaation lähteenä, sillä ohjelmoija voi tutkia luokan tai
+tyypeistä voivat toimia myös aiemmin kirjoitetun koodin dokumentaationa ja
+kuvauksena siitä, miten moduulia on tarkoitus käyttää.
+Ehdotukset toimivat eräänlaisena dokumentaation lähteenä,
+sillä ohjelmoija voi tutkia luokan tai
 paketin tarjoamaa sisältöä ehdotettuja nimiä selaamalla. Automaattisia ehdotuksia
 on mahdollista tarjota myös dynaamisesti tyyppitarkastetuille kielille, mutta
 koodipohjan kasvaessa ja muuttuessa monimutkaisemmaksi ehdotusten tarkkuus
@@ -127,9 +145,10 @@ IntelliSense osaa antaa staattisesti tyypitetylle koodille.
 \includegraphics[width=\textwidth]{images/intellisense_typescript}
 \noindent
 \caption{
-  IntelliSensen tarjoamat ehdotukset JavaScriptille (yllä) ja TypeScriptille (alla).
+  VSCode-editorin tarjoamat ehdotukset JavaScriptille (yllä) ja TypeScriptille (alla).
   JavaScriptille annetuissa ehdotuksissa on turhia, tiedostossa käytettyihin
   sanoihin perustuvia ehdotuksia.}
+\label{fig:Suggestions}
 \end{figure}
 
 Automaattisten ehdotusten vaikutuksesta ohjelmointityön tehokkuuteen ei

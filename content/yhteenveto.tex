@@ -1,30 +1,61 @@
 \chapter{Yhteenveto}
-Staattinen tyypitys jakaa mielipiteitä. Eksplisiittiset
+Staattinen tyypitys jakaa mielipiteitä. Facebook on kehittänyt
+staattiset tyyppijärjestelmät myös \textit{Pythonin} (1990) ja \textit{PHP:n} (1995)
+analysointiin \cite{PyreCheck, HackLang}.
+Dynaamisesti tyypitetyn \textit{Clojuren} (2007) kehittäjä
+Rich Hickey on puolestaan otteeseen kritisoinut staattista
+tyypitystä useaan otteeseen \cite{10YearsOfClojure}. Eksplisiittiset
 tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia ja liian tiukka
 tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
-tyyppijärjestelmä on täydellinen (engl. complete).
-TODO: lodash.get esimerkki tähän?
+tyyppijärjestelmä on täydellinen (engl. complete). JavaScriptissä on useita
+yleisesti käytettyjä rajapintoja jotka ovat hyödyllisiä mutta vaikea
+tyypittää staattisesti. Esimerkiksi suositusta kirjastosta \textit{lodash}
+löytyy funktio \inlinecode{get} \cite{LodashGet}, jota voidaan kutsua
+seuraavasti
 
-Koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin vähäisiksi
-jos lopputuotos ei toimi odotetulla tavalla. Bugit heikentävät käyttäjien
-tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa sellaista vahinkoa
-että koko bugisen ohjelman julkaisusta saatu nettohyöty on negatiivinen, eli
-sen käyttöönotto aiheuttaa enemmän haittaa kuin hyötyä. Staattinen tyypitys
+\begin{lstlisting}[caption={
+	get-funktiolla voidaan palauttaa arvo syvältä
+	objektin sisältä välittämättä mahdollisesti puuttuvista arvoista.},
+  label={fig:lodash_get_function},
+  aboveskip={20pt}
+]
+	import {get} from 'lodash';
+
+	const object = { a: [{ b: { c: 3 } }] };
+	get(object, 'a[0].b.c'); // Palauttaa numeron 3
+\end{lstlisting}
+
+Staattisen tyyppijärjestelmän on vaikea päätellä esimerkin get-kutsun
+palautusarvo. Ohjelmoija joutuu tällaisessa tilanteessa joko luopumaan
+tyyppiturvallisuudesta tässä\newline
+osassa koodia tai kirjoittamaan jonkin
+huomattavasti monimutkaisemman version säilyttääkseen tyyppiturvallisuuden.
+
+Dynaamisen koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin
+vähäisiksi jos lopputuotos ei toimi odotetulla tavalla. Bugit heikentävät
+käyttäjien tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa sellaista
+vahinkoa että koko bugisen ohjelman julkaisusta saatu nettohyöty on negatiivinen,
+eli sen käyttöönotto aiheuttaa enemmän haittaa kuin hyötyä. Staattinen tyypitys
 ohjaa kirjoitettua koodia turvalliseen suuntaan kehitysvaiheen alusta
 loppuun, ja torjuu tietynlaisia ohjelmointivirheitä tehokkaammin kuin
 esimerkiksi ajonaikaista käyttäytymistä testaavat \textit{unit testit}.
+Esimerkissä \ref{fig:lodash_get_function} esitelty get-kutsu on yksinkertainen
+ja helppolukuinen, mutta jos muuttujan \inlinecode{object} tyyppiä myöhemmin
+muutetaan toiseen muotoon muistamatta päivittää myös get-kutsua, virheellisestä
+get-kutsusta voi muodostua ohjelmaan hankala bugi.
 
-Web-teknologioilla rakennettavat ohjelmistot ja niitä pyörittämään vaadittava
-koodin määrä kasvavat kaiken aikaa isommiksi, mikä tekee uusien ohjelmoijien
-sisäänotosta erityisen tärkeää. JavaScript ja muut dynaamiset kielet kuten
-Python ja PHP ovat useiden aloittelijoille tarkoitettujen koulutusohjelmien
-suosiossa, minkä vuoksi JavaScriptin käyttö sellaisenaan ilman esiteltyjen
-kaltaisia lisätyökaluja voi houkutella enemmän hakijoiden määrää ja siten
-tehdä rekrytoinnista helpompaa. Staattinen tyypitys voi kuitenkin myös
-helpottaa projektiin sisään pääsyä uusille työntekijöille sen tarjoaman
-dokumentaation kautta.
-
-TODO: Pyre, Hack, Ruby
-
-TODO: Miksi dynaamiseen kieleen staattinen tyypitys eikä suoraan
-staattisesti tyypitettyä kieltä
+Flow, TypeScirpt ja Closure sallivat sekä dynaamisesti että
+staattisesti tyypitetyn koodin käytön ja hämärtävät rajaa niiden välillä.
+Jää ohjelmoijan päätettäväksi onko yllä mainitun get-kutsun yksinkertaisuus
+tyyppiturvattomuuden arvoista. JavaScript-kehityksessä hyväksi todetut
+suunnittelumallit ovat edelleen käytettävissä tyyppiannotoidussakin
+koodissa, vaikka välillä tyyppiturvallisuutta olisikin sen vuoksi höllättävä.
+Lopputulos ei ole ainakaan sen turvattomampaa kuin normaali JavaScript-koodikaan
+ja tyyppiturvaton osa koodia voidaan usein rajata pieneksi, muilla tavoin
+testatuksi osa-alueekseen muuten staattisesti tarkastetussa kokonaisuudessa.
+Samankaltaisuus ja yhteensopivuus tavallisen JavaScriptin kanssa onkin
+näiden työkalijen tärkein etu muihin staattisesti tyypitettyihin kieliin
+nähden. JavaScript projektit on mahdollista muuttaa vaiheittain staattisesti
+tyypitetyksi kirjoittamatta koko ohjelman koodia alusta asti uudestaan, eikä
+ohjelmoijan itsensä tarvitse korvata kaikkea JavaScriptista oppimaansa
+uuden kielen tavoilla ja yhteisöllä. 
