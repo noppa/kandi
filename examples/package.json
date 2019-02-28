@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "closure": "google-closure-compiler -W=VERBOSE --jscomp_error=newCheckTypes --checks-only --debug",
+    "optimize": "google-closure-compiler -W=VERBOSE --jscomp_error=newCheckTypes --debug --js_output_file=out.js --compilation_level=ADVANCED_OPTIMIZATIONS",
     "flow": "flow check",
     "ts": "tsc --strict --noEmit"
   },
