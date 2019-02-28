@@ -8,7 +8,7 @@ tyypitystä useaan otteeseen \cite{10YearsOfClojure}. Eksplisiittiset
 tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia ja liian tiukka
 tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
 tyyppijärjestelmä on täydellinen (engl. complete). JavaScriptissä on useita
-yleisesti käytettyjä rajapintoja jotka ovat hyödyllisiä mutta vaikea
+yleisesti käytettyjä rajapintoja jotka ovat hyödyllisiä mutta vaikeita
 tyypittää staattisesti. Esimerkiksi suositusta kirjastosta \textit{lodash}
 löytyy funktio \inlinecode{get} \cite{LodashGet}, jota voidaan kutsua
 seuraavasti
@@ -21,13 +21,13 @@ seuraavasti
 ]
 	import {get} from 'lodash';
 
-	const object = { a: [{ b: { c: 3 } }] };
+	const object = { a: [{ b: { c: 3 } }], d: null };
 	get(object, 'a[0].b.c'); // Palauttaa numeron 3
 \end{lstlisting}
 
 Staattisen tyyppijärjestelmän on vaikea päätellä esimerkin get-kutsun
-palautusarvo. Ohjelmoija joutuu tällaisessa tilanteessa joko luopumaan
-tyyppiturvallisuudesta tässä\newline
+palautusarvo tai tarkistaa toisen argumentin oikeellisuus. Ohjelmoija joutuu
+joko luopumaan tyyppiturvallisuudesta tässä\newline
 osassa koodia tai kirjoittamaan jonkin
 huomattavasti monimutkaisemman version säilyttääkseen tyyppiturvallisuuden.
 
@@ -58,4 +58,21 @@ näiden työkalujen tärkein etu muihin staattisesti tyypitettyihin kieliin
 nähden. JavaScript projektit on mahdollista muuttaa vaiheittain staattisesti
 tyypitetyksi kirjoittamatta koko ohjelman koodia alusta asti uudestaan, eikä
 ohjelmoijan itsensä tarvitse korvata kaikkea JavaScriptista oppimaansa
-uuden kielen tavoilla ja yhteisöllä. 
+uuden kielen tavoilla ja yhteisöllä. Closuren JSDoc-tyyliset kommentit
+saattavat jo ollakin JavaScript-ohjelmoijalle tuttuja, sillä niitä käytetään
+usein koodin dokumentointiin vaikka tyyppien oikeellisuutta ei
+tarkastettaisikaan Closurella. Myös TypeScirpt- ja Flow-annotaatiot voivat
+helpottaa uusien JavaScript-ohjelmoijien tutustumista uuteen projektiin
+tuomallaan dokumentaatioarvolla.
+
+Samankaltaisuus ja yhteensopivuus jo ennestään suositun JavaScriptin kanssa
+yhdistettynä tyyppiturvallisuuteen, koodin kirjoittamista helpottaviin
+työkaluihin ja selkeämmin dokumentoituun koodiin ovat nostaneet erityisesti
+TypeScirptin käytön nopeaan kasvuun. Vuosittainen JavaScript-yhteisölle
+tarkoitetussa \textit{State Of JS} kyselytutkimuksessa 46.7\% vuonna 2018
+vastanneista ilmoitti käyttäneensä TypeScriptiä ja haluavansa
+käyttää sitä uudestaan \cite{StateOfJs2018}.
+Vielä vuonna 2016 luku oli 21\% \cite{StateOfJs2016}. TypeScirpt
+ja JavaScriptin staattinen tyypitys näyttävät kasvattavan suosiotaan myös
+tulevaisuudessa. Vuoden 2018 State Of JS kyselyyn vastanneista 33.7\%
+vastasi haluavansa opetella TypeScriptiä ja 34.5\% Flowta.
