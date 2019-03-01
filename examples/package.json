@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "closure": "google-closure-compiler -W=VERBOSE --jscomp_error=newCheckTypes --checks-only --debug",
-    "optimize": "google-closure-compiler -W=VERBOSE --jscomp_error=newCheckTypes --debug --js_output_file=out.js --compilation_level=ADVANCED_OPTIMIZATIONS",
     "flow": "flow check",
-    "ts": "tsc --strict --noEmit"
+    "ts": "tsc --strict --noEmit",
+    "closure_optimointitesti": "google-closure-compiler -W=VERBOSE --jscomp_error=newCheckTypes --debug --js_output_file=4_tiedoston-minimointi_closure-output.js --compilation_level=ADVANCED_OPTIMIZATIONS 4_tiedoston-minimointi_closure.js"
   },
   "keywords": [],
   "author": "",

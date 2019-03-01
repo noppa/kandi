@@ -100,6 +100,55 @@ on muuttujien tyypeistä saatava tieto käytettävissä. Closure–kääntäjä 
 uudelleennimetä myös luokkamuuttujien nimiä lyhyemmiksi, poistaa
 käyttämätöntä koodia, sekä korvata yksinkertaisia funktiokutsuja siirtämällä
 funktion sisältämät ohjeet kutsuntapaikalle (engl. function inlining).
+Esimerkissä \ref{fig:optimoitava_javascript} on yksinkertainen
+JavaScript-tiedosto, jota Closure voi optimoida kooltaan pienemmäksi
+ja ajonaikaiselta suorituskyvyltään nopeammaksi.
+
+\begin{lstlisting}[
+  caption={Esimerkki JavaScript koodista jota Closure osaa optimoida},
+  label={fig:optimoitava_javascript}
+]
+class HintaLaskuri {
+	constructor() {
+	  this.ostostenHintaYhteensa = 0
+		this.arvonLisaVero = 0.14
+	}
+	lisaaTuote(hinta) {
+		this.ostostenHintaYhteensa += hinta
+	}
+	yhteensa() {
+		return this.ostostenHintaYhteensa + this.ostostenHintaYhteensa * this.arvonLisaVero
+	}
+}
+const laskuri = new HintaLaskuri()
+laskuri.lisaaTuote(5)
+console.log(laskuri.yhteensa())
+\end{lstlisting}
+
+Listauksessa \ref{fig:optimoitu_javascript} puolestaan näkyy Closuren
+tuottama koodi. Pitkä luokkamuuttuja \inlinecode{ostostenHintaYhteensa}
+on uudelleennymetty lyhyeen muottoon \inlinecode{\$a\$}. Closure näkee
+että metodeja kutsutaan vain kerran, joten se on poistanut metodit ja
+korvannut niiden kutsupaikat koodilla joka alun perin oli metodin sisällä
+(engl. function inlining). \inlinecode{arvonLisaVero}-luokkamuuttuja
+on poistettu ja korvattu \inlinecode{.14} \textit{numeroliteraalilla},
+mikä paitsi pienentää koodin kokoa myös saattaa parantaa suorituksenaikaista
+tehokkuutta, sillä selainmoottorin ei tarvitse noutaa \inlinecode{arvonLisaVero}
+luokkamuuttujaa instanssista. Käännöksen tulos on vaikeasti luettavaa, mutta
+se onkin tarkoitettu JavaScript-moottorin suoritettavaksi eikä ohjelmoijan
+luettavaksi. Ongelmatilanteissa, lopullista koodia tutkittaessa ja
+\dblquoted{debugattaessa} käännetty koodi voidaan palauttaa alkuperäiseen
+muotoonsa ohjelmoijan luettavaksi käyttämällä \textit{lähdekarttoja}
+(engl. source map) \cite{SourceMapMDN, SourceMapsDocsClosure}.
+
+\begin{lstlisting}[
+  caption={Closuren optimoima JavaScript-koodi},
+  label={fig:optimoitu_javascript}
+]
+var \$laskuri\$\$=new function(){this.\$a\$=0};
+$laskuri$$.$a$+=5;
+console.log(\$laskuri\$\$.\$a\$+.14*\$laskuri\$\$.\$a\$);
+\end{lstlisting}
 
 \section{Tyyppimäärittelyt dokumentaationa}
 Nykyaikasten editorien vakio-ominaisuuksiin kuuluu kirjoittamisen tukeminen

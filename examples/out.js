@@ -1,1 +1,0 @@
-for(var $laskuri$$=new function(){this.$a$=0},$i$jscomp$inline_1$$=0;$i$jscomp$inline_1$$<100*Math.random();$i$jscomp$inline_1$$++){var $JSCompiler_StaticMethods_lisaaTuote$self$jscomp$inline_6$$=$laskuri$$;$JSCompiler_StaticMethods_lisaaTuote$self$jscomp$inline_6$$.$a$+=$i$jscomp$inline_1$$}console.log(.14*$laskuri$$.$a$);
