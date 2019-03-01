@@ -28,7 +28,7 @@
 \captionsetup{font={small,stretch=1.1}}
 
 \renewcommand{\lstlistingname}{Listaus}
-\lstset{upquote=true,mathescape=true}
+\lstset{upquote=true,mathescape=false}
 
 % Define JS for listings package
 % Source: https://gist.github.com/Geruhn/3d21f60a869457373d84
@@ -65,7 +65,7 @@
    breaklines=true,
    showtabs=false,
    captionpos=b,
-   literate={ä}{{\"a}}1 {Ä}{{\"A}}1 {ö}{{\"o}}1 {Ö}{{\"O}}1,
+   literate={\$}{{{\$}}}1 {ä}{{\"a}}1 {Ä}{{\"A}}1 {ö}{{\"o}}1 {Ö}{{\"O}}1,
    frame=single
 }
 
@@ -80,6 +80,7 @@
 \hyphenation{Flow}
 \hyphenation{tyypittäminen}
 \hyphenation{stan-dar-din}
+\hyphenation{VSCode}
 
 % load fancyheaders package
 %   - the actual headers and footers are set later
