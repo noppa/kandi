@@ -22,15 +22,17 @@ staattisesti tyyppitarkastetussa kielessä virheen jo käännösaikana, mikäli
 metodia \inlinecode{potenssiin} ei ole tekstityyppisille arvoille määritetty.
 JavaScriptiä suorittava ympäristö sen sijaan hyväksyisi ohjelman ja sallisi
 sen suorittamisen. Virhe olemattoman metodin kutsumisesta ilmenisi vasta, jos
-kyseinen virheen sisältävä koodi suoritetaan. \newline
+kyseinen virheen sisältävä koodi suoritetaan.
 Lisäksi esimerkiksi ilmaisu \inlinecode{\dblquoted{teksti} + 2}
 ei aiheuttaisi virhettä edes suoritusaikana, sillä heikoille
 tyyppijärjestelmille ominaisesti JavaScript muuttaisi numeron 2 tekstimuotoon
 ennen summausoperaation arviointia. Tässä tutkielmassa keskitytään lähinnä
 JavaScriptin tyyppien staattiseen ja dynaamiseen, eli käytännössä
 käännös- ja ajonaikaiseen tarkastamiseen. Eräät
-esitellyistä työkaluista myös tiukentavat kielen sallimia operaatioita siten,
-että esimerkiksi yllä esitettyä \inlinecode{\dblquoted{teksti} + 2} ohjelmaa
+esitellyistä työkaluista myös\newline
+tiukentavat kielen sallimia operaatioita siten,
+että esimerkiksi yllä esitettyä\newline
+\inlinecode{\dblquoted{teksti} + 2} ohjelmaa
 ei enää sallittaisi. Monia muita heikoille tyyppijärjestelmille
 tavallisia ominaisuuksia jää kuitenkin tarkistamatta.
 
@@ -47,7 +49,7 @@ organisaatio Ecma International. \textit{JavaScript} puolestaan on Oraclen omist
 tavaramerkki jolla viitataan EcmaScript-kielen osittaisiin tai täydellisiin
 toteutuksiin \cite{JavaScriptLanguageResources}. Historiallisista syistä termejä
 ``JavaScript'' ja ``EcmaScript'' käytetään usein keskenään vaihtokelpoisesti.
-Tässä tutkielmassa termillä ``JavaScript'' viitataan ECMA-262:n kahdeksannen
+Tässä tutkielmassa termillä ``JavaScript'' viitataan ECMA-262-spesifikaation kahdeksannen
 version mukaiseen EcmaScriptiin, jota kutsutaan myös nimellä EcmaScript 2017.
 
 \section{TypeScript}

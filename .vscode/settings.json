@@ -19,5 +19,6 @@
   // ],
   "latex-workshop.latex.autoClean.run": "never",
   "editor.rulers": [75],
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "vim.debug.silent": true
 }

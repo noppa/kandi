@@ -142,7 +142,7 @@ import * as ostoskori from "./ostoskori";
 
 ostoskori.lisääTuote({ nimi: "juusto", hinta: 5 });
 // Vääränlainen kutsumistapa aiheuttaisi käännösaikaisen virheen:
-// ostoskori.lisääTuote('juusto', 5);
+ostoskori.lisääTuote('juusto', 5); // Expected 1 arguments, but got 2
 \end{lstlisting}
 JavaScript-kirjaston kehittäjä voi tarjota erillisen tyypitystiedoston
 kirjastonsa lähdekoodin mukana, tai muut kirjastoa käyttävät kehittäjät
