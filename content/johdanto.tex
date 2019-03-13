@@ -3,29 +3,30 @@
 Ohjelmointi on pohjimmiltaan tietorakenteiden käsittelyä ja yksi tärkeimmistä
 tietorakenteen ominaisuuksista on sen tyyppi. Muuttuja \dblquoted{nimi} voi olla
 datatyypiltään teksti ja muuttuja \dblquoted{ikä} voi olla numero, eikä näitä kahta voi
-huolettomasti sekoittaa. Ohjelman tila ei ole järkevä jos se sanoo henkilön
+huolettomasti sekoittaa. Ohjelman tila ei olisi järkevä jos henkilön
+iäksi sallittaisiin \dblquoted{Matti}.
 iän olevan \dblquoted{Matti}. Se miten ohjelmointikielissä käsitellään arvojen tyyppejä
 vaihtelee kuitenkin suuresti.
 
-Tässä tutkielmassa käsitellään JavaScriptiä, sekä kolmea työkalua jotka
-rakentavat staattisesti tarkastettavan tyyppijärjestelmän
-JavaScriptin päälle. JavaScript on \textit{dynaamisesti tyypitetty} ohjelmointikieli,
-jonka alkuperäinen käyttötarkoitus oli lisätä verkkosivuille pieniä
-interaktiivisia ominaisuuksia, kuten lomakkeiden validointia. JavaScriptillä
+Tässä tutkielmassa käsitellään JavaScripti-ohjelmointikieltä,
+sekä kolmea työkalua jotka rakentavat staattisesti tarkastettavan tyyppijärjestelmän
+JavaScriptin päälle. JavaScriptin alkuperäinen käyttötarkoitus
+oli lisätä verkkosivuille pieniä interaktiivisia ominaisuuksia,
+kuten lomakkeiden validointia. JavaScriptillä
 toteutettavien ohjelmien koko, monimutkaisuus ja tärkeys on kuitenkin viime
 vuosien aikana kasvanut alkuperäistä tarkoitusperää suuremmaksi, kun sillä on
 alettu toteuttaa esimerkiksi kartta-, kirjoitus- ja hallintapalveluita jotka
 toimivat selaimessa, siten ettei käyttäjän tarvitse asentaa erillistä
-tietokoneohjelmaa palvelun käyttöön. JavaScriptia on myös alettu käyttää
-verkkosivujen \textit{front-end} käyt\-tö\-liit\-ty\-mä\-to\-teu\-tuk\-sen
-lisäksi tietokone- ja kän\-nyk\-kä\-so\-vel\-luk\-sis\-sa, sekä
-pal\-ve\-lin\-kie\-le\-nä \textit{back-endillä}.
+tietokoneohjelmaa palvelun käyttöön.
+JavaScriptin käyttö on levinnyt verkkosivujen asiakaspuolen käyttöliittymän
+toteutuksesta tietokone- ja älypuhelinsovelluksiin sekä verkon
+asiakas-palvelin-arkkitehtuurissa myös palvelinsovelluksien kieleksi.
 
 Tutkielmassa esitellään TypeScript, Flow ja Closure-kääntäjä, joista jokainen on
 tarkoitettu työkaluksi sellaisten ohjelmien kehittämiseen,
 jotka muuten kehitettäisiin\newline
-JavaScriptilla. Päämääränä on esitellä kuinka dynaamisesti
-tyypitetty JavaScript voidaan muuttaa staattisesti tyyppitarkastetuksi
+JavaScriptillä. Päämääränä on tarkastella kuinka \textit{dynaamisesti tyypitetty}
+JavaScript voidaan muuttaa staattisesti tyyppitarkastetuksi
 TypeScriptin, Flown, tai Closure-kääntäjän avulla, sekä mitä hyötyä siitä voi
 olla. Työkalujen hyötyjä ja haittoja vertaillaan sekä toisiinsa että
 tavalliseen JavaScript-koodiin.

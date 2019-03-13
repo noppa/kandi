@@ -27,7 +27,7 @@ npm run closure -- esimerkin-nimi_closure.js
 ```
 
 #### TypeScript
-TypeScriptilla tarkastettavaksi tarkoitetut tiedostot on nimetty siten
+TypeScriptillä tarkastettavaksi tarkoitetut tiedostot on nimetty siten
 että tiedostonimi päättyy "_typescript.ts". Tällaisen tiedoston virheiden
 tarkastaminen onnistuu komennolla
 ```bash
