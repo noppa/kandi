@@ -1,17 +1,30 @@
 \chapter{Peruskäsitteitä}
+\section{Tyyppijärjestelmät}
+Tyyppijärjestelmät, tai \textit{tyyppiteoria}, on tutkimusalue matematiikan
+ja filosofian alalla \cite{TypesAndProgrammingLanguages}. Tarkka
+\dblquoted{tyyppijärjestelmän} määritelmä riippuu siitä minkä
+tieteenalan ja -haaran näkökulmasta sitä tarkastellaan. Tässä tutkielmassa
+tyyppijärjestelmiä tarkastellaan käytännönläheisesti
+ohjelmointikielten näkökulmasta metodina, jolla voidaan osoittaa
+virheellisissä ohjelmissa olevia puutteita luokittelemalla
+ohjelman rakenteita tyypeiksi ja vertaamalla niitä ohjelmointikielen
+tyyppisääntöjä vasten. 
 
-\section{Tyyppijärjestelmien luokitteleminen}
+\section{Luokittelu}
 Ohjelmointikielten tyyppijärjestelmien jakaminen staattisesti ja dynaamisesti
-tyyppitarkastettuihin perustuu ohjelman kehitysvaiheeseen, jossa tarkastaminen
+tyyppitarkastettuihin (puhekielessä usein \dblquoted{staattisesti ja dynaamisesti
+tyypitettyihin}) perustuu ohjelman kehitysvaiheeseen, jossa tarkastaminen
 tapahtuu. Staattisella tyyppitarkastamisella viitataan ohjelman tyyppien
 analyysiin ennen ohjelman suorittamista, esimerkiksi käännösaikana, kun taas
 dynaaminen tyyppitarkastus varmistaa arvojen tyyppien oikeellisuuden ohjelmaa
-suoritettaessa. Tyyppijärjestelmät voidaan jaotella myös muiden
+suoritettaessa.
+
+Tyyppijärjestelmät voidaan jaotella myös muiden
 ominaisuuksien perusteella esimerkiksi vahvoihin ja heikkoihin
 tyyppijärjestelmiin. Näiden termien merkitys ei ole tarkasti määritelty,
 mutta yleisesti niillä viitataan tapaan, jolla kieli käsittelee tarkoitetusta
 poikkeavat, virheelliset tyypit \cite{CornellTransitionToOO}. Vahvasti
-tyypitetyssä kielessä tietyn tyyppisen muuttujan vääränlainen käsittely
+tyypitetyssä kielessä tietyntyyppisen muuttujan vääränlainen käsittely
 aiheuttaisi käännös- tai ajonaikaisen virheen, kun taas heikosti tyypitetyssä
 kielessä arvolle voitaisiin tehdä implisiittisiä tyyppimuunnoksia niiden
 yhteensopivuuden saavuttamiseksi.
