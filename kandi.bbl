@@ -3,6 +3,11 @@
   \def\url#1{{\tt #1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
+\bibitem{TypesAndProgrammingLanguages}
+Benjamin~C. Pierce.
+\newblock {\em Types and Programming Languages\/}.
+\newblock The MIT Press, 2002.
+
 \bibitem{CornellTransitionToOO}
 Transition to OO programming - Safety and strong typing.
 \newblock
@@ -80,11 +85,6 @@ Ecma International.
 Earl T.~Barr Zheng~Gao, Christian~Bird.
 \newblock To Type or Not to Type: Quantifying Detectable Bugs in JavaScript.
 \newblock 2017.
-
-\bibitem{TypesAndProgrammingLanguages}
-Benjamin~C. Pierce.
-\newblock {\em Types and Programming Languages\/}.
-\newblock The MIT Press, 2002.
 
 \bibitem{SourceMapMDN}
 MDN: How to use a source map, 2018.
