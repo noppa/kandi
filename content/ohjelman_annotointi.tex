@@ -1,13 +1,12 @@
-\chapter{JavaScript-ohjelman muuttaminen staattisesti tyyppitarkastetuksi}
+\chapter{Käyttöönotto}
 
 \section{Tyyppiannotaatiot}
 
 Tyyppijärjestelmä voi päätellä muuttujan sallitun tyypin automaattisesti
-päättelemällä\newline
-tai kieleen sisältyvien eksplisiittisten tyyppimäärittelyjen
+tai kielen syntaksin tarjoamien eksplisiittisten tyyppimäärittelyjen
 perusteella. Kaikki kolme tässä tutkielmassa esiteltyä JavaScriptin staattiseen
-tyyppitarkastukseen tarkoitettua työkalua päättelevät muuttujien tyyppejä automaattisesti,
-mutta vaativat paikoitellen myös eksplisiittisiä määrityksiä.
+tyyppitarkastukseen tarkoitettua työkalua päättelevät muuttujien tyyppejä
+automaattisesti, mutta vaativat paikoitellen myös eksplisiittisiä määrityksiä.
 Closure-kääntäjä lukee
 tyyppimääritykset JSDoc-tyylisistä dokumentaatiokommenteista \cite{annotatingJSforClosure}.
 \begin{lstlisting}[caption={Esimerkki Closure-annotaatiosta funktiolle},label={lst:ostoskorin_hinta_closure}]
@@ -50,7 +49,10 @@ työmäärää \cite{TypeScriptSpec, TypeScriptatBuild}.
 Aiemmassa esimerkissä esitelty tyyppi \inlinecode{Ostos} pitäisi
 määritellä Closurea varten muiden annotaatioiden tapaan dokumentaatiokommentteja käyttäen:
 
-\begin{lstlisting}[label={lst:closure_typedef}]
+\begin{lstlisting}[
+  caption={Uuden tyypin määrittely Closuren kommenttisyntaksilla},
+  label={lst:closure_typedef}
+]
 /**
 * @typedef {{
 *   nimi: string,
@@ -61,7 +63,10 @@ let Ostos;
 \end{lstlisting}
 TypeScript ja Flow tarjoavat käännösaikaisen tyypin (type alias)
 määrittelyyn tiiviimmän ja helppolukuisemman syntaksin \cite{TypeScriptSpec}:
-\begin{lstlisting}[label={lst:ts_flow_type_alias}]
+\begin{lstlisting}[
+  caption={Uuden tyypin määrittely TypeScriptissa tai Flowssa},
+  label={lst:ts_flow_type_alias}
+]
 type Ostos = {
   nimi: string;
   hinta: number;
