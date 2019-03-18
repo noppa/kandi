@@ -64,7 +64,7 @@ let Ostos;
 TypeScript ja Flow tarjoavat käännösaikaisen tyypin (type alias)
 määrittelyyn tiiviimmän ja helppolukuisemman syntaksin \cite{TypeScriptSpec}:
 \begin{lstlisting}[
-  caption={Uuden tyypin määrittely TypeScriptissa tai Flowssa},
+  caption={Uuden tyypin määrittely TypeScriptissa tai Flow'ssa},
   label={lst:ts_flow_type_alias}
 ]
 type Ostos = {
@@ -167,14 +167,14 @@ ja \textit{tsickle} (TypeScript-annotoitu koodi Closure-annotoiduksi) \cite{Tsic
 Joitain perustavanlaatuisia eroja työkalujen välillä voi silti olla vaikea
 tai mahdotonta siirtää tyyppijärjestelmästä toiseen tekemättä kompromisseja.
 TypeScriptissä esimerkiksi kaikki \textit{enumeja} lukuunottamatta on
-\textit{rakenteellisesti} (engl. structural) tyypitetty, kun taas Flowssa 
+\textit{rakenteellisesti} (engl. structural) tyypitetty, kun taas Flow'ssa 
 esimerkiksi luokkien instanssien tyyppejä vertaillaan \textit{nimellisesti}
 (engl. nominal), mikä aiheuttaa tyyppijärjestelmien käyttäytymisessä eroja
 jos jotkin kaksi luokkaa ovat rakenteeltaan täysin samat. Tämän tutkielman
 viimeisestä luvusta löytyy esimerkki \ref{fig:structural_typing_error}
 juuri tällaisesta tilanteesta; siinä luokat \dblquoted{Ihminen} ja
 \dblquoted{Eläin} ovat rakelteeltaan samanlaisia ja käsitellään siksi
-TypeScriptissä kuin ne olisivat sama luokka, mutta Flowssa kahtena
+TypeScriptissä kuin ne olisivat sama luokka, mutta Flow'ssa kahtena
 erillisenä luokkana jotka eivät ole keskenään vaihtokelpoisia. 
 
 Joissain tapauksissa kirjastoille tai kehittäjän omalle aiemmin kirjoitetulle

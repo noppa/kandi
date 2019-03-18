@@ -129,7 +129,7 @@ osta({ nimi: 'juusto', hinta: 5 });
 osta({ hinta: 5 });
 \end{lstlisting}
 Esimerkit \ref{fig:soundness_test} ja \ref{fig:completeness_test} toimivat
-odotetulla tavalla Flow:ssa. TypeScript vaatii eksplisiittisen tyyppiannotaation
+odotetulla tavalla Flow'ssa. TypeScript vaatii eksplisiittisen tyyppiannotaation
 osta-funktiolle, mutta toimii muuten samalla tavalla. Flow, TypeScript ja
 Closure eivät kuitenkaan ole täydellisiä tai kokonaan luotettavia.
 Monimutkaisemmissa tilanteissa virheitä saattaa jäädä tunnistamatta tai toimiva
@@ -166,7 +166,7 @@ varaaEläinlääkäri(new Eläin("Musti"), new Ihminen("Jaakko"));
 TypeScript-kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
 vaikka arugmentit \mbox{\dblquoted{omistaja}} ja \newline\mbox{\dblquoted{lemmikki}}
 ovat väärin päin, sillä molempien luokkien rakenne on sama; molemmissa on
-pelkkä tekstimuotoinen ominaisuus \dblquoted{nimi}. Flow:ssa sama virhe ei menisi läpi.
+pelkkä tekstimuotoinen ominaisuus \dblquoted{nimi}. Flow'ssa sama virhe ei menisi läpi.
 Siinä luokkainstanssit on tyypitetty nominaalisesti, mikä auttaa tässä
 esimerkissä mutta aiehuttaa ongelmia muissa tilanteissa. Projekti saattaa
 esimerkiksi sisältää kaksi versiota samasta kirjastosta jonkin toisen

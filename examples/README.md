@@ -35,7 +35,7 @@ npm run ts -- esimerkin-nimi_typescript.ts
 ```
 
 #### Flow
-Flow:lla tarkastettavaksi tarkoitetut tiedostot on nimetty siten
+Flow'lla tarkastettavaksi tarkoitetut tiedostot on nimetty siten
 että tiedostonimi päättyy "_flow.js". Tällaisen tiedoston virheiden
 tarkastaminen onnistuu komennolla
 ```bash
