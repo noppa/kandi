@@ -3,7 +3,7 @@
 Tyyppijärjestelmät, tai \textit{tyyppiteoria}, on tutkimusalue matematiikan
 ja filosofian alalla \cite{TypesAndProgrammingLanguages}. Tarkka
 \dblquoted{tyyppijärjestelmän} määritelmä riippuu siitä minkä
-tieteenalan ja -haaran näkökulmasta sitä tarkastellaan. Tässä tutkielmassa
+tieteenalan ja -haaran näkökulmasta sitä käsitellään. Tässä tutkielmassa
 tyyppijärjestelmiä tarkastellaan käytännönläheisesti
 ohjelmointikielten näkökulmasta metodina, jolla voidaan osoittaa
 virheellisissä ohjelmissa olevia puutteita luokittelemalla
@@ -12,12 +12,29 @@ tyyppisääntöjä vasten.
 
 \section{Luokittelu}
 Ohjelmointikielten tyyppijärjestelmien jakaminen staattisesti ja dynaamisesti
-tyyppitarkastettuihin (puhekielessä usein \dblquoted{staattisesti ja dynaamisesti
-tyypitettyihin}) perustuu ohjelman kehitysvaiheeseen, jossa tarkastaminen
+tyyppitarkastettuihin (puhekielessä usein: staattisesti ja dynaamisesti
+\dblquoted{tyypitettyihin}) perustuu ohjelman kehitysvaiheeseen, jossa tarkastaminen
 tapahtuu. Staattisella tyyppitarkastamisella viitataan ohjelman tyyppien
 analyysiin ennen ohjelman suorittamista, esimerkiksi käännösaikana, kun taas
 dynaaminen tyyppitarkastus varmistaa arvojen tyyppien oikeellisuuden ohjelmaa
 suoritettaessa.
+
+\begin{figure}
+\centering
+\includegraphics{images/type-systems.pdf}
+\caption{Tyyppijärjestelmät eri ohjelmointikielissä}
+\end{figure}
+
+Esimerkiksi ohjelma \inlinecode{\dblquoted{teksti}.potenssiin(3)} antaa
+staattisesti tyyppitarkastetussa kielessä virheen jo käännösaikana, mikäli
+metodia \inlinecode{potenssiin} ei ole tekstityyppisille arvoille määritetty.
+Staattisesti tyyppitarkastetussa kielessä muuttujien
+mahdolliset tyypit analysoidaan käännösaikana, ennen ohjelman suorittamista.
+Kääntäjä näkee, että lausekkeen vasen puoli, \inlinecode{\dblquoted{teksti}},
+on tyypiltään teksti ja oikea puoli on metodin \inlinecode{potenssiin} kutsu.
+Kääntäjä voi todeta kielen tyyppisääntöjen perusteella, ettei
+tekstimuotoisessa arvossa ole metodia \dblquoted{potenssiin} ja
+pysäyttää virheellisen ohjelman käsittelyn.
 
 Tyyppijärjestelmät voidaan jaotella myös muiden
 ominaisuuksien perusteella esimerkiksi vahvoihin ja heikkoihin
@@ -30,32 +47,25 @@ kielessä arvolle voitaisiin tehdä implisiittisiä tyyppimuunnoksia niiden
 yhteensopivuuden saavuttamiseksi.
 
 JavaScript on dynaamisesti tarkastettu, heikosti tyypitetty kieli.
-Esimerkiksi ohjelma \inlinecode{\dblquoted{teksti}.potenssiin(3)} antaa
-staattisesti tyyppitarkastetussa kielessä virheen jo käännösaikana, mikäli
-metodia \inlinecode{potenssiin} ei ole tekstityyppisille arvoille määritetty.
-JavaScriptiä suorittava ympäristö sen sijaan hyväksyisi ohjelman ja sallisi
-sen suorittamisen. Virhe olemattoman metodin kutsumisesta ilmenisi vasta, jos
-kyseinen virheen sisältävä koodi suoritetaan.
-Lisäksi esimerkiksi ilmaisu \inlinecode{\dblquoted{teksti} + 2}
-ei aiheuttaisi virhettä edes suoritusaikana, sillä heikoille
+JavaScriptiä suorittava ympäristö hyväksyisi ohjelman ja sallisi
+sen suorittamisen. Virhe olemattoman metodin kutsumisesta
+ilmenisi vasta jos ohjelmaa testataan käytännössä ja
+kyseinen virheen sisältävä osa koodia suoritetaan.
+Lisäksi esimerkiksi lausekkeen \inlinecode{\dblquoted{teksti} + 2}
+laskeminen ei aiheuttaisi virhettä edes suoritusaikana, sillä heikoille
 tyyppijärjestelmille ominaisesti JavaScript muuttaisi numeron 2 tekstimuotoon
-ennen summausoperaation arviointia. Tässä tutkielmassa keskitytään lähinnä
+ennen summausoperaation arviointia ja antaisi tulokseksi
+\inlinecode{\dblquoted{teksti2}}, mikä ei välttämättä ollut koodin
+alkuperäinen tarkoitus. Tässä tutkielmassa keskitytään lähinnä
 JavaScriptin tyyppien staattiseen ja dynaamiseen, eli käytännössä
 käännös- ja ajonaikaiseen tarkastamiseen. Eräät
 esitellyistä työkaluista myös\newline
 tiukentavat kielen sallimia operaatioita siten,
 että esimerkiksi yllä esitettyä\newline
-\inlinecode{\dblquoted{teksti} + 2} ohjelmaa
-ei enää sallittaisi. Monia muita heikoille tyyppijärjestelmille
-tavallisia ominaisuuksia jää kuitenkin tarkistamatta.
+\inlinecode{\dblquoted{teksti} + 2} lauseketta
+ei enää sallittaisi.
 
-\begin{figure}
-\centering
-\includegraphics{images/type-systems.pdf}
-\caption{Tyyppijärjestelmät eri ohjelmointikielissä}
-\end{figure}
-
-\section{ECMA-262, EcmaScript ja JavaScript}
+\section{EcmaScript ja JavaScript}
 \textit{EcmaScript} on ECMA-262 standardin määrittelemä ohjelmointikieli
 \cite{JavaScriptLanguageResources, Ecma262}, jonka kehityksestä vastaa
 organisaatio Ecma International. \textit{JavaScript} puolestaan on Oraclen omistama
