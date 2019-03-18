@@ -1,20 +1,42 @@
 digraph Compilation {
-    
-  node[fontsize=10]
+      
+    node[fontsize=10]
 
-  es6 [label="Kieli: EcmaScript 6+"];
-  ts [label="Kieli: TypeScript"];
-  es5 [label="Kieli: EcmaScript 5"];
-  flow [label="Kieli: EcmaScript 6+ ja Flow annotaatiot"]
-  
-  babel [label="Kääntäjä: Babel, Traceur", shape=rectangle];
-  flowPlugin [label="Kääntäjä: Flow annotaatioiden poistaja", shape=rectangle];
-  tsc [label="Kääntäjä: TypeScript", shape=rectangle];
-  
-  flow -> flowPlugin -> es6 -> babel -> es5;
-  ts -> tsc -> es5;
-  es5 -> end;
+    es6 [label="Kieli:\nEcmaScript 6 tai uudempi", style=filled, fillcolor="#FDF6E3", margin=0];
+    flow [label="Kieli:\nEcmaScript 6 tai uudempi\nja Flow annotaatiot", style=filled, fillcolor="#FDF6E3", margin=0]
+    ts [label="Kieli: TypeScript", style=filled, fillcolor="#FDF6E3"];
+    es5 [label="Kieli: EcmaScript 5", style=filled, fillcolor="#FDF6E3"];
 
-  end [label="Suoritusympäristö:\nInternet Explorer, Chrome, Node.js, jne.", shape=rectangle];
+    babel [label="Kääntäjä:\nBabel", shape=rectangle];
+    closure [label="Kääntäjä:\nClosure", shape=rectangle];
+    flowPlugin [label="Kääntäjä:\nFlow annotaatioiden poistaja", shape=rectangle];
+    tsc [label="Kääntäjä:\nTypeScript", shape=rectangle];
+
+    flow -> flowPlugin -> es6;
+    es6 -> babel -> es5;
+    es6 -> closure -> es5;
+    ts -> tsc;
+    tsc -> es6;
+    tsc -> es5;
+    es6 -> suoritus_new;
+    es5 -> suoritus_old;
+
+    closure -> babel -> suoritus_new [style=invis];
+
+
+    suoritus_old [
+        label="Suoritusympäristö:\nInternet Explorer, Chrome, Safari, jne.",
+        shape=rectangle,
+#       fillcolor="#51575E",
+#       style=filled,
+#       fontcolor=white
+    ];
+    suoritus_new [
+        label="Moderni suoritusympäristö:\nChrome, Node.js 10, jne.",
+        shape=rectangle,
+#       fillcolor="#51575E",
+#       style=filled,
+#       fontcolor=white
+    ];
   
 }
