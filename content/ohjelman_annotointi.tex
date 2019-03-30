@@ -106,13 +106,15 @@ tulee huomioida työkalun käyttöönotossa.
 
 Kuva \ref{fig:compilation} esittää erilaisia käännösprosesseja eri
 JavaScript-ohjelman kehityskielille. Käännösvaiheen tarpeellisuus
-ja vaikutus kehitysprosessiin riippuu käytetystä kielestä,
-EcmaScript versiosta ja siitä missä ympäristöissä sitä halutaan suorittaa.
-Esimerkiksi Internet Explorer tukee ainoastaan EcmaScriptin vanhaa viidettä
+ja vaikutus kehitysprosessiin riippuu käytetystä kielestä ja sen versiosta,
+sekä siitä missä ympäristöissä sitä halutaan suorittaa.
+Esimerkiksi Internet Explorer 11 -selain tukee ainoastaan
+EcmaScriptin vanhaa viidettä
 versiota (2011). Jos koodi kirjoitetaan kaikkiin
-suoritusympäristöihin soveltuvalla kielen versiolla,
+suoritusympäristöihin soveltuvalla EcmaScriptin versiolla,
 käännösvaihe voidaan jättää kokonaan väliin. Kielen
-uudemmat versiot ovat kuitenkin tuoneet monia lisäominaisuuksia, joiden
+uudemmat versiot ovat kuitenkin tuoneet monia lisäominaisuuksia,
+kuten syntaksin \textit{luokkien} määrittelyyn, joiden
 käyttäminen vanhempia selaimia tukevissa ohjelmissa vaatii joka tapauksessa
 käännösvaiheen staattisesta tyypittämisestä riippumatta. Uusia
 JavaScript-o\-mi\-nai\-suuk\-si\-a hyödyntäville projekteille koodin kääntäminen ei
@@ -140,8 +142,11 @@ ole tarkoitus olla osana varsinaista suoritettavaa koodia, vaan se palvelee
 ainoastaan kuvauksena sellaisen koodin tyyppimäärittelystä, jonka käsittelyä
 TypeScript ja Flow eivät muuten voisi valvoa. TypeScriptillä voitaisiin
 esimerkiksi kirjoittaa seuraava tiedosto \inlinecode{ostoskori.d.ts}, jonka
-tehtävä on annotoida toista tiedostoa \inlinecode{ostoskori.js}.
-\begin{lstlisting}[caption={Esimerkki TypeScript määrittelytiedostosta ostoskori.d.ts}]
+tehtävä on annotoida toista tiedostoa \inlinecode{ostoskori.js} (Listaus \ref{lst:tsdfile}).
+\begin{lstlisting}[
+  caption={Esimerkki TypeScript määrittelytiedostosta ostoskori.d.ts},
+  label={lst:tsdfile}
+]
 export const tuotteet: ReadonlyArray<Ostos>;
 
 /** Lisää tuotteen ostoskoriin. */
@@ -149,8 +154,11 @@ export function lisääTuote(ostos: Ostos): void;
 \end{lstlisting}
 Tämän jälkeen TypeScript tiedostosta käsin voidaan kutsua tätä
 JavaScript-funktiota siten, että TypeScript valvoo
-tyyppien oikeellisuutta.
-\begin{lstlisting}[caption={JavaScript-koodin kutsuminen TypeScript tiedostosta tuotesivu.ts}]
+tyyppien oikeellisuutta (Listaus \ref{lst:jscallfromts}).
+\begin{lstlisting}[
+  caption={JavaScript-koodin kutsuminen TypeScript tiedostosta tuotesivu.ts},
+  label={lst:jscallfromts}
+]
 import * as ostoskori from "./ostoskori";
 
 ostoskori.lisääTuote({ nimi: "juusto", hinta: 5 });
@@ -194,15 +202,17 @@ sellaisia dynaamisia JavaScriptin ominaisuuksia joita ei helposti voida
 tyypittää TypeScriptin, Flown tai Closuren tarjoamalla tyyppijärjestelmällä.
 Kaikkien kolmen työkalun tärkeimpiin ominaisuuksiin kuuluu tuki vaiheittaiselle
 käyttöönotolle, eli käytännössä yhteenspivuus täysin tyyppitarkastamattoman
-koodin kanssa. Sekä Flow että TypeScript tarjoavat erityisen
-yleisviittaustyypin Any, jota voi käyttää kuvaamaan mitä tahansa JavaScript
-arvoa \cite{TypeScriptSpec}. Any-tyyppiseen muuttujaan voidaan asettaa mikä
-tahansa arvo ja Any tyyppinen arvo voidaan asettaa mihin tahansa muuttujaan
-tai funktioparametriin. Any tyypin avulla muuten staattisesti tyypitetyssä
+koodin kanssa.
+
+Sekä Flow että TypeScript tarjoavat erityisen
+yleisviittaustyypin Any, jota voi käyttää kuvaamaan mitä tahansa
+JavaScript-arvoa \cite{TypeScriptSpec}. Any-tyyppiseen muuttujaan voidaan asettaa mikä
+tahansa arvo ja Any-tyyppinen arvo voidaan asettaa mihin tahansa muuttujaan
+tai funktioparametriin. Any-tyypin avulla muuten staattisesti tyypitetyssä
 ohjelmassa voidaan ohittaa käännösaikainen tyyppien tarkistaminen sellaisten
 koodin osien kohdalla joiden ajonaikaista arvoa olisi muuten vaikea tai
 mahdotonta määritellä käännösaikana. Näin ollen, mikäli tarve vaatii täysin
-annotoimattoman JavaScript moduulin käyttämistä, kaikkien kyseisestä moduulista
+annotoimattoman JavaScript-moduulin käyttämistä, kaikkien kyseisestä moduulista
 tuotujen arvojen voidaan määrittää olevan tyyppiä Any, jolloin tarkastaja ei
 kiinnitä huomiota siihen miten JavaScriptillä määritettyjä funktioita tai
 muita arvoja käsitellään.
