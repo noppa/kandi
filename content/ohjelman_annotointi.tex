@@ -83,27 +83,35 @@ sisältöä suoritettavaan JavaScript-ohjelmaan.
 \caption{Vaihtoehtoisia käännösprosesseja}
 \label{fig:compilation}
 \end{figure}
-JavaScript-koodi tulkataan tai käännetään tyypillisesti suorittamisen
-yhteydessä, selaimesta tai muusta suoritusympäristöstä löytyvän \dblquoted{moottorin}
-toimesta. EcmaScript-stan\-dar\-din mukaista koodia suorittamaan suunnitellut
-moottorit, kuten V8 tai SpiderMonkey, eivät kuitenkaan osaa käsitellä
-TypeScript- tai Flow-annotaatioilla merkattua koodia. Näinollen TypeScript-
-tai Flow-annotoitu koodi on välttämätöntä kääntää muotoon jossa
+JavaScriptillä kirjoitettua koodia ei tavallisesti tarvitse
+erikseen kääntää ennen suoritusvaihetta. JavaScriptiä suorittava ohjelma,
+esimerkiksi selain, tulkkaa EcmaScript-standardin mukaista koodia
+sellaisenaan tai \textit{JIT-kääntää} sen optimoituun muotoon automaattisesti
+suorituksen ohessa. TypeScript- tai Flow-annotoitu koodi ei kuitenkaan
+ole validia JavaScriptiä, eikä selain tai muu JavaScriptia suorittamaan
+suunniteltu ohjelma tavallisesti osaa sellaista koodia käsitellä.
+Näinollen TypeScript tai Flow-annotoitu koodi on välttämätöntä kääntää muotoon jossa
 annotaatiot on poistettu ja jäljellä on enää standardinmukainen JavaScript.
+
+Kääntämisen tarve vaikuttaa ohjelman kehitysprosessiin.
 Koska JavaScriptin käyttäminen ei normaalisti vaadi erillistä
 käännösvaihetta, useissa projekteissa ei ole sellaista käytetty. Koodin
 minimointi ja muu optimointi on ollut parhaiden käytäntöjen mukaista jo
 tovin, mutta tällaiset koodinkäsittelyt tehdään yleensä vasta ennen ohjelman
 julkaisua. Kehittäjät ovat tavanomaisesti voineet suorittaa kirjoittamansa
-JavaScriptin sellaisenaan kehitysympäristössä.ami on coolKäännösvaiheen aikavaatimus
+JavaScriptin sellaisenaan kehitysympäristössä. Käännösvaiheen aikavaatimus
 pyritään luonnollisesti pitämään mahdollisimman pienenä, mutta se on silti
 projektin monimutkaisuuteen ja kehitysnopeuteen vaikuttava tekijä, joka
 tulee huomioida työkalun käyttöönotossa.
 
 Kuva \ref{fig:compilation} esittää erilaisia käännösprosesseja eri
-JavaScript-ohjelman kehityskielille. Jos koodi kirjoitetaan kaikkiin
-suoritusympäristöihin soveltuvalla kielen versiolla, kuten EcmaScriptin
-versiolla 5 (2011), käännösvaihe voidaan jättää kokonaan väliin. Kielen
+JavaScript-ohjelman kehityskielille. Käännösvaiheen tarpeellisuus
+ja vaikutus kehitysprosessiin riippuu käytetystä kielestä,
+EcmaScript versiosta ja siitä missä ympäristöissä sitä halutaan suorittaa.
+Esimerkiksi Internet Explorer tukee ainoastaan EcmaScriptin vanhaa viidettä
+versiota (2011). Jos koodi kirjoitetaan kaikkiin
+suoritusympäristöihin soveltuvalla kielen versiolla,
+käännösvaihe voidaan jättää kokonaan väliin. Kielen
 uudemmat versiot ovat kuitenkin tuoneet monia lisäominaisuuksia, joiden
 käyttäminen vanhempia selaimia tukevissa ohjelmissa vaatii joka tapauksessa
 käännösvaiheen staattisesta tyypittämisestä riippumatta. Uusia
