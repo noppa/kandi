@@ -1,48 +1,50 @@
-\chapter{Staattisen tyypityksen hyödyt}
+\chapter{Staattisen tyyppitarkastuksen hyödyt}
 
 \section{Virheiden havaitseminen}
 
-Kenties tärkein staattisen tyyppijärjestelmän tehtävä on havaita ja estää
+Kenties tärkein tyyppijärjestelmän tehtävä on havaita ja estää
 ohjelmoijan virheitä. Tyyppisäännöt eivät kykene tunnistamaan yleisesti
 kaikenlaisia ongelmia koodissa — bugin lähteenä voi esimerkiksi olla
 väärinymmärrys, jossa ohjelman vaatimukset on tulkittu ja toteutettu väärin.
-Vaikka staattiset tyyppijärjestelmät eivät kykenisikään ehkäisemään kaikkia
+Vaikka tyyppijärjestelmät eivät kykenisikään ehkäisemään kaikkia
 virheitä, niillä voidaan kuitenkin havaita tietyn luokan virheet
 systemaattisesti. Johdannossa annettiin esimerkki ohjelman virheellisestä
 tilasta, jossa henkilön ikää kuvaavaan muuttujaan oli päätynyt tekstimuotoinen
 arvo, \dblquoted{Matti}. Tämä on yksinkertainen esimerkki virheestä joka
-olisi luultavasti helposti havaittavissa staattisen tyyppijärjestelmän
-avulla. Tässä tutkielmassa esitellyt työkalut, mahdollisesti Closure–kääntäjää
-lukuunottamatta, onkin kehitetty erityisesti tätä tarkoitusta
-varten.
+olisi luultavasti helposti havaittavissa tyyppijärjestelmän
+avulla. Myös dynaamiset tyyppijärjestelmät estävät tällaiset tyyppivirheet
+suoritusaikana, mutta vasta jos virheen sisältävä osa koodia suoritetaan.
+Tässä tutkielmassa esitellyt työkalut, mahdollisesti Closure–kääntäjää
+lukuunottamatta, onkin kehitetty erityisesti estämään tyyppivirheitä
+osana kehitysprosessia, jo ennen koodin suorittamista.
 
-Kaikki kolme työkalua antaisivat käännösvirheen jos esimerkeissä
+Kaikki kolme työkalua antaisivat käännösvirheen, jos esimerkeissä
 \ref{lst:ostoskorin_hinta_closure} ja \ref{lst:ostoskorin_hinta_flow}
 esiteltyä ostoskorifunktiota kutsuttaisiin virheellisesti esimerkiksi listalla
 hintaa kuvaavia numeroita, sillä funktion parametrin on annotoitu olevan
-lista ``Ostos''-tyyppimääritelmän mukaisia objekteja. Esimerkiksi
-virheellinen kutsu
+lista Ostos-tyyppimääritelmän mukaisia objekteja. Koska
+JavaScript on paitsi dynaamisesti myös heikosti tyypitetty,\newline
 \colorbox{lightgray}{\lstinline|ostoskorinHinta([5, 10, 15])|} ei itse
-asiassa aiheuttaisi suoritettaessa ohjelman keskeyttävää virhettä.
-\colorbox{lightgray}{\lstinline|ostos.hinta|} ilmaisu on sallittu vaikka
+asiassa aiheuttaisi suoritettaessa ohjelman keskeyttävää virhettä. Ilmaisu 
+\colorbox{lightgray}{\lstinline|ostos.hinta|} on sallittu vaikka
 muuttuja \colorbox{lightgray}{\lstinline|ostos|} olisikin arvoltaan numero
-eikä objekti. Tällöin ilmaisun arvo on \colorbox{lightgray}{\lstinline|undefined|}
+eikä Ostos-olio. Tällöin ilmaisun arvo olisi \colorbox{lightgray}{\lstinline|undefined|}
 ja lausekkeen \colorbox{lightgray}{\lstinline|summa += ostos.hinta|} jälkeen
-\colorbox{lightgray}{\lstinline|summa|} muuttujan arvo on erityinen
+\colorbox{lightgray}{\lstinline|summa|}-muuttujan arvo olisi erityinen
 ei-numeroa kuvaava \colorbox{lightgray}{\lstinline|NaN|} \cite{Ecma262NaN}.
-Käännösaikaisen tarkistamisen merkitys korostuu erityisen hyödylliseksi
+Tyyppitarkistamisen merkitys korostuu erityisen hyödylliseksi
 tämänkaltaisen ohjelmointivirheen kohdalla, sillä virhe ei välttämättä ole
 muutoin helposti havaittavissa. Funktiokutsu ei aiheuttaisi helposti
 todennettavaa suoritusaikaista virhettä, joten ei-toivottu palautusarvo
 \colorbox{lightgray}{\lstinline|NaN|} saattaisi kiertää ohjelman
 operaatioiden välillä pitkällekin aiheuttaen muita loogisia virheitä.
 
-Vuonna 2017 tehdyssä tutkimuksessa TypeScriptin ja Flown vaikutuksesta avoimen
+Vuonna 2017 tehdyssä tutkimuksessa \cite{ToTypeOrNotToType} TypeScriptin
+ja Flown vaikutuksesta avoimen
 lähdekoodin JavaScript-projekteihin havaittiin, että vähintään 15\%
 ilmoitetuista ja korjatuista bugeista olisi voitu havaita ja välttää jos
-projektin kehitykseen oltaisin käytetty jompaakumpaa näistä työkaluista \cite{ToTypeOrNotToType}.
-To Type or Not to Type: Quantifying Detectable Bugs in JavaScript -tutkimuksen
-arvioinnissa huomioitiin lisäksi, että tulos on tutkimusmenetelmästä
+projektin kehitykseen oltaisin käytetty jompaakumpaa näistä työkaluista.
+Tutkimuksen arvioinnissa huomioitiin lisäksi, että tulos on tutkimusmenetelmästä
 johtuen mitä luultavimmin alempi kuin tällaisen muutoksen tuoma todellinen
 vaikutus. Tutkimus toteutettiin muuntamalla avoimen lähdekoodin
 JavaScript-kirjastoja ensin staattisesti tyypitettyyn muotoon ja sitten
