@@ -102,8 +102,8 @@ Kun JavaScriptiä optimoidaan käännösvaiheessa, on kuitenkin usein hyödyllis
 kiinnittää enemmän huomiota tuotetun koodin kokoon kuin suoritusaikaiseen
 tehokkuuteen. JavaScriptin yleisin käyttökohde ovat verkkosivut,
 joissa selain lataa lähdekoodin sivulle saapuessa
-internet-yhteyden yli juuri ennen ohjelman suorittamista.
-Ladattavan JavaScript-koodin määrä vaikuttaa siihen kauanko sivun lataus
+internet-yhteyden yli juuri ennen ohjelman suorittamista. Ladattavan\newline
+JavaScript-koodin määrä vaikuttaa siihen kauanko sivun lataus
 kestää, joten koodin koon kasvattaminen minimaalisen suoritusajan
 edun vuoksi ei usein ole kokonaisuudessaan hyödyllistä.
 Closure–kääntäjä on kehitetty erityisesti
@@ -149,21 +149,26 @@ console.log($laskuri$$.$a$+.14*$laskuri$$.$a$);
 \end{lstlisting}
 Listauksessa \ref{fig:optimoitu_javascript} näkyy Closuren (versio 20190215.0.2)
 tuottama koodi. Pitkä luokan \inlinecode{HintaLaskuri} jäsenmuuttuja
-\inlinecode{ostostenHintaYhteensa} on uudelleennimetty lyhyeen muottoon.\newline
-Closure näkee että metodeja kutsutaan vain yhdessä kohdassa koodia,
-joten se on poistanut metodit ja korvannut niiden kutsupaikat koodilla
-joka alun perin oli metodin sisällä (engl. function inlining).
+\inlinecode{ostostenHintaYhteensa} on uudelleennimetty lyhyeen muotoon
+\inlinecode{\$a\$}. Closure näkee että luokan \inlinecode{HintaLaskuri}
+metodeja kutsutaan \inlinecode{lisaaTuote} ja \inlinecode{yhteensa} kutsutaan
+vain yhdessä kohdassa koodia, joten se on siirtänyt metodien ohjeet luokan
+ulkopuolelle, alkuperäiselle kutsupaikalle, ja muuttanut parametriviittaukset
+viittauksiksi alkuperäisen kutsun argumentteihin.\newline
 \inlinecode{arvonlisavero}-luokkamuuttuja
-on poistettu kokonaan ja korvattu käyttöpaikalla \inlinecode{.14} \textit{numeroliteraalilla},
+on poistettu kokonaan ja korvattu käyttöpaikalla\newline
+\inlinecode{.14} \textit{numeroliteraalilla},
 mikä paitsi pienentää koodin kokoa myös saattaa parantaa suorituksenaikaista
 tehokkuutta, sillä koodia suorittavan moottorin ei
-tarvitse noutaa \inlinecode{arvonlisavero}-luokkamuuttujaa
+tarvitse noutaa\newline
+\inlinecode{arvonlisavero}-luokkamuuttujaa
 luokan \textit{instanssista}. Käännöksen tulos on vaikeasti
 luettavaa, mutta se onkin tarkoitettu JavaScript-moottorin suoritettavaksi
 eikä ohjelmoijan luettavaksi. Ongelmatilanteissa, lopullista koodia
-tutkittaessa ja \dblquoted{debugattaessa}, käännetty koodi voidaan palauttaa
+tutkittaessa, käännetty koodi voidaan palauttaa
 alkuperäiseen muotoonsa ohjelmoijan luettavaksi käyttämällä \textit{lähdekarttoja}
-(engl. source map) \cite{SourceMapMDN, SourceMapsDocsClosure}.
+(engl. source map) \cite{SourceMapMDN, SourceMapsDocsClosure},
+jotka kuvaavat minimoidun lähdekoodin yhtymäkohtia alkuperäiseen.
 
 \section{Tyyppimäärittelyt dokumentaationa}
 Nykyaikasten editorien vakio-ominaisuuksiin kuuluu kirjoittamisen tukeminen
