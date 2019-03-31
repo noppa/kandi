@@ -94,18 +94,21 @@ pystyvätkin osoittamaan esimerkissä olevan virheen.
 \section{Ohjelman optimointi käännösvaiheessa}
 Aivan ensimmäiset tyyppijärjestelmät, kuten Fortranin (1957) staattinen tyypitys,
 kehitettiin laskutoimitusten suoritusajan optimointia varten \cite{TypesAndProgrammingLanguages}.
-Myös uudemmissa kielissä muuttujien tyypeistä saatavilla olevaa tietoa
-voidaan käyttää ajonaikaisen turvallisuuden varmistavien tarkistusten
-optimointiin.
+Myös uudemmissa kielissä tyypeistä saatavilla olevaa tietoa
+voidaan käyttää ajonaikaisen esimerkiksi turvallisuuden varmistavien
+tarkistusten optimointiin.
 
 Kun JavaScriptiä optimoidaan käännösvaiheessa, on kuitenkin usein hyödyllistä
 kiinnittää enemmän huomiota tuotetun koodin kokoon kuin suoritusaikaiseen
-tehokkuuteen. Tyypillinen JavaScript-ohjelma ladataan sivulle saapuessa
-internet-yhteyden yli juuri ennen suorittamista, minkä vuoksi ladattavan
-koodin koon kasvattaminen minimaalisen suoritusajan edun vuoksi ei usein ole
-kokonaisuudessaan hyödyllistä. Closure–kääntäjä on kehitetty erityisesti
+tehokkuuteen. JavaScriptin yleisin käyttökohde ovat verkkosivut,
+joissa selain lataa lähdekoodin sivulle saapuessa
+internet-yhteyden yli juuri ennen ohjelman suorittamista.
+Ladattavan JavaScript-koodin määrä vaikuttaa siihen kauanko sivun lataus
+kestää, joten koodin koon kasvattaminen minimaalisen suoritusajan
+edun vuoksi ei usein ole kokonaisuudessaan hyödyllistä.
+Closure–kääntäjä on kehitetty erityisesti
 JavaScript-koodin koon optimointia ajatellen. Muuttujanimet voidaan helposti
-uudelleennimetä ilmankin staattisen tyypityksen apua, mutta sen lisäksi myös
+uudelleennimetä ilmankin staattisen tyypityksen apua, mutta sen lisäksi
 joukko muita koodia keventäviä optimointeja on käytettävissä kun kääntäjällä
 on muuttujien tyypeistä saatava tieto käytettävissä. Closure–kääntäjä osaa
 uudelleennimetä myös luokkamuuttujien nimiä lyhyemmiksi, poistaa
@@ -145,7 +148,7 @@ $laskuri$$.$a$+=5;
 console.log($laskuri$$.$a$+.14*$laskuri$$.$a$);
 \end{lstlisting}
 Listauksessa \ref{fig:optimoitu_javascript} näkyy Closuren (versio 20190215.0.2)
-tuottama koodi. Pitkä luokkamuuttuja
+tuottama koodi. Pitkä luokan \inlinecode{HintaLaskuri} jäsenmuuttuja
 \inlinecode{ostostenHintaYhteensa} on uudelleennimetty lyhyeen muottoon.\newline
 Closure näkee että metodeja kutsutaan vain yhdessä kohdassa koodia,
 joten se on poistanut metodit ja korvannut niiden kutsupaikat koodilla
