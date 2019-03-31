@@ -22,14 +22,14 @@ Kaikki kolme työkalua antaisivat käännösvirheen, jos esimerkeissä
 \ref{lst:ostoskorin_hinta_closure} ja \ref{lst:ostoskorin_hinta_flow}
 esiteltyä ostoskorifunktiota kutsuttaisiin virheellisesti esimerkiksi listalla
 hintaa kuvaavia numeroita, sillä funktion parametrin on annotoitu olevan
-lista Ostos-tyyppimääritelmän mukaisia objekteja. Koska
+lista \inlinecode{Ostos}-tyyppimääritelmän mukaisia objekteja. Koska
 JavaScript on paitsi dynaamisesti myös heikosti tyypitetty,\newline
 \colorbox{lightgray}{\lstinline|ostoskorinHinta([5, 10, 15])|} ei itse
 asiassa aiheuttaisi suoritettaessa ohjelman\newline
 keskeyttävää virhettä. Ilmaisu 
 \colorbox{lightgray}{\lstinline|ostos.hinta|} on sallittu vaikka
 muuttuja \colorbox{lightgray}{\lstinline|ostos|} olisikin arvoltaan numero
-eikä Ostos-olio. Tällöin ilmaisun arvo olisi \colorbox{lightgray}{\lstinline|undefined|}
+eikä \inlinecode{Ostos}-olio. Tällöin ilmaisun arvo olisi \colorbox{lightgray}{\lstinline|undefined|}
 ja lausekkeen \colorbox{lightgray}{\lstinline|summa += ostos.hinta|} jälkeen
 \colorbox{lightgray}{\lstinline|summa|}-muuttujan arvo olisi erityinen
 ei-numeroa kuvaava \colorbox{lightgray}{\lstinline|NaN|} \cite{Ecma262NaN}.
@@ -83,7 +83,8 @@ if (viikonpaiva === "perjantai") {
   ostoskori.lisääTuote({ nimi: "astiasto", hinta: 15 });
 }
 \end{lstlisting}
-Esimerkin \ref{lst:fridaybug} ei toimi oikein perjantaisin, sillä \inlinecode{Ostos}-tyyppisen
+Esimerkin \ref{lst:fridaybug} ei toimi oikein perjantaisin, sillä
+\inlinecode{Ostos}-tyyppisen
 objektin ominaisuus \inlinecode{hinta} on virheellisesti kirjoitettu isolla
 alkukirjaimella. Koska bugi toistuu vain tietyissä olosuhteissa, se voi pysyä
 havaitsemattomana pitkään. Staattinen analyysi etsii tyyppivirheitä
