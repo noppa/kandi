@@ -150,8 +150,8 @@ console.log($laskuri$$.$a$+.14*$laskuri$$.$a$);
 Listauksessa \ref{fig:optimoitu_javascript} näkyy Closuren (versio 20190215.0.2)
 tuottama koodi. Pitkä luokan \inlinecode{HintaLaskuri} jäsenmuuttuja
 \inlinecode{ostostenHintaYhteensa} on uudelleennimetty lyhyeen muotoon
-\inlinecode{\$a\$}. Closure näkee että luokan \inlinecode{HintaLaskuri}
-metodeja kutsutaan \inlinecode{lisaaTuote} ja \inlinecode{yhteensa} kutsutaan
+\inlinecode{\$a\$}. Closure näkee että luokan \inlinecode{HintaLaskuri} metodeja\newline
+\inlinecode{lisaaTuote} ja \inlinecode{yhteensa} kutsutaan
 vain yhdessä kohdassa koodia, joten se on siirtänyt metodien ohjeet luokan
 ulkopuolelle, alkuperäiselle kutsupaikalle, ja muuttanut parametriviittaukset
 viittauksiksi alkuperäisen kutsun argumentteihin.\newline
@@ -171,7 +171,7 @@ alkuperäiseen muotoonsa ohjelmoijan luettavaksi käyttämällä \textit{lähdek
 jotka kuvaavat minimoidun lähdekoodin yhtymäkohtia alkuperäiseen.
 
 \section{Tyyppimäärittelyt dokumentaationa}
-Nykyaikasten editorien vakio-ominaisuuksiin kuuluu kirjoittamisen tukeminen
+Nykyaikaisten editorien vakio-ominaisuuksiin kuuluu kirjoittamisen tukeminen\newline
 automaattisilla ehdotuksilla. Yksinkertaisimmillaan ehdotukset voivat
 perustua avatuissa tiedostoissa käytettyihin sanoihin, joita editori ehdottaa
 käytettäväksi uudelleen koodia kirjoitettaessa. Alkeellisetkin ehdotukset
@@ -198,10 +198,10 @@ sillä ohjelmoija voi tutkia luokan tai
 paketin tarjoamaa sisältöä ehdotettuja nimiä selaamalla. Automaattisia ehdotuksia
 on mahdollista tarjota myös dynaamisesti tyyppitarkastetuille kielille, mutta
 koodipohjan kasvaessa ja muuttuessa monimutkaisemmaksi ehdotusten tarkkuus
-on vaikea pitää samalla tasolla kuin staattisesti tyypitetyissä kielissä.
+on vaikea pitää yhtä hyvänä kuin staattisesti tyypitetyissä kielissä.
 Huonoimmillaan ehdotetut muuttuja- ja metodinimet valitaan yksinkertaisesti
 listaamalla avoimista tiedostoista löytyviä nimiä, välittämättä sen
-enempää siitä onko nämä metodit määritetty juuri kyseiselle tyypille.
+enempää siitä ovatko nämä metodit määritetty juuri kyseiselle tyypille.
 Edistyneemmät ehdotusmoottorit, kuten Visual Studiossa käytetty IntelliSense,
 suorittavat osaa JavaScript-koodista taustalla ja analysoivat siten muuttujien
 tyyppejä ajonaikana \cite{PreviewingSalsa, JavaScriptIntellisense}.
@@ -224,16 +224,13 @@ Automaattisten ehdotusten vaikutuksesta ohjelmointityön tehokkuuteen ei
 kuitenkaan ole yleisesti hyväksyttyä, tutkittua varmuutta. Vaikka metodien
 nimet olisivatkin ohjelmoijan nähtävillä editorissa, ne eivät välttämättä
 sellaisenaan tarjoa tarpeeksi hyötyä dokumentaationa jotta työtehokkuus
-kasvaisi merkittävästi. Vuonna 2015 toteutettu tutkimus
-``An Empirical Investigation of the Effects of Type Systems and Code Completion
-on API Usability using TypeScript and JavaScript in MS Visual Studio''
+kasvaisi merkittävästi. Vuonna 2015 toteutettu tutkimus \cite{EmpiricalInvestigationOfCodeCompletion}
 testasi staattisen tyypityksen ja automaattisten ehdotusten tehokkuutta
 antamalla osallistujille toteutettavaksi ohjelmointitehtävän JavaScriptillä
-ja TypeScriptillä, automaattisten ehdotusten kanssa ja niitä ilman
-\cite{EmpiricalInvestigationOfCodeCompletion}. Tutkimuksen mukaan
+ja TypeScriptillä, automaattisten ehdotusten kanssa ja niitä ilman. Tutkimuksen mukaan
 automaattiset ehdotukset eivät toisi tilastollisesti merkittävää parannusta
 ohjelmointitehtävän ratkomisnopeuteen. Samassa tutkimuksessa kuitenkin nähtiin
 että TypeScriptiä käyttäneet koehenkilöt suoriutuivat tehtävästä nopeammin,
 automaattisilla ehdotuksilla tai ilman. Voi olla, että automaattisia ehdotuksia
-tehokkaampi työkalu on itse kääntäjä, joka paljastaa virheet koodissa ennen
+tehokkaampi työkalu on kääntäjä, joka paljastaa virheet koodissa ennen
 kuin ohjelmoijan tarvitsee kokeilla koodin toimivuutta käytännössä.
