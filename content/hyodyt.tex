@@ -49,7 +49,7 @@ Tutkimuksen arvioinnissa huomioitiin lisäksi, että tulos on tutkimusmenetelmä
 johtuen mitä luultavimmin alempi kuin tällaisen muutoksen tuoma todellinen
 vaikutus. Tutkimus toteutettiin muuntamalla avoimen lähdekoodin
 JavaScript-kirjastoja ensin staattisesti tyypitettyyn muotoon ja sitten
-testaamalla kuinka hyvin tyyppitarkastus havaitsi ennalta tunnettuja bugeja
+mittaamalla kuinka hyvin tyyppitarkastus havaitsi ennalta tunnettuja bugeja
 aiheuttavan koodin. Sen ulkopuolelle jäivät bugit joita ei oltu vielä
 korjattu tai havaittu, sekä bugit jotka kehittäjä oli havainnut jossain
 kehitysvaiheessa ennen virheellisen ohjelman julkaisua. Staattisen
@@ -63,12 +63,19 @@ tyyppitarkastus luultavasti auttaisi vähentämään myös näitä bugeja.
 \label{fig:ToTypeOrNotToType}
 \end{figure}
 
-Kuvaajan \ref{fig:ToTypeOrNotToType} esittämässä tilanteessa suuri osa
-bugeista ei ole julkisia, eli kehittäjät eivät ole havainneet bugia eivätkä
-käyttäjät ole ilmoittaneet sellaisesta. Esimerkiksi seuraavanlainen koodi
-saattaisi aiheuttaa vaikeasti havaittavan virheen joka jäisi helposti dynaamisessa
-testaamisessa huomaamatta:
-\begin{lstlisting}[caption={Vaikeasti havaittavan virheen aiheuttava koodiesimerkki}]
+Kuva \ref{fig:ToTypeOrNotToType} luokittelee
+tutkimuksessa \cite{ToTypeOrNotToType} kiinnostuksen kohteena
+olleet ohjelmointivirheet. Tutkimuksessa käsiteltiin ainoastaan
+julkisia, jo korjattuja bugeja. Suuri osa ohjelmointivirheistä jää
+kuitenkin luultavasti tämän joukon ulkopuolelle, sillä ohjelmissa voi
+olla bugeja joita kehittäjät eivät ole vielä havainneet ja joista
+käyttäjät eivät ole ilmoittaneet. Esimerkiksi ohjelma \ref{lst:fridaybug}
+saattaisi aiheuttaa vaikeasti havaittavan virheen joka jäisi helposti 
+huomaamatta manuaalisesti tehtävässä testauksessa ja jopa yksikkötesteissä
+\begin{lstlisting}[
+  caption={Vaikeasti havaittavan virheen aiheuttava koodiesimerkki},
+  label={lst:fridaybug}
+]
 if (viikonpaiva === "perjantai") {
   // Alennus perjantaisin 5 euroa
   ostoskori.lisääTuote({ nimi: "astiasto", Hinta: 10 });
@@ -76,7 +83,7 @@ if (viikonpaiva === "perjantai") {
   ostoskori.lisääTuote({ nimi: "astiasto", hinta: 15 });
 }
 \end{lstlisting}
-Esimerkin koodi ei toimi oikein perjantaisin, sillä \inlinecode{Ostos}-tyyppisen
+Esimerkin \ref{lst:fridaybug} ei toimi oikein perjantaisin, sillä \inlinecode{Ostos}-tyyppisen
 objektin ominaisuus \inlinecode{hinta} on virheellisesti kirjoitettu isolla
 alkukirjaimella. Koska bugi toistuu vain tietyissä olosuhteissa, se voi pysyä
 havaitsemattomana pitkään. Staattinen analyysi etsii tyyppivirheitä
