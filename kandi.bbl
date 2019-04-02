@@ -136,6 +136,18 @@ CSE341: Programming Languages Winter 2013 Unit 6 Summary, 2013.
 \newblock
   \urlprefix\url{https://courses.cs.washington.edu/courses/cse341/13wi/unit6notes.pdf}.
 
+\bibitem{DartLang}
+Dart-kielen kotisivut, 2019.
+\newblock \urlprefix\url{https://www.dartlang.org/}.
+
+\bibitem{ElmLang}
+Elm-kielen kotisivut, 2019.
+\newblock \urlprefix\url{https://www.dartlang.org/}.
+
+\bibitem{ReasonMLLang}
+ReasonML-kielen kotisivut, 2019.
+\newblock \urlprefix\url{https://reasonml.github.io/}.
+
 \bibitem{PyreCheck}
 Pyre-tyyppitarkastaja Python-kielelle.
 \newblock \urlprefix\url{https://github.com/facebook/pyre-check}.

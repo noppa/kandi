@@ -1,4 +1,4 @@
-\chapter{Ongelmat JavaScriptin staattisessa tyypittämisessä}
+\chapter{Tyyppitarkastamisen ongelmat}
 
 \section{EcmaScript-yhteensopivuus}
 TypeScript pyrkii nou\-dat\-ta\-maan Ecma\-Script-spe\-si\-fi\-kaa\-ti\-o\-ta
@@ -8,7 +8,7 @@ suhteen jotka eivät nimenomaan liity staattiseen tyypittämiseen
 \cite{TypeScript_DesignGoals}. TypeScriptin kehityksen alkuvaiheissa, ennen
 EcmaScript 2015 -spe\-si\-fi\-kaa\-ti\-on valmistumista, JavaScriptista
 kuitenkin puuttui joitain tärkeiksi katsottuja ominaisuuksia, jotka
-päätettiin lisätätä TypeScriptiin mahdollisista
+päätettiin lisätä TypeScriptiin mahdollisista
 yh\-teen\-so\-pi\-vuus\-ongel\-mi\-sta huolimatta. TypeScrip\-tis\-sä on
 esimerkiksi syntaksi ni\-mi\-a\-va\-ruu\-den määrittämiseen, vaikka
 EcmaScriptiin myöhemmin lisätyt \textit{moduulit} ajavat saman asian
@@ -61,26 +61,26 @@ tyyppien automaattista päättelyä (engl. type inference).
   tuotteet.sort(vertaaHintoja);
 \end{lstlisting}
 Esimerkissä \ref{fig:flow_call_site_inference}, Flow pystyy päättelemään
-tyypin \newline
-\inlinecode{vertaaHintoja: (a: Ostos, b: Ostos) => number} automaattisesti,\newline
-vaikkei esimerkissä ole yhtään eksplisiittistä tyyppimäärittelyä tai
-muuta tavallisesta\newline
-JavaScriptista poikkeavaa. Flow tietää ennestään
-mikä listan sort-metodin tyyppi on, joten se pystyy päättelemään myös
-sort-metodille annetun vertaaHintoja-funktion tyypin käyttämällä
+muuttujan \inlinecode{vertaaHintoja} tyypin\newline
+\inlinecode{(a: Ostos, b: Ostos) => number} automaattisesti,
+vaikkei esimerkissä ole\newline
+yhtään eksplisiittistä tyyppimäärittelyä tai
+muuta tavallisesta JavaScriptista poikkeavaa. Flow tietää ennestään
+mikä listan \inlinecode{sort}-metodin tyyppi on, joten se pystyy päättelemään myös
+\inlinecode{sort}-metodille annetun \inlinecode{vertaaHintoja}-funktion tyypin käyttämällä
 \textit{kutsumispaikkaan perustuvaa päättelyä} (engl. call-site inference).
 TypeScript ei tue kutsumispaikkaan perustuvaa päättelyä samalla tavalla kuin
 Flow, mikä onkin yksi isoimmista eroista näiden kahden työkalun välillä.
 Liian pitkälle viety tyyppien automaattinen päättely voi johtaa ongelmiin
 sekavien virheviestien tai työkalun hitauden muodossa, minkä vuoksi TypeScript
-vaatii nimettyjen funktioiden argumenteille aina eksplisiittiset tyypit.
+vaatii nimettyjen funktioiden parametreille aina eksplisiittiset tyypit.
 Kun funktion signatuuriin lisätään \inlinecode{(a: Ostos, b: Ostos)},
 myös TypeScript pystyy automaattisesti päättelemään että funktion palautusarvo
 on numero, eikä eksplisiittistä \inlinecode{: number} palautusarvon
 määritystä tarvita.
-Molempien työkalujen tapauksessa on hyvä huomata että tyyppien automaattinen
+Molempien työkalujen että tyyppien automaattinen
 päättely on viety paljon pidemmälle kuin se funktion sisäinen muuttujan
-tyypin päättely jollaista nähdään esimerkiksi
+tyypin päättely, jollaista nähdään esimerkiksi
 \inlinecode{var}-avainsanalla C\#:issa ja Javassa.
 
 \section{Luotettavuus, täydellisyys ja käytännöllisyys}
@@ -100,9 +100,14 @@ ominaisuudet jotka eivät olisi ajonaikana tyyppivirheitä
 \cite{TypesAndProgrammingLanguages, CSE_ProgrammingLanguages}.
 
 Jotta JavaScriptiä analysoiva tyyppijärjestelmä olisi luotettava, sen on
-annettava virhe esimerkiksi seuraavasta ohjelmasta:
+annettava virhe esimerkiksi seuraavasta Listauksen \ref{fig:soundness_test} ohjelmasta:
+% HACK: Force next listing to next page without jumping through bunch of hoops
+\newline
 
-\begin{lstlisting}[caption={Virheellinen JavaScript-ohjelma: lisätyllä tuotteella ei ole nimeä.},label={fig:soundness_test}]
+\begin{lstlisting}[
+  caption={Virheellinen JavaScript-ohjelma: lisätyllä tuotteella ei ole nimeä.},
+  label={fig:soundness_test}
+]
 function osta(ostos) {
   lisääTuote({
     nimi: ostos.nimi,
@@ -137,7 +142,8 @@ ohjelma voidaan merkitä virheelliseksi.
 
 JavaScriptiä käännöskohteena käyttävät
 mutta muuten sen syntaksista ja semantiikasta eroavat uudet kielet,
-kuten Dart, Elm ja ReasonML on voitu kehittää toivotunlaiseksi ilman painetta olla
+kuten Dart \cite{DartLang}, Elm \cite{ElmLang} ja ReasonML \cite{ReasonMLLang}
+on voitu kehittää toivotunlaiseksi ilman painetta olla
 yhteensopiva vanhan koodin kanssa. TypeScript ja Flow on sen sijaan kehitetty
 lisäämään staattinen tyypitys olemassa olevaan kieleen, JavaScriptiin,
 siten että nykyisellään käytössä olevat kirjastot ja koodikäytännöt pystytään
@@ -164,9 +170,10 @@ function varaaEläinlääkäri(omistaja: Ihminen, lemmikki: Eläin){}
 varaaEläinlääkäri(new Eläin("Musti"), new Ihminen("Jaakko"));
 \end{lstlisting}
 TypeScript-kääntäjä sallii esimerkin \ref{fig:structural_typing_error} koodin
-vaikka arugmentit \mbox{\dblquoted{omistaja}} ja \newline\mbox{\dblquoted{lemmikki}}
+vaikka argumentit parametreille\newline
+\inlinecode{omistaja} ja \inlinecode{lemmikki}
 ovat väärin päin, sillä molempien luokkien rakenne on sama; molemmissa on
-pelkkä tekstimuotoinen ominaisuus \dblquoted{nimi}. Flow'ssa sama virhe ei menisi läpi.
+pelkkä tekstimuotoinen ominaisuus \inlinecode{nimi}. Flow'ssa sama virhe ei menisi läpi.
 Siinä luokkainstanssit on tyypitetty nominaalisesti, mikä auttaa tässä
 esimerkissä mutta aiehuttaa ongelmia muissa tilanteissa. Projekti saattaa
 esimerkiksi sisältää kaksi versiota samasta kirjastosta jonkin toisen
