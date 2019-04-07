@@ -7,30 +7,7 @@ Rich Hickey on puolestaan kritisoinut staattista
 tyypitystä useaan otteeseen \cite{10YearsOfClojure}. Eksplisiittiset
 tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia ja liian tiukka
 tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
-tyyppijärjestelmä on täydellinen (engl. complete). JavaScriptissä on useita
-yleisesti käytettyjä rajapintoja jotka ovat hyödyllisiä mutta vaikeita
-tyypittää staattisesti. Esimerkiksi suositusta kirjastosta \textit{lodash}
-löytyy funktio \inlinecode{get} \cite{LodashGet}, jota voidaan kutsua
-seuraavasti
-
-\begin{lstlisting}[caption={
-	get-funktiolla voidaan palauttaa arvo syvältä
-	objektin sisältä välittämättä mahdollisesti puuttuvista arvoista.},
-  label={fig:lodash_get_function},
-  aboveskip={20pt}
-]
-	import {get} from 'lodash';
-
-	const object = { a: [{ b: { c: 3 } }], d: null };
-	get(object, 'a[0].b.c'); // Palauttaa numeron 3
-\end{lstlisting}
-
-Staattisen tyyppijärjestelmän on vaikea päätellä esimerkin get-kutsun
-palautusarvo tai tarkistaa toisen argumentin oikeellisuus. Ohjelmoija joutuu
-joko luopumaan tyyppiturvallisuudesta tässä
-osassa koodia tai kirjoittamaan jonkin
-huomattavasti monimutkaisemman version säilyttääkseen tyyppiturvallisuuden.
-
+tyyppijärjestelmä on täydellinen (engl. complete). 
 Dynaamisen koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin
 vähäisiksi jos lopputuotos ei toimi odotetulla tavalla. Bugit heikentävät
 käyttäjien tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa sellaista

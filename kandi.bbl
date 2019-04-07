@@ -148,6 +148,10 @@ Elm-kielen kotisivut, 2019.
 ReasonML-kielen kotisivut, 2019.
 \newblock \urlprefix\url{https://reasonml.github.io/}.
 
+\bibitem{LodashGet}
+Lodash-kirjaston dokumentaatio - get-funktio.
+\newblock \urlprefix\url{https://lodash.com/docs/4.17.11#get}.
+
 \bibitem{PyreCheck}
 Pyre-tyyppitarkastaja Python-kielelle.
 \newblock \urlprefix\url{https://github.com/facebook/pyre-check}.
@@ -160,10 +164,6 @@ PHP-kieleen pohjautuva Hack-kieli.
 \bibitem{10YearsOfClojure}
 Video: Effective Programs - 10 Years of Clojure - Rich Hickey, 2017.
 \newblock \urlprefix\url{https://www.youtube.com/watch?v=2V1FtfBDsLU}.
-
-\bibitem{LodashGet}
-Lodash-kirjaston dokumentaatio - get-funktio.
-\newblock \urlprefix\url{https://lodash.com/docs/4.17.11#get}.
 
 \bibitem{StateOfJs2018}
 Michael~Rambeau Raphaël~Benitte, Sacha~Greif.

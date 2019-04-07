@@ -179,3 +179,27 @@ esimerkissä mutta aiehuttaa ongelmia muissa tilanteissa. Projekti saattaa
 esimerkiksi sisältää kaksi versiota samasta kirjastosta jonkin toisen
 kirjaston kautta, mikä voi aiheuttaa yhteensopimusongelmia kun käytännössä
 saman luokan tyyppejä ei lueta keskenään yhteensopiviksi.
+
+JavaScriptissä on useita yleisesti käytettyjä rajapintoja jotka ovat
+hyödyllisiä mutta vaikeita tyypittää staattisesti.
+Esimerkiksi suositusta kirjastosta \textit{lodash}
+löytyy funktio \inlinecode{get} \cite{LodashGet}, jota voidaan kutsua
+seuraavasti
+
+\begin{lstlisting}[caption={
+	get-funktiolla voidaan palauttaa arvo syvältä
+	objektin sisältä välittämättä mahdollisesti puuttuvista arvoista.},
+  label={fig:lodash_get_function},
+  aboveskip={20pt}
+]
+	import {get} from 'lodash';
+
+	const object = { a: [{ b: { c: 3 } }], d: null };
+	get(object, 'a[0].b.c'); // Palauttaa numeron 3
+\end{lstlisting}
+
+Staattisen tyyppijärjestelmän on vaikea päätellä esimerkin get-kutsun
+palautusarvo tai tarkistaa toisen argumentin oikeellisuus.
+TypeScriptiä, Flow'ta tai Closurea käyttävä ohjelmoija joutuu
+joko luopumaan tyyppiturvallisuudesta tässä osassa koodia tai kirjoittamaan jonkin
+huomattavasti monimutkaisemman version säilyttääkseen tyyppiturvallisuuden.
