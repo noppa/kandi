@@ -1,22 +1,16 @@
 \chapter{Yhteenveto}
-Staattinen tyypitys jakaa mielipiteitä. Facebook on kehittänyt
-staattiset tyyppijärjestelmät myös \textit{Pythonin} (1990) ja \textit{PHP:n} (1995)
-analysointiin \cite{PyreCheck, HackLang}.
-Dynaamisesti tyypitetyn \textit{Clojuren} (2007) kehittäjä
-Rich Hickey on puolestaan kritisoinut staattista
-tyypitystä useaan otteeseen \cite{10YearsOfClojure}. Eksplisiittiset
+Staattinen tyypitys jakaa mielipiteitä. Eksplisiittiset
 tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia ja liian tiukka
 tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
 tyyppijärjestelmä on täydellinen (engl. complete). 
 Dynaamisen koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin
 vähäisiksi jos lopputuotos ei toimi odotetulla tavalla. Bugit heikentävät
-käyttäjien tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa sellaista
-vahinkoa että koko bugisen ohjelman julkaisusta saatu nettohyöty on negatiivinen,
-eli sen käyttöönotto aiheuttaa enemmän haittaa kuin hyötyä. Staattinen tyypitys
-ohjaa kirjoitettua koodia turvalliseen suuntaan kehitysvaiheen alusta
+käyttäjien tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa
+pysyvää vahinkoa saadessaan ohjelman toimimaan virheellisesti.
+Staattinen tyypitys ohjaa kirjoitettua koodia turvalliseen suuntaan kehitysvaiheen alusta
 loppuun, ja torjuu tietynlaisia ohjelmointivirheitä tehokkaammin kuin
 esimerkiksi ajonaikaista käyttäytymistä testaavat \textit{unit testit}.
-Esimerkissä \ref{fig:lodash_get_function} esitelty get-kutsu on yksinkertainen
+Työn viidennen luvun viimeisessä esimerkissä esitelty get-kutsu on yksinkertainen
 ja helppolukuinen, mutta jos muuttujan \inlinecode{object} tyyppiä myöhemmin
 muutetaan toiseen muotoon muistamatta päivittää myös get-kutsua, virheellisestä
 get-kutsusta voi muodostua ohjelmaan hankala bugi.
