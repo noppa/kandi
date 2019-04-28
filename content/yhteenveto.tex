@@ -1,41 +1,28 @@
 \chapter{Yhteenveto}
-Staattinen tyypitys jakaa mielipiteitä. Eksplisiittiset
-tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia ja liian tiukka
-tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
+
+Tyyppijärjestelmä on tärkeä ohjelmointikielen ominaisuus, jolla on suuri
+vaikutus ohjelmistokehittäjän käyttökokemukseen.
+Eksplisiittiset tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia
+ja liian tiukka tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
 tyyppijärjestelmä on täydellinen (engl. complete). 
-Dynaamisen koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin
+Dynaamisesti tyypitetyn koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin
 vähäisiksi jos lopputuotos ei toimi odotetulla tavalla. Bugit heikentävät
 käyttäjien tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa
 pysyvää vahinkoa saadessaan ohjelman toimimaan virheellisesti.
 Staattinen tyypitys ohjaa kirjoitettua koodia turvalliseen suuntaan kehitysvaiheen alusta
-loppuun, ja torjuu tietynlaisia ohjelmointivirheitä tehokkaammin kuin
+loppuun ja torjuu tietynlaisia ohjelmointivirheitä tehokkaammin kuin
 esimerkiksi ajonaikaista käyttäytymistä testaavat \textit{unit testit}.
 Työn viidennen luvun viimeisessä esimerkissä esitelty get-kutsu on yksinkertainen
 ja helppolukuinen, mutta jos muuttujan \inlinecode{object} tyyppiä myöhemmin
 muutetaan toiseen muotoon muistamatta päivittää myös get-kutsua, virheellisestä
 get-kutsusta voi muodostua ohjelmaan hankala bugi.
 
-Flow, TypeScript ja Closure sallivat sekä dynaamisesti että
-staattisesti tyypitetyn koodin käytön ja hämärtävät rajaa niiden välillä.
-Jää ohjelmoijan päätettäväksi onko yllä mainitun get-kutsun yksinkertaisuus
-tyyppiturvattomuuden arvoista. JavaScript-kehityksessä hyväksi todetut
-suunnittelumallit ovat edelleen käytettävissä tyyppiannotoidussakin
-koodissa, vaikka välillä tyyppiturvallisuutta olisikin sen vuoksi höllättävä.
-Lopputulos ei ole ainakaan sen turvattomampaa kuin normaali JavaScript-koodikaan
-ja tyyppiturvaton osa koodia voidaan usein rajata pieneksi, muilla tavoin
-testatuksi osa-alueekseen muuten staattisesti tarkastetussa kokonaisuudessa.
-Samankaltaisuus ja yhteensopivuus tavallisen JavaScriptin kanssa onkin
-näiden työkalujen tärkein etu muihin staattisesti tyypitettyihin kieliin
-nähden. JavaScript projektit on mahdollista muuttaa vaiheittain staattisesti
-tyypitetyksi kirjoittamatta koko ohjelman koodia alusta asti uudestaan, eikä
-ohjelmoijan itsensä tarvitse korvata kaikkea JavaScriptista oppimaansa
-uuden kielen tavoilla ja yhteisöllä. Closuren JSDoc-tyyliset kommentit
-saattavat jo ollakin JavaScript-ohjelmoijalle tuttuja, sillä niitä käytetään
-usein koodin dokumentointiin vaikka tyyppien oikeellisuutta ei
-tarkastettaisikaan Closurella. Myös TypeScript- ja Flow-annotaatiot voivat
-helpottaa uusien JavaScript-ohjelmoijien tutustumista uuteen projektiin
-tuomallaan dokumentaatioarvolla.
-
+Tässä tutkielmassa on esitelty kolme työkalua, jotka lisäävät dynaamisesti
+tyypitettyyn JavaScriptiin käännösaikaisen tyyppitarkastuksen sekä syntaksin
+tyyppien eksplisiittiseen määrittämiseen. Flow, TypeScript ja Closure
+sallivat asteittaisen siirtymisen dynaamisesti tyyppitarkastetusta staattisesti
+tarkastettuun, sekä staattisen tarkastuksen ohittamisen niissä osissa koodia
+joihin sitä olisi liian vaikeaa tai mahdotonta lisätä.
 Samankaltaisuus ja yhteensopivuus jo ennestään suositun JavaScriptin kanssa
 yhdistettynä tyyppiturvallisuuteen, koodin kirjoittamista helpottaviin
 työkaluihin ja selkeämmin dokumentoituun koodiin ovat nostaneet erityisesti
