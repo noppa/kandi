@@ -152,15 +152,4 @@ ReasonML-kielen kotisivut, 2019.
 Lodash-kirjaston dokumentaatio - get-funktio.
 \newblock \urlprefix\url{https://lodash.com/docs/4.17.11#get}.
 
-\bibitem{StateOfJs2018}
-Michael~Rambeau Raphaël~Benitte, Sacha~Greif.
-\newblock State of JS 2018 tulokset, 2018.
-\newblock
-  \urlprefix\url{https://2018.stateofjs.com/javascript-flavors/overview/}.
-
-\bibitem{StateOfJs2016}
-Sacha Greif.
-\newblock State of JS 2016 tulokset, 2016.
-\newblock \urlprefix\url{http://2016.stateofjs.com/2016/flavors/}.
-
 \end{thebibliography}
