@@ -50,8 +50,8 @@ johtuen mitä luultavimmin alempi kuin tällaisen muutoksen tuoma todellinen
 vaikutus. Tutkimus toteutettiin muuntamalla avoimen lähdekoodin
 JavaScript-kirjastoja ensin staattisesti tyypitettyyn muotoon ja sitten
 mittaamalla kuinka hyvin tyyppitarkastus havaitsi ennalta tunnettuja bugeja
-aiheuttavan koodin. Sen ulkopuolelle jäivät bugit joita ei oltu vielä
-korjattu tai havaittu, sekä bugit jotka kehittäjä oli havainnut jossain
+aiheuttavan koodin. Sen ulkopuolelle jäivät ohjelmistovirheet joita ei oltu vielä
+korjattu tai havaittu, sekä ohjelmistovirheet jotka kehittäjä oli havainnut jossain
 kehitysvaiheessa ennen virheellisen ohjelman julkaisua. Staattisen
 tyyppitarkastus luultavasti auttaisi vähentämään myös näitä bugeja.
 
@@ -59,7 +59,7 @@ tyyppitarkastus luultavasti auttaisi vähentämään myös näitä bugeja.
 \centering
 \includegraphics{images/to_type_or_not_to_type_venn.pdf}
 \caption{To Type or Not to Type: Quantifying Detectable Bugs in JavaScript
-         -tutkimuksen käsittelemät bugit \cite{ToTypeOrNotToType}.}
+         -tutkimuksen käsittelemät ohjelmistovirheet \cite{ToTypeOrNotToType}.}
 \label{fig:ToTypeOrNotToType}
 \end{figure}
 
@@ -86,7 +86,7 @@ if (viikonpaiva === "perjantai") {
 Esimerkin \ref{lst:fridaybug} ei toimi oikein perjantaisin, sillä
 \inlinecode{Ostos}-tyyppisen
 objektin ominaisuus \inlinecode{hinta} on virheellisesti kirjoitettu isolla
-alkukirjaimella. Koska bugi toistuu vain tietyissä olosuhteissa, se voi pysyä
+alkukirjaimella. Koska ohjelmistovirhe toistuu vain tietyissä olosuhteissa, se voi pysyä
 havaitsemattomana pitkään. Staattinen analyysi etsii tyyppivirheitä
 kaikista koodin haaroista ja tyyppiannotoituna kaikki kolme työkalua
 pystyvätkin osoittamaan esimerkissä olevan virheen.
