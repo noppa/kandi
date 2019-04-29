@@ -47,6 +47,11 @@ Anders Hejlsberg.
 \newblock Microsoft Build 2014. TypeScript, maaliskuu 2014.
 \newblock \urlprefix\url{https://channel9.msdn.com/Events/Build/2014/3-576}.
 
+\bibitem{MozillaJIT}
+A crash course in just-in-time (JIT) compilers, helmikuu 2017.
+\newblock
+  \urlprefix\url{https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/}.
+
 \bibitem{DynamicsOfJSPackages}
 Shriam~Rajagopalan Erik~Wittern, Philippe~Suter.
 \newblock A Look at the Dynamics of the JavaScript Package Ecosystem.
