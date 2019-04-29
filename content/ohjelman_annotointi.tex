@@ -205,19 +205,19 @@ käyttöönotolle, eli käytännössä yhteenspivuus täysin tyyppitarkastamatto
 koodin kanssa.
 
 Sekä Flow että TypeScript tarjoavat erityisen
-yleisviittaustyypin Any, jota voi käyttää kuvaamaan mitä tahansa
-JavaScript-arvoa \cite{TypeScriptSpec}. Any-tyyppiseen muuttujaan voidaan asettaa mikä
-tahansa arvo ja Any-tyyppinen arvo voidaan asettaa mihin tahansa muuttujaan
-tai funktioparametriin. Any-tyypin avulla muuten staattisesti tyypitetyssä
+yleisviittaustyypin \inlinecode{any}, jota voi käyttää kuvaamaan mitä tahansa
+JavaScript-arvoa \cite{TypeScriptSpec}. \inlinecode{any}-tyyppiseen muuttujaan voidaan asettaa mikä
+tahansa arvo ja \inlinecode{any}-tyyppinen arvo voidaan asettaa mihin tahansa muuttujaan
+tai funktioparametriin. \inlinecode{any}-tyypin avulla muuten staattisesti tyypitetyssä
 ohjelmassa voidaan ohittaa käännösaikainen tyyppien tarkistaminen sellaisten
 koodin osien kohdalla joiden ajonaikaista arvoa olisi muuten vaikea tai
 mahdotonta määritellä käännösaikana. Näin ollen, mikäli tarve vaatii täysin
 annotoimattoman JavaScript-moduulin käyttämistä, kaikkien kyseisestä moduulista
-tuotujen arvojen voidaan määrittää olevan tyyppiä Any, jolloin tarkastaja ei
+tuotujen arvojen voidaan määrittää olevan tyyppiä \inlinecode{any}, jolloin tarkastaja ei
 kiinnitä huomiota siihen miten JavaScriptillä määritettyjä funktioita tai
 muita arvoja käsitellään.
 \begin{lstlisting}[
-  caption={Esimerkki Any-tyypillä sivuutetusta TypeScript virheestä},
+  caption={Esimerkki any-tyypillä sivuutetusta TypeScript virheestä},
   label={lst:tsany}
 ]
 const koriElementti: null | HTMLElement =
