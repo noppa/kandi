@@ -3,6 +3,17 @@
   \def\url#1{{\tt #1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
+\bibitem{StateOfJs2018}
+Michael~Rambeau Raphaël~Benitte, Sacha~Greif.
+\newblock State of JS 2018 tulokset, 2018.
+\newblock
+  \urlprefix\url{https://2018.stateofjs.com/javascript-flavors/overview/}.
+
+\bibitem{StateOfJs2016}
+Sacha Greif.
+\newblock State of JS 2016 tulokset, 2016.
+\newblock \urlprefix\url{http://2016.stateofjs.com/2016/flavors/}.
+
 \bibitem{TypesAndProgrammingLanguages}
 Benjamin~C. Pierce.
 \newblock {\em Types and Programming Languages\/}.
