@@ -140,9 +140,6 @@
   
   % Generate the title page 
   \gentitle
-
-  % \ittiivis{Foobarr}
-  
   % empty pagestyle for table of contents etc. 
   %
   % the redefinition of plain style works also for 1st pages of chapters,
@@ -154,8 +151,19 @@
     \fancyhf{}
     \renewcommand{\headrulewidth}{0 pt}
   }
+  
+  % roman numbering for table of contents etc.
+  \pagenumbering{roman}
+  
+  % insert table of contents, list of figures, list of tables
+  %
+  % setting the counter to zero effectively removes the page number from
+  % the toc, lof etc. entries in the toc since there is no roman numeral
+  % for zero ;-) (if you want them without numbering)
+  %
+  %\setcounter{page}{0}
 
-  \begin{ittiivis}{JavaScript, tyyppijärjestelmä, ohjelmointikieli}
+  \begin{ittiivis}{JavaScript, tyyppijärjestelmä, TypeScript, Flow, Closure}
 Tässä tutkielmassa tutustutaan kolmeen JavaScript-ohjelmointikieltä
 täydentävään työkaluun, jotka lisäävät dynaamisesti tyyppitarkastettuun
 JavaScriptiin staattisen tyyppitarkastuksen. JavaScriptillä kehitettävien
@@ -165,7 +173,6 @@ laatuun ja koodin ylläpidettävyyteen liittyviä ongelmia.
 TypeScript, Flow ja Closure-kääntäjä analysoivat JavaScript-koodia sekä
 siihen lisättäviä tyyppiannotaatioita ja voivat auttaa ohjelmiston kehittäjää
 välttämään näitä ongelmia.
-
 
 Tutkielmassa näytetään kuinka käännösaikana tehtävä staattinen tyyppitarkastus
 voi parantaa ohjelmistojen toimivuutta ja ylläpidettävyyttä verrattuna
@@ -182,16 +189,6 @@ tutkielmassa esiteltyjen työkalujen suunnittelussa on tehty hyötyjen
 ja haittojen tasapainottamiseksi.
   \end{ittiivis}
   
-  % roman numbering for table of contents etc.
-  \pagenumbering{roman}
-  
-  % insert table of contents, list of figures, list of tables
-  %
-  % setting the counter to zero effectively removes the page number from
-  % the toc, lof etc. entries in the toc since there is no roman numeral
-  % for zero ;-) (if you want them without numbering)
-  %
-  %\setcounter{page}{0}
 
   \tableofcontents
   \clearpage
