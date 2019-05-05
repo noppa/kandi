@@ -140,6 +140,8 @@
   
   % Generate the title page 
   \gentitle
+
+  % \ittiivis{Foobarr}
   
   % empty pagestyle for table of contents etc. 
   %
@@ -152,6 +154,18 @@
     \fancyhf{}
     \renewcommand{\headrulewidth}{0 pt}
   }
+
+  \begin{ittiivis}{JavaScript, tyyppijärjestelmä, ohjelmointikieli}
+    Tässä tutkielmassa tutustutaan kolmeen JavaScript-ohjelmointikieltä
+    täydentävään työkaluun, jotka lisäävät dynaamisesti tyyppitarkastettuun
+    JavaScriptiin staattisen tyyppitarkastuksen. JavaScriptillä kehitettävien
+    ohjelmistojen määrä ja kompleksisuus on kasvanut suuremmaksi kuin mihin
+    JavaScript oli alkujaan tarkoitettu, mikä voi aiheuttaa ohjelmiston
+    laatuun ja koodin ylläpidettävyyteen liittyviä ongelmia.
+    TypeScript, Flow ja Closure-kääntäjä analysoivat JavaScript-koodia sekä
+    siihen lisättäviä tyyppiannotaatioita ja voivat auttaa ohjelmiston kehittäjää
+    välttämään näitä ongelmia.
+  \end{ittiivis}
   
   % roman numbering for table of contents etc.
   \pagenumbering{roman}
@@ -163,6 +177,7 @@
   % for zero ;-) (if you want them without numbering)
   %
   %\setcounter{page}{0}
+
   \tableofcontents
   \clearpage
   %\setcounter{page}{0}
@@ -185,7 +200,7 @@
   
   % setup page numbering, page counter, etc.
   \startpages
-  
+
   \include{content/johdanto}
   \include{content/kasitteita}
   \include{content/ohjelman_annotointi}
