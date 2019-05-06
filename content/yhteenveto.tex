@@ -2,9 +2,21 @@
 
 Tyyppijärjestelmä on tärkeä ohjelmointikielen ominaisuus, jolla on suuri
 vaikutus ohjelmistokehittäjän käyttökokemukseen.
-Eksplisiittiset tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia
-ja liian tiukka tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä, sillä harva
-tyyppijärjestelmä on täydellinen (engl. complete). 
+Liian tiukka tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä,
+sillä harva tyyppijärjestelmä on täydellinen (engl. complete).
+Lisäksi eksplisiittiset tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia.
+Funktioiden parametrien ja luokkien jäsenmuuttujien tyypit on kirjoitettava
+osaksi määrittelyä silloin kun tyyppijärjestelmä ei kykene tulkitsemaan
+niitä automaattisesti. Jotta parametrien ja muuttujien tyyppiannotaatioissa
+voitaisiin merkata esimerkiksi objektien rakenteita, nekin voidaan
+joutua kirjoittamaan auki esimerkkien \ref{lst:closure_typedef} ja
+\ref{lst:flow_ts_typedef} mukaisilla tyyppikuvauksilla.
+Eksplisiittisistä tyyppimäärittelyistä voi olla hyötyä
+koodin dokumentaationa, mutta kehittäjä saattaa myös kokea niiden
+kirjoittamisen rasitteena. Dynaamisesti tyypitettyä koodia on usein
+nopeampi tuottaa ja iteroida etenkin kehitysprosessin alkuvaiheissa, jolloin
+käytettyjen tyyppien rakenne voi muuttua useaan kertaan. 
+
 Dynaamisesti tyypitetyn koodin nopeasta kirjoitustahdista saatavat hyödyt jäävät kuitenkin
 vähäisiksi jos lopputuotos ei toimi odotetulla tavalla. Ohjelmistovirheet heikentävät
 käyttäjien tyytyväisyyttä ohjelmaan ja voivat pahimmillaan aiheuttaa
