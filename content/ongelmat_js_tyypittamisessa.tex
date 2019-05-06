@@ -184,8 +184,9 @@ JavaScriptissä on useita yleisesti käytettyjä rajapintoja jotka ovat
 hyödyllisiä mutta vaikeita tyypittää staattisesti.
 Esimerkiksi suositusta kirjastosta \textit{lodash}
 löytyy funktio \inlinecode{get} \cite{LodashGet}, jota voidaan kutsua
-seuraavasti
+seuraavan esimerkin \ref{fig:lodash_get_function} mukaisesti.
 
+\newpage
 \begin{lstlisting}[caption={
 	get-funktiolla voidaan palauttaa arvo syvältä
 	objektin sisältä välittämättä mahdollisesti puuttuvista arvoista.},
@@ -198,7 +199,8 @@ seuraavasti
 	get(object, 'a[0].b.c'); // Palauttaa numeron 3
 \end{lstlisting}
 
-Staattisen tyyppijärjestelmän on vaikea päätellä esimerkin get-kutsun
+Staattisen tyyppijärjestelmän on vaikea päätellä esimerkin
+\ref{fig:lodash_get_function} get-kutsun
 palautusarvo tai tarkistaa toisen argumentin oikeellisuus.
 TypeScriptiä, Flow'ta tai Closurea käyttävä ohjelmoija joutuu
 joko luopumaan tyyppiturvallisuudesta tässä osassa koodia tai kirjoittamaan jonkin
