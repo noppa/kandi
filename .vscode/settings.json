@@ -18,7 +18,7 @@
   //   }
   // ],
   "latex-workshop.latex.autoClean.run": "never",
-  "editor.rulers": [70],
+  "editor.rulers": [70, 100],
   "javascript.validate.enable": false,
   "vim.debug.silent": true
 }

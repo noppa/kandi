@@ -4,13 +4,16 @@ Tyyppijärjestelmä on tärkeä ohjelmointikielen ominaisuus, jolla on suuri
 vaikutus ohjelmistokehittäjän käyttökokemukseen.
 Liian tiukka tyyppijärjestelmä voi rajoittaa sitä mitä kielellä voi tehdä,
 sillä harva tyyppijärjestelmä on täydellinen (engl. complete).
-Lisäksi eksplisiittiset tyyppimäärittelyt vaativat lisää kirjoitettavaa koodia.
-Funktioiden parametrien ja luokkien jäsenmuuttujien tyypit on kirjoitettava
-osaksi määrittelyä silloin kun tyyppijärjestelmä ei kykene tulkitsemaan
-niitä automaattisesti. Jotta parametrien ja muuttujien tyyppiannotaatioissa
-voitaisiin merkata esimerkiksi objektien rakenteita, nekin voidaan
-joutua kirjoittamaan auki esimerkkien \ref{lst:closure_typedef} ja
-\ref{lst:ts_flow_type_alias} mukaisilla tyyppikuvauksilla.
+Ohjelmointikielissä on usein ominaisuuksia joissa esimerkiksi merkkijonon
+odotettu arvo on riippuvainen ohjelman rajapinnoista ja suoritusaikaisista
+rakenteista, mutta joita tutkielmassa esitetyt tekniikat tai
+monimutkaisemmatkaan tyyppijärjestelmät eivät välttämättä kykene
+kuvaamaan ja tarkistamaan.
+
+Lisäksi eksplisiittiset tyyppimäärittelyt vaativat lisää kirjoitettavaa
+koodia kun funktioiden parametrien ja luokkien jäsenmuuttujien tyyppikuvaukset
+tulee kirjoittaa kommentteihin (Closure) tai tyyppiannotaatioiksi
+(TypeScript ja Flow).
 Eksplisiittisistä tyyppimäärittelyistä voi olla hyötyä
 koodin dokumentaationa, mutta kehittäjä saattaa myös kokea niiden
 kirjoittamisen rasitteena. Dynaamisesti tyypitettyä koodia on usein
@@ -24,10 +27,6 @@ pysyvää vahinkoa saadessaan ohjelman toimimaan virheellisesti.
 Staattinen tyypitys ohjaa kirjoitettua koodia turvalliseen suuntaan kehitysvaiheen alusta
 loppuun ja torjuu tietynlaisia ohjelmointivirheitä tehokkaammin kuin
 esimerkiksi ajonaikaista käyttäytymistä testaavat yksikkötestit.
-Työn viidennen luvun viimeisessä esimerkissä esitelty get-kutsu on yksinkertainen
-ja helppolukuinen, mutta jos muuttujan \inlinecode{object} tyyppiä myöhemmin
-muutetaan toiseen muotoon muistamatta päivittää myös get-kutsua, virheellisestä
-get-kutsusta voi muodostua ohjelmaan hankala ohjelmistovirhe.
 
 Tässä tutkielmassa on esitelty kolme työkalua, jotka lisäävät dynaamisesti
 tyypitettyyn JavaScriptiin käännösaikaisen tyyppitarkastuksen sekä syntaksin
