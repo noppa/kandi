@@ -222,10 +222,10 @@ muita arvoja käsitellään.
   label={lst:tsany}
 ]
 const koriElementti: null | HTMLElement =
-  document.getElementById('kori')
+  document.getElementById('kori');
 // Tiedetään että elementti on dokumentissa eikä null.
-const koriElementtiEiNull: HTMLElement = koriElementti as any
-koriElementtiEiNull.innerHTML = '<h1>Ostoskori</h1>'
+const koriElementtiEiNull: HTMLElement = koriElementti as any;
+koriElementtiEiNull.innerHTML = '<h1>Ostoskori</h1>';
 \end{lstlisting}
 Esimerkin \ref{lst:tsany} \inlinecode{getElementById}-funktiokutsu
 palauttaisi \inlinecode{null} jos kori elementtiä ei löytyisi dokumentista,
@@ -238,10 +238,10 @@ myös erityisillä kommenteilla.
   label={lst:flowignore}
 ]
 const koriElementti: null | HTMLElement =
-  document.getElementById('kori')
+  document.getElementById('kori');
 // $FlowFixMe Tiedetään että elementti on dokumentissa eikä null.
-const koriElementtiEiNull: HTMLElement = koriElementti
-koriElementtiEiNull.innerHTML = '<h1>Ostoskori</h1>'
+const koriElementtiEiNull: HTMLElement = koriElementti;
+koriElementtiEiNull.innerHTML = '<h1>Ostoskori</h1>';
 \end{lstlisting}
 Esimerkissä \ref{lst:flowignore} on sama tilanne kuin esimerkissä \ref{lst:tsany},
 ohjelmassa on päätetty sivuuttaa \inlinecode{null}-palautusarvon mahdollisuus.

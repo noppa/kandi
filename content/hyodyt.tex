@@ -124,20 +124,20 @@ funktion sisältämät ohjeet kutsuntapaikalle (engl. function inlining).
 ]
 class HintaLaskuri {
 	constructor() {
-	  this.ostostenHintaYhteensa = 0
-		this.arvonlisavero = 0.14
+	  this.ostostenHintaYhteensa = 0;
+		this.arvonlisavero = 0.14;
 	}
 	lisaaTuote(hinta) {
-		this.ostostenHintaYhteensa += hinta
+		this.ostostenHintaYhteensa += hinta;
 	}
 	yhteensa() {
     return this.ostostenHintaYhteensa +
-      this.ostostenHintaYhteensa * this.arvonlisavero
+      this.ostostenHintaYhteensa * this.arvonlisavero;
 	}
 }
-const laskuri = new HintaLaskuri()
-laskuri.lisaaTuote(5)
-console.log(laskuri.yhteensa())
+const laskuri = new HintaLaskuri();
+laskuri.lisaaTuote(5);
+console.log(laskuri.yhteensa());
 \end{lstlisting}
 Esimerkissä \ref{fig:optimoitava_javascript} on yksinkertainen
 JavaScript-tiedosto, jota Closure voi optimoida kooltaan pienemmäksi
