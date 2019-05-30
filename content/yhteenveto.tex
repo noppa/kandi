@@ -27,6 +27,10 @@ pysyvää vahinkoa saadessaan ohjelman toimimaan virheellisesti.
 Staattinen tyypitys ohjaa kirjoitettua koodia turvalliseen suuntaan kehitysvaiheen alusta
 loppuun ja torjuu tietynlaisia ohjelmointivirheitä tehokkaammin kuin
 esimerkiksi ajonaikaista käyttäytymistä testaavat yksikkötestit.
+Ohjelmistovirheiden vähentämisen lisäksi staattisesta tyypityksestä jo ennen ohjelman suoritusta
+saatava tieto ohjelman tietorakenteista auttaa koodieditoria antamaan hyödyllisiä ehdotuksia
+ohjelmiston kehittäjälle ja mahdollistaa käännösvaiheessa tehtäviä optimointeja
+joita kääntäjä ei olisi voinut tehdä ilman tietoa muuttujien tyypeistä.
 
 Tässä tutkielmassa on esitelty kolme työkalua, jotka lisäävät dynaamisesti
 tyypitettyyn JavaScriptiin käännösaikaisen tyyppitarkastuksen sekä syntaksin
@@ -34,7 +38,11 @@ tyyppien eksplisiittiseen määrittämiseen. Flow, TypeScript ja Closure
 sallivat asteittaisen siirtymisen dynaamisesti tyyppitarkastetusta staattisesti
 tarkastettuun, sekä staattisen tarkastuksen ohittamisen niissä osissa koodia
 joihin sitä olisi liian vaikeaa tai mahdotonta lisätä.
-Samankaltaisuus ja yhteensopivuus jo ennestään suositun JavaScriptin kanssa
-yhdistettynä tyyppiturvallisuuteen, koodin kirjoittamista helpottaviin
-työkaluihin ja selkeämmin dokumentoituun koodiin ovat nostaneet erityisesti
-TypeScriptin käytön nopeaan kasvuun.
+Staattisen tyyppitarkastuksen lisääminen dynaamisesti tyyppitarkastettuun
+JavaScriptiin ilman että siitä aiheutuu kohtuuttomasti vaivaa kehittäjälle
+on paikoin haasteellista ja tutkielmassa esiteltyjen työkalujen suunnittelussa
+on jouduttu tasapainottelemaan tyyppiturvallisuuden ja käytännöllisyyden
+välillä. Samankaltaisuus ja yhteensopivuus jo ennestään suositun JavaScriptin kanssa
+yhdistettynä tavanomaista JavaScriptia parempaan tyyppiturvallisuuteen,
+koodin kirjoittamista helpottaviin työkaluihin ja selkeämmin dokumentoituun
+koodiin ovat nostaneet erityisesti TypeScriptin käytön nopeaan kasvuun.
